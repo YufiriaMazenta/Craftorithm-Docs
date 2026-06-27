@@ -202,6 +202,7 @@ const enSidebar = {
 
 export default defineConfig({
   title: 'Craftorithm',
+  base: '/Craftorithm-Docs/',
   cleanUrls: true,
   lastUpdated: true,
 
