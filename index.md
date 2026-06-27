@@ -13,7 +13,7 @@ hero:
       link: https://github.com/YufiriaMazenta/Craftorithm
 features:
   - icon: 🔧
-    title: 10 种配方类型
+    title: 11 种配方类型
     details: 有序、无序、烧炼(4种)、锻造、切石、酿造、铁砧，覆盖 Minecraft 原版绝大多数合成方式
   - icon: ⚡
     title: 触发器系统
