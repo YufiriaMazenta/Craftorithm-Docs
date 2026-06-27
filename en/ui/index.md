@@ -17,7 +17,7 @@ Craftorithm provides a graphical interface system with recipe creation, editing,
 
 ## Supported Recipe Types
 
-All 12 recipe types have corresponding GUI interfaces:
+10 recipe types have corresponding GUI interfaces:
 
 - Shaped / Shapeless: drag-and-drop material slots
 - Smelting: single input + time/exp settings

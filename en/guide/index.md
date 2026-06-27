@@ -44,7 +44,7 @@ Place the corresponding materials in a crafting table and confirm the recipe app
 
 ## Next Steps
 
-- [Recipe System](/recipe/) — Learn the details of 12 recipe types
+- [Recipe System](/recipe/) — Learn the details of 11 recipe types
 - [Configuration](/config/) — Customize plugin behavior
 - [Trigger System](/trigger/) — Add conditions and actions to recipes
 - [Script Engine](/script/) — Write complex conditional logic

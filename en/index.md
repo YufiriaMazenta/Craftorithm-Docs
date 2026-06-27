@@ -3,7 +3,7 @@ layout: home
 hero:
   name: Craftorithm
   text: Minecraft Recipe Management Plugin
-  tagline: Support 12 recipe types, trigger system, and script engine to easily manage your server recipes
+  tagline: Support 11 recipe types, trigger system, and script engine to easily manage your server recipes
   actions:
     - theme: brand
       text: Quick Start
@@ -13,7 +13,7 @@ hero:
       link: https://github.com/YufiriaMazenta/Craftorithm
 features:
   - icon: 🔧
-    title: 12 Recipe Types
+    title: 11 Recipe Types
     details: Shaped, shapeless, smelting (4 variants), smithing, stonecutting, brewing, anvil — covering all Minecraft crafting methods
   - icon: ⚡
     title: Trigger System
@@ -29,5 +29,5 @@ features:
     details: "Integrates with 10+ item plugins: ItemsAdder, Oraxen, MythicMobs, MMOItems, and more"
   - icon: 🌐
     title: Multi-language & Folia
-    details: 11 language support, fully compatible with Folia async scheduler
+    details: 10 language support, fully compatible with Folia async scheduler
 ---

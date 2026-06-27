@@ -4,7 +4,7 @@ title: 配方系统
 
 # 配方系统概述
 
-Craftorithm 支持 12 种配方类型，覆盖 Minecraft 中所有合成方式。
+Craftorithm 支持 11 种配方类型，覆盖 Minecraft 中所有合成方式。
 
 ## 支持的配方类型
 
