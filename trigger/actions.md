@@ -4,7 +4,7 @@ title: 动作函数
 
 # 动作函数
 
-动作函数用于触发器的 `actions` 列表中，条件通过后按顺序执行。
+动作函数一般用于触发器的 `actions` 列表中，条件通过后按顺序执行。
 
 ## 语法
 
@@ -12,7 +12,7 @@ title: 动作函数
 actions:
   - 'tell("&a条件通过！")'
   - 'give-level(100)'
-  - 'command("give %player% diamond 1")'
+  - 'command("give %player_name% diamond 1")'
 ```
 
 ## 消息与通知
@@ -48,22 +48,20 @@ actions:
 ### command — 以玩家身份执行
 
 ```yaml
-- 'command("give %player% diamond 1")'
+- 'command("give %player_name% diamond 1")'
 - 'command("spawn")'
 ```
 
-- 支持 `%player%` 占位符替换为玩家名
 - 以玩家权限执行
 
 ### console — 以控制台执行
 
 ```yaml
 - 'console("say 服务器公告")'
-- 'console("give %player% diamond 1")'
+- 'console("give %player_name% diamond 1")'
 ```
 
 - 以控制台权限执行
-- 同样支持 `%player%` 占位符
 
 ## 经济系统
 
