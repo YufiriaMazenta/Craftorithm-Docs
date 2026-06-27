@@ -12,7 +12,7 @@ Action functions are used in the `actions` list of triggers. They execute in ord
 actions:
   - 'tell("&aConditions passed!")'
   - 'give-level(100)'
-  - 'command("give %player% diamond 1")'
+  - 'command("give %player_name% diamond 1")'
 ```
 
 ## Messages
@@ -48,22 +48,20 @@ actions:
 ### command — Execute as Player
 
 ```yaml
-- 'command("give %player% diamond 1")'
+- 'command("give %player_name% diamond 1")'
 - 'command("spawn")'
 ```
 
 - Executes with player permissions
-- `%player%` is replaced with the player's name
 
 ### console — Execute as Console
 
 ```yaml
 - 'console("say Server announcement")'
-- 'console("give %player% diamond 1")'
+- 'console("give %player_name% diamond 1")'
 ```
 
 - Executes with console permissions
-- Also supports `%player%` placeholder
 
 ## Economy
 
