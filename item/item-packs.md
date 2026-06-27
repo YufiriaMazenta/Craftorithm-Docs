@@ -6,6 +6,8 @@ title: 物品组
 
 物品组允许将多个物品定义为一个集合，在配方中作为材料接受组内的任意物品。
 
+其功能类似于物品Tag，但是是可以自定义的
+
 ## 定义文件
 
 `plugins/Craftorithm/item_packs.yml`：

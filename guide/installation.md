@@ -6,43 +6,51 @@ title: 安装与依赖
 
 ## 系统要求
 
-| 项目 | 要求 |
-|------|------|
-| Java | 21+ |
-| 服务端 | Paper / Spigot 1.19.4+ |
-| Folia | 完全支持 |
+| 项目 | 要求                    |
+|------|-----------------------|
+| Java | 21+                   |
+| 服务端 | Spigot 1.19.4+ 及衍生服务端 |
+| Folia | 支持                    |
+
+## 安装
+
+将下载的Craftorithm-xx.jar丢入plugins文件夹, 然后重启服务器
+
+### 安装建议
+
+为了体验到完整的功能, 建议你使用paper服务端或它的fork, 且安装packetevents或ProtocolLib其中之一, 缺少数据包管理插件会无法使用虚拟配方预览功能
 
 ## 软依赖
 
 以下插件为可选依赖，安装后可获得额外功能：
 
-| 插件 | 功能 |
-|------|------|
-| Vault | 经济系统（条件函数 `money`、动作 `take-money`/`give-money`） |
-| PlayerPoints | 积分系统（条件函数 `points`、动作 `take-points`/`give-points`） |
-| PlaceholderAPI | 变量解析（条件函数 `papi`） |
-| ProtocolLib | 配方书假结果预览 |
-| PacketEvents | 配方书假结果预览（ProtocolLib 替代方案） |
+| 插件             | 功能                                       |
+|----------------|------------------------------------------|
+| Vault          | 条件函数 `money`、动作 `take-money`/`give-money` |
+| PlayerPoints   | 条件函数 `points`、动作 `take-points`/`give-points` |
+| PlaceholderAPI | 条件函数 `papi`                              |
+| ProtocolLib    | 配方书虚拟结果预览                                |
+| packetevents   | 配方书虚拟结果预览                                |
 
-## 外部物品插件 Hook
+## 外部物品插件
 
 Craftorithm 支持对接以下物品插件，在配方中直接使用它们的物品 ID：
 
-| 插件 | 命名空间 | 物品 ID 格式 |
-|------|---------|-------------|
-| CraftEngine | `craftengine` | `craftengine:<id>` |
-| Nexo | `nexo` | `nexo:<id>` |
-| AzureFlow | `azureflow` | `azureflow:<id>` |
-| NeigeItems | `neigeitems` | `neigeitems:<id>` |
-| ItemsAdder | `itemsadder` | `itemsadder:<id>` |
-| Oraxen | `oraxen` | `oraxen:<id>` |
-| EcoItems | `ecoitems` | `ecoitems:<id>` |
+| 插件 | 命名空间 | 物品 ID 格式               |
+|------|---------|------------------------|
+| CraftEngine | `craftengine` | `craftengine:<id>`     |
+| Nexo | `nexo` | `nexo:<id>`            |
+| AzureFlow | `azureflow` | `azureflow:<id>`       |
+| NeigeItems | `neigeitems` | `neigeitems:<id>`      |
+| ItemsAdder | `itemsadder` | `itemsadder:<id>`      |
+| Oraxen | `oraxen` | `oraxen:<id>`          |
+| EcoItems | `ecoitems` | `ecoitems:<id>`        |
 | ExecutableItems | `executableitems` | `executableitems:<id>` |
-| MMOItems | `mmoitems` | `mmoitems:<type>/<id>` |
-| MythicMobs | `mythicmobs` | `mythicmobs:<id>` |
-| SX-Item | `sx-item` | `sx-item:<id>` |
+| MMOItems | `mmoitems` | `mmoitems:<type>:<id>` |
+| MythicMobs | `mythicmobs` | `mythicmobs:<id>`      |
+| SX-Item | `sx-item` | `sx-item:<id>`         |
 
-Hook 优先级可在 `config.yml` 的 `item_plugin_hook_priority` 中配置。
+物品插件的优先级可在 `config.yml` 的 `item_plugin_hook_priority` 中配置。
 
 ## 插件目录结构
 
@@ -63,9 +71,3 @@ plugins/Craftorithm/
 └── lang/                # 语言文件
 ```
 
-## 首次启动
-
-1. 插件自动检测服务器语言环境，加载对应语言文件
-2. 生成默认 `config.yml` 和示例文件
-3. 按 `max_reg_recipe_per_tick` 配置的速率逐 tick 注册配方，避免卡顿
-4. 自动检测已安装的外部物品插件并注册 Hook

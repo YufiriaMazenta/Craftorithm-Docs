@@ -53,19 +53,6 @@ epic_sword:
   amount: 1
 ```
 
-## 支持的字段
-
-| 字段 | 说明 |
-|------|------|
-| `material` | 基础物品材质 |
-| `name` | 显示名称（支持颜色代码） |
-| `lore` | 说明文本列表 |
-| `enchantments` | 附魔列表 |
-| `unbreakable` | 是否不可破坏 |
-| `custom_model_data` | 自定义模型数据 |
-| `amount` | 数量 |
-| `flags` | 物品标志列表 |
-
 ## 在配方中引用
 
 ```yaml

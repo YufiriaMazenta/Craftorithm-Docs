@@ -57,6 +57,7 @@ const zhSidebar = {
       items: [
         { text: '概述', link: '/item/' },
         { text: '自定义物品', link: '/item/custom-items' },
+        { text: '物品Tag', link: '/item/tag' },
         { text: '物品组', link: '/item/item-packs' },
         { text: '外部插件物品', link: '/item/external-hooks' },
       ]
@@ -294,7 +295,7 @@ export default defineConfig({
   },
 
   themeConfig: {
-    logo: '/logo.svg',
+    logo: '/logo.png',
     socialLinks: [
       { icon: 'github', link: 'https://github.com/YufiriaMazenta/Craftorithm' },
     ],

@@ -20,7 +20,7 @@ features:
     details: 44+ event types with script-based conditions and actions for flexible recipe behavior control
   - icon: 📝
     title: Script Engine
-    details: Compiled bytecode VM with 13 condition functions, 15+ action functions, and if/else control flow
+    details: Compiled bytecode VM with 13 condition functions, 15+ action functions, supporting if/else control flow
   - icon: 🎨
     title: GUI Interface
     details: Visual recipe creator/editor, recipe book browser, and custom YAML menu system

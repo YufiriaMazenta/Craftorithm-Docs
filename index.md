@@ -14,7 +14,7 @@ hero:
 features:
   - icon: 🔧
     title: 12 种配方类型
-    details: 有序、无序、烧炼(4种)、锻造、切石、酿造、铁砧，覆盖 Minecraft 全部合成方式
+    details: 有序、无序、烧炼(4种)、锻造、切石、酿造、铁砧，覆盖 Minecraft 原版绝大多数合成方式
   - icon: ⚡
     title: 触发器系统
     details: 44+ 种事件类型，基于脚本的条件判断与动作执行，灵活控制配方行为
@@ -26,8 +26,8 @@ features:
     details: 可视化配方创建/编辑器，配方书浏览，支持自定义菜单 YAML 配置
   - icon: 📦
     title: 物品集成
-    details: 对接 10+ 外部物品插件：ItemsAdder、Oraxen、MythicMobs、MMOItems 等
+    details: 对接 10+ 外部物品插件：ItemsAdder、CraftEngine、MythicMobs 等
   - icon: 🌐
-    title: 多语言 & Folia
+    title: 多语言 & Folia支持
     details: 11 种语言支持，完全兼容 Folia 异步调度器
 ---

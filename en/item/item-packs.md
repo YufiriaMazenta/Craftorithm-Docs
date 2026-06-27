@@ -6,6 +6,8 @@ title: Item Packs
 
 Item packs allow grouping multiple items into a collection. In recipes, they accept any item from the pack as an ingredient.
 
+Their functionality is similar to item tags, but they are customizable.
+
 ## Definition File
 
 `plugins/Craftorithm/item_packs.yml`:

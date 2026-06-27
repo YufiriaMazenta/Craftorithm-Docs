@@ -12,6 +12,14 @@ title: Installation & Dependencies
 | Server | Paper / Spigot 1.19.4+ |
 | Folia | Fully supported |
 
+## Installation
+
+Place the downloaded Craftorithm-xx.jar into your plugins folder, then restart the server.
+
+### Installation Recommendations
+
+To experience all features, it is recommended to use Paper server or its forks, and install either packetevents or ProtocolLib. Without a packet management plugin, the virtual recipe preview feature will not be available.
+
 ## Soft Dependencies
 
 The following plugins are optional. Installing them unlocks additional features:
@@ -28,19 +36,19 @@ The following plugins are optional. Installing them unlocks additional features:
 
 Craftorithm supports integrating with the following item plugins, allowing you to use their item IDs directly in recipes:
 
-| Plugin | Namespace | Item ID Format |
-|--------|-----------|----------------|
-| CraftEngine | `craftengine` | `craftengine:<id>` |
-| Nexo | `nexo` | `nexo:<id>` |
-| AzureFlow | `azureflow` | `azureflow:<id>` |
-| NeigeItems | `neigeitems` | `neigeitems:<id>` |
-| ItemsAdder | `itemsadder` | `itemsadder:<id>` |
-| Oraxen | `oraxen` | `oraxen:<id>` |
-| EcoItems | `ecoitems` | `ecoitems:<id>` |
+| Plugin | Namespace | Item ID Format         |
+|--------|-----------|------------------------|
+| CraftEngine | `craftengine` | `craftengine:<id>`     |
+| Nexo | `nexo` | `nexo:<id>`            |
+| AzureFlow | `azureflow` | `azureflow:<id>`       |
+| NeigeItems | `neigeitems` | `neigeitems:<id>`      |
+| ItemsAdder | `itemsadder` | `itemsadder:<id>`      |
+| Oraxen | `oraxen` | `oraxen:<id>`          |
+| EcoItems | `ecoitems` | `ecoitems:<id>`        |
 | ExecutableItems | `executableitems` | `executableitems:<id>` |
-| MMOItems | `mmoitems` | `mmoitems:<type>/<id>` |
-| MythicMobs | `mythicmobs` | `mythicmobs:<id>` |
-| SX-Item | `sx-item` | `sx-item:<id>` |
+| MMOItems | `mmoitems` | `mmoitems:<type>:<id>` |
+| MythicMobs | `mythicmobs` | `mythicmobs:<id>`      |
+| SX-Item | `sx-item` | `sx-item:<id>`         |
 
 Hook priority can be configured in `config.yml` under `item_plugin_hook_priority`.
 

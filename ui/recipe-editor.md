@@ -7,7 +7,7 @@ title: 配方编辑器
 ## 打开方式
 
 ```bash
-/cra edit <recipe_id>
+/cra edit <recipe_key>
 ```
 
 ### 示例

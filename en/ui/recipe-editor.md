@@ -7,7 +7,7 @@ title: Recipe Editor
 ## Command
 
 ```bash
-/cra edit <recipe_id>
+/cra edit <recipe_key>
 ```
 
 ### Examples

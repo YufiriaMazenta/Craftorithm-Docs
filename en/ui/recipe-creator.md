@@ -12,11 +12,11 @@ title: Recipe Creator
 
 ### Parameters
 
-| Parameter | Required | Description |
-|-----------|----------|-------------|
-| `type` | Yes | Recipe type (e.g., `vanilla_shaped`) |
-| `recipe_id` | No | Custom recipe ID (defaults to filename) |
-| `filename` | No | Save filename (auto-generated if omitted) |
+| Parameter | Required | Description                                                                                       |
+|-----------|----------|---------------------------------------------------------------------------------------------------|
+| `type` | Yes | Recipe type (e.g., `vanilla_shaped`)                                                              |
+| `recipe_id` | No | Custom recipe ID (if recipe_id is null, will use filename)                                        |
+| `filename` | No | Save filename (if recipe_id is configured, the filename can be any filesystem-allowed characters) |
 
 ### Examples
 
