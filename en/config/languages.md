@@ -42,6 +42,7 @@ recipe_type_name:
 
 ## Custom Language
 
-1. Copy an existing language file
-2. Change the `language` value in `config.yml` to your custom filename
+1. Create a YAML file in `plugins/Craftorithm/lang/` with a Minecraft language code name, e.g., `en_us.yml`
+2. Copy the structure from an existing language file into your file
 3. Edit the translations
+4. Reload the plugin

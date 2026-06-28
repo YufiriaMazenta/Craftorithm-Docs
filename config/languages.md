@@ -42,6 +42,7 @@ recipe_type_name:
 
 ## 自定义语言
 
-1. 复制现有语言文件
-2. 修改 `config.yml` 中的 `language` 为自定义文件名
+1. 在plugins/Craftorithm/lang文件夹下创建符合Minecraft原版语言代码名字的yml文件，例如`en_us.yml`
+2. 复制现有语言文件的结构到你的语言文件里
 3. 编辑翻译内容
+4. 重载插件
