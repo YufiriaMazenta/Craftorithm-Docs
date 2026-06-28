@@ -35,7 +35,7 @@ const zhSidebar = {
       items: [
         { text: '概述', link: '/trigger/' },
         { text: '合成触发器', link: '/trigger/craft-triggers' },
-        { text: '动态事件', link: '/trigger/dynamic-events' },
+        { text: '动态事件', link: '/trigger/bukkit-events' },
         { text: '条件函数', link: '/trigger/conditions' },
         { text: '动作函数', link: '/trigger/actions' },
       ]
@@ -136,7 +136,7 @@ const enSidebar = {
       items: [
         { text: 'Overview', link: '/en/trigger/' },
         { text: 'Craft Triggers', link: '/en/trigger/craft-triggers' },
-        { text: 'Dynamic Events', link: '/en/trigger/dynamic-events' },
+        { text: 'Event Triggers', link: '/en/trigger/bukkit-events' },
         { text: 'Conditions', link: '/en/trigger/conditions' },
         { text: 'Actions', link: '/en/trigger/actions' },
       ]

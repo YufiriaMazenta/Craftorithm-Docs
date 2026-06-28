@@ -51,7 +51,7 @@ trigger_id:                    # 触发器 ID（唯一标识）
 | `smithing` | 锻造台合成 |
 | `anvil` | 铁砧合成 |
 
-### 动态事件触发器（44+ 种）
+### 事件触发器（44+ 种）
 
 监听 Bukkit 事件，详见 [动态事件](/trigger/dynamic-events)。
 

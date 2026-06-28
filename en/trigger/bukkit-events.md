@@ -1,8 +1,8 @@
 ---
-title: Dynamic Events
+title: Event triggers
 ---
 
-# Dynamic Events
+# Event triggers
 
 Craftorithm supports 44+ Bukkit event types as trigger types, covering player, entity, inventory, and block events.
 
