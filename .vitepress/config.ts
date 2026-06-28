@@ -35,7 +35,7 @@ const zhSidebar = {
       items: [
         { text: '概述', link: '/trigger/' },
         { text: '合成触发器', link: '/trigger/craft-triggers' },
-        { text: '动态事件', link: '/trigger/bukkit-events' },
+        { text: '事件触发器', link: '/trigger/bukkit-events' },
         { text: '条件函数', link: '/trigger/conditions' },
         { text: '动作函数', link: '/trigger/actions' },
       ]
