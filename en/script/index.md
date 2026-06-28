@@ -47,11 +47,4 @@ Used to test script expressions. Outputs the execution result and time cost.
 - **Script cache**: Compiled scripts are cached by name to avoid recompilation
 - **Thread safety**: VM instances are isolated, supporting concurrent execution
 
-## Comments
 
-Scripts support `//` line comments:
-
-```
-// This is a comment
-level >= 10  // Inline comment
-```

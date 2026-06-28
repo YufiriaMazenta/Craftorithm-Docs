@@ -19,13 +19,9 @@ title: 多语言
 | Español | `es_es.yml` |
 | Türkçe | `tr_tr.yml` |
 
-## 配置方式
+## 工作原理
 
-在 `config.yml` 中设置语言：
-
-```yaml
-language: zh_cn
-```
+插件会自动检测玩家客户端的语言设置，并加载对应的语言文件，无需手动配置。
 
 ## 语言文件结构
 
@@ -43,21 +39,6 @@ recipe_type_name:
   vanilla_shapeless: '无序配方'
 # ...
 ```
-
-## 占位符
-
-语言文件中支持以下占位符：
-
-| 占位符 | 说明 |
-|--------|------|
-| `<prefix>` | 插件前缀 |
-| `<version>` | 插件版本 |
-| `<player_name>` | 玩家名称 |
-| `<item_name>` | 物品名称 |
-| `<recipe_name>` | 配方名称 |
-| `<menu_name>` | 菜单名称 |
-| `<time>` | 时间 |
-| `<recipe_type>` | 配方类型名 |
 
 ## 自定义语言
 

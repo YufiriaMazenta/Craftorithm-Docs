@@ -12,8 +12,6 @@ The main configuration file `plugins/Craftorithm/config.yml` controls core plugi
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| `config_version` | integer | `2` | Config version, do not modify manually |
-| `language` | string | `en_us` | Plugin language |
 | `check_update` | boolean | `true` | Check for updates on startup |
 | `debug` | boolean | `false` | Debug mode |
 
@@ -48,29 +46,56 @@ The main configuration file `plugins/Craftorithm/config.yml` controls core plugi
 ## Example
 
 ```yaml
+# Plugin config version
 config_version: 2
-language: en_us
+# Whether to check for version updates
 check_update: true
-debug: false
+# Whether to remove all vanilla recipes
 remove_all_vanilla_recipe: false
+# Whether to enable plugin anvil recipes
 enable_anvil_recipe: true
-max_reg_recipe_per_tick: 20
+# Whether to enable bStats usage data collection
 bstats: true
+# Whether to reload Craftorithm when ItemsAdder reloads
 reload_when_ia_reload: true
+# Whether to enable debug mode
+debug: false
+# Maximum number of recipes registered per tick
+max_reg_recipe_per_tick: 20
+cannot_craft_items: []
+# Hook item plugins in the order listed above for item detection priority
+# Item plugins not in this list will not be hooked unless they actively hook into Craftorithm
+item_plugin_hook_priority:
+  - CraftEngine
+  - Nexo
+  - AzureFlow
+  - NeigeItems
+  - ItemsAdder
+  - Oraxen
+  - EcoItems
+  - ExecutableItems
+  - MMOItems
+  - MythicMobs
 main_command_aliases:
   - cra
   - craft
   - crafto
-item_plugin_hook_priority:
-  - craftengine
-  - nexo
-  - azureflow
-  - neigeitems
-  - itemsadder
-  - oraxen
-  - ecoitems
-  - executableitems
-  - mmoitems
-  - mythicmobs
-cannot_craft_items: []
+not_convert_listener_classes:
+  - a4.papers.chatfilter.chatfilter.events.AnvilListener
+  - com.ghostchu.quickshop.shade.tne.menu.paper.listener.PaperInventoryClickListener
+  - com.earth2me.essentials.EssentialsPlayerListener
+  - net.coreprotect.listener.player.InventoryChangeListener
+  - net.coreprotect.listener.player.CraftItemListener
+  - com.extendedclip.deluxemenus.listener.PlayerListener
+  - com.dre.brewery.listeners.InventoryListener
+  - com.xyrisdev.svalues.shaded.library.menu.MenuManager$InventoryListener
+  - me.arcaniax.hdb.listener.InventoryListener
+  - net.momirealms.craftengine.bukkit.item.listener.ItemEventListener
+  - net.momirealms.customfishing.bukkit.hook.BukkitHookManager
+  - net.momirealms.customfishing.bukkit.market.BukkitMarketManager
+  - dev.jsinco.recipes.listeners.Events
+  - fr.moribus.imageonmap.image.MapInitEvent
+  - com.badbones69.crazycrates.paper.listeners.crates.types.WarCrateListener
+  - com.ryderbelserion.fusion.paper.api.builders.gui.listeners.GuiListener
+  - club.kid7.bannermaker.pluginutilities.gui.CustomGUIInventoryListener
 ```

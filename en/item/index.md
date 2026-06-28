@@ -14,9 +14,9 @@ Items use the `namespace:id` format:
 |--------|--------|---------|
 | Minecraft vanilla | `minecraft:<id>` | `minecraft:diamond_sword` |
 | Craftorithm custom | `craftorithm:<id>` | `craftorithm:my_item` |
-| Item packs | `item_pack:<name>` | `item_pack:ores` |
+| Item Tag | `tag:<tag_name>` | `tag:planks` |
+| Item Pack | `item_pack:<name>` | `item_pack:ores` |
 | External plugins | `<plugin>:<id>` | `itemsadder:my_item` |
-| MMOItems (special) | `mmoitems:<type>/<id>` | `mmoitems:SWORD/custom_blade` |
 
 ## Item Files
 

@@ -19,13 +19,9 @@ title: Languages
 | Español (Spanish) | `es_es.yml` |
 | Türkçe (Turkish) | `tr_tr.yml` |
 
-## Configuration
+## How It Works
 
-Set the language in `config.yml`:
-
-```yaml
-language: en_us
-```
+The plugin automatically detects the player's client language and loads the corresponding language file. No manual configuration is required.
 
 ## Language File Structure
 
@@ -43,21 +39,6 @@ recipe_type_name:
   vanilla_shapeless: 'Shapeless Recipe'
 # ...
 ```
-
-## Placeholders
-
-Language files support the following placeholders:
-
-| Placeholder | Description |
-|-------------|-------------|
-| `<prefix>` | Plugin prefix |
-| `<version>` | Plugin version |
-| `<player_name>` | Player name |
-| `<item_name>` | Item name |
-| `<recipe_name>` | Recipe name |
-| `<menu_name>` | Menu name |
-| `<time>` | Time |
-| `<recipe_type>` | Recipe type name |
 
 ## Custom Language
 

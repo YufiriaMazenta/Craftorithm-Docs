@@ -14,6 +14,7 @@ Craftorithm 提供统一的物品管理接口，支持自定义物品定义和�
 |------|------|------|
 | Minecraft 原版 | `minecraft:<id>` | `minecraft:diamond_sword` |
 | Craftorithm 自定义 | `craftorithm:<id>` | `craftorithm:my_item` |
+| 物品Tag | `tag:<tag_name>` | `tag:planks` |
 | 物品组 | `item_pack:<name>` | `item_pack:ores` |
 | 外部插件 | `<plugin>:<id>` | `itemsadder:my_item` |
 

@@ -65,6 +65,8 @@ copy_components_rules:
 
 用于为装备添加装饰性纹饰，需要 1.20+ 版本。
 
+纹饰配方无法设置配方结果，也就是result配置项
+
 ### YAML 示例
 
 ```yaml

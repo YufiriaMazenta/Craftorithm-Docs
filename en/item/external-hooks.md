@@ -8,19 +8,19 @@ Craftorithm integrates with 10+ external item plugins through its hook system, a
 
 ## Supported Plugins
 
-| Plugin | Namespace | ID Format | Notes |
-|--------|-----------|-----------|-------|
-| CraftEngine | `craftengine` | `craftengine:<id>` | — |
-| Nexo | `nexo` | `nexo:<id>` | — |
-| AzureFlow | `azureflow` | `azureflow:<id>` | — |
-| NeigeItems | `neigeitems` | `neigeitems:<id>` | — |
-| ItemsAdder | `itemsadder` | `itemsadder:<id>` | Auto-reload supported |
-| Oraxen | `oraxen` | `oraxen:<id>` | Auto-reload supported |
-| EcoItems | `ecoitems` | `ecoitems:<id>` | — |
+| Plugin | Namespace | ID Format              | Notes |
+|--------|-----------|------------------------|-------|
+| CraftEngine | `craftengine` | `craftengine:<id>`     | — |
+| Nexo | `nexo` | `nexo:<id>`            | — |
+| AzureFlow | `azureflow` | `azureflow:<id>`       | — |
+| NeigeItems | `neigeitems` | `neigeitems:<id>`      | — |
+| ItemsAdder | `itemsadder` | `itemsadder:<id>`      | Auto-reload supported |
+| Oraxen | `oraxen` | `oraxen:<id>`          | Auto-reload supported |
+| EcoItems | `ecoitems` | `ecoitems:<id>`        | — |
 | ExecutableItems | `executableitems` | `executableitems:<id>` | — |
-| MMOItems | `mmoitems` | `mmoitems:<type>/<id>` | Requires type prefix |
-| MythicMobs | `mythicmobs` | `mythicmobs:<id>` | — |
-| SX-Item | `sx-item` | `sx-item:<id>` | — |
+| MMOItems | `mmoitems` | `mmoitems:<type>:<id>` | Requires type prefix |
+| MythicMobs | `mythicmobs` | `mythicmobs:<id>`      | — |
+| SX-Item | `sx-item` | `sx-item:<id>`         | — |
 
 ## Usage Examples
 
