@@ -20,7 +20,7 @@ Download the latest version from:
 
 ## Installation
 
-See the [Installation Guide](/en/installation)
+See the [Installation Guide](/en/guide/installation.md)
 
 ## Creating Your First Recipe
 

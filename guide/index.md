@@ -20,7 +20,7 @@ title: 快速开始
 
 ## 安装
 
-请查看[安装指引](/installation)
+请查看[安装指引](guide/installation.md)
 
 ## 创建第一份配方
 
