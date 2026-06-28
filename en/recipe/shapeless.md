@@ -27,6 +27,7 @@ recipe_book_category: misc
 | `ingredients` | list | Yes | List of item IDs (order does not matter) |
 | `group` | string | No | Recipe group name |
 | `recipe_book_category` | string | No | Recipe book category |
+| `fake_result_preview` | string | No | Fake preview item shown during crafting |
 
 ## Difference from Shaped Recipes
 

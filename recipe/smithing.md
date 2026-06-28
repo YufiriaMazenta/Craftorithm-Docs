@@ -34,6 +34,7 @@ copy_components_rules:
 | `addition` | string | 是 | 添加材料 |
 | `template` | string | 是 | 锻造模板 (1.20+) |
 | `copy_components_rules` | list | 否 | 组件复制规则 |
+| `fake_result_preview` | string | 否 | 合成时显示的虚假预览物品                         |
 
 ### 组件复制规则 (copy_components_rules)
 
@@ -84,3 +85,4 @@ template: 'minecraft:coast_armor_trim_smithing_template'
 | `base` | string | 是 | 被纹饰的装备 |
 | `addition` | string | 是 | 纹饰材料 |
 | `template` | string | 是 | 纹饰模板 |
+| `fake_result_preview` | string | 否 | 合成时显示的虚假预览物品                         |

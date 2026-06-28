@@ -27,6 +27,7 @@ recipe_book_category: misc
 | `ingredients` | list | 是 | 物品 ID 列表（顺序无关） |
 | `group` | string | 否 | 配方分组名 |
 | `recipe_book_category` | string | 否 | 配方书分类 |
+| `fake_result_preview` | string | 否 | 合成时显示的虚假预览物品                         |
 
 ## 与有序配方的区别
 

@@ -30,6 +30,7 @@ copy_components_rules:
 | `addition` | string | Yes | Right anvil slot item (addition material) |
 | `cost_level` | integer | No | Experience levels consumed, default `0` |
 | `copy_components_rules` | list | No | Component copy rules (see Smithing Recipes) |
+| `fake_result_preview` | string | No | Fake preview item shown during crafting |
 
 ## Difference from Vanilla Anvil
 

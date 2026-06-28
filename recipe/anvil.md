@@ -30,6 +30,7 @@ copy_components_rules:
 | `addition` | string | 是 | 铁砧右侧物品（添加材料） |
 | `cost_level` | integer | 否 | 消耗的经验等级，默认 `0` |
 | `copy_components_rules` | list | 否 | 组件复制规则（参见锻造配方） |
+| `fake_result_preview` | string | 否 | 合成时显示的虚假预览物品                         |
 
 ## 与原版铁砧的区别
 

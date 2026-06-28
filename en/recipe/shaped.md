@@ -13,12 +13,13 @@ type: 'vanilla_shaped'
 result: 'minecraft:diamond_sword'
 group: 'weapons'
 shape:
-  - ' A '
-  - ' A '
-  - ' B '
+  - 'ABA'
+  - 'ABA'
+  - ' C '
 ingredients:
   A: 'minecraft:diamond'
   B: 'minecraft:stick'
+  C: 'item_pack:ores'
 recipe_book_category: equipment
 ```
 
@@ -32,7 +33,7 @@ recipe_book_category: equipment
 | `ingredients` | map | Yes | Character → item ID mapping |
 | `group` | string | No | Recipe group name |
 | `recipe_book_category` | string | No | Recipe book category: `misc`, `building`, `redstone`, `equipment` |
-| `fake_result_preview` | string | No | Preview item shown in recipe book (different from actual output) |
+| `fake_result_preview` | string | No | Fake preview item shown during crafting |
 
 ## Shape Rules
 

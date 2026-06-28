@@ -25,15 +25,15 @@ recipe_book_category: equipment
 
 ## 字段说明
 
-| 字段 | 类型 | 必填 | 说明 |
-|------|------|------|------|
-| `type` | string | 是 | 固定为 `vanilla_shaped` |
-| `result` | string | 是 | 产出物品 ID |
-| `shape` | list | 是 | 1-3 行字符串，每行 1-3 个字符 |
-| `ingredients` | map | 是 | 字符 → 物品 ID 映射 |
-| `group` | string | 否 | 配方分组名 |
+| 字段 | 类型 | 必填 | 说明                                             |
+|------|------|------|------------------------------------------------|
+| `type` | string | 是 | 固定为 `vanilla_shaped`                           |
+| `result` | string | 是 | 产出物品 ID                                        |
+| `shape` | list | 是 | 1-3 行字符串，每行 1-3 个字符                            |
+| `ingredients` | map | 是 | 字符 → 物品 ID 映射                                  |
+| `group` | string | 否 | 配方分组名                                          |
 | `recipe_book_category` | string | 否 | 配方书分类：`misc`、`building`、`redstone`、`equipment` |
-| `fake_result_preview` | string | 否 | 配方书中显示的预览物品（与实际产出不同） |
+| `fake_result_preview` | string | 否 | 合成时显示的虚假预览物品                         |
 
 ## 形状规则
 
