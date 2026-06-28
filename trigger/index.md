@@ -53,7 +53,7 @@ trigger_id:                    # 触发器 ID（唯一标识）
 
 ### 事件触发器（44+ 种）
 
-监听 Bukkit 事件，详见 [动态事件](/trigger/dynamic-events)。
+监听 Bukkit 事件，详见 [事件触发器](/trigger/bukkit-events)。
 
 ## 执行流程
 

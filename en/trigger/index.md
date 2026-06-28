@@ -52,9 +52,9 @@ Listen for recipe crafting events with a dual-phase mechanism (prepare + execute
 | `smithing` | Smithing table |
 | `anvil` | Anvil |
 
-### Dynamic Event Triggers (44+ types)
+### Event Triggers (44+ types)
 
-Listen for Bukkit events. See [Dynamic Events](/en/trigger/dynamic-events).
+Listen for Bukkit events. See [Event Triggers](/en/trigger/bukkit-events).
 
 ## Execution Flow
 
