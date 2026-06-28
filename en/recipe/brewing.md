@@ -5,7 +5,7 @@ title: Brewing Recipes
 # Brewing Recipes
 
 ::: warning Prerequisite
-Brewing recipes are **Paper only**. They use Paper's PotionMix API and cannot work on Spigot servers.
+Brewing recipes are **Paper only**, it cannot work on Spigot servers.
 :::
 
 ## YAML Example

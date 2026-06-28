@@ -20,9 +20,7 @@ Download the latest version from:
 
 ## Installation
 
-1. Place `Craftorithm-x.x.x.jar` into your server's `plugins/` directory
-2. Restart the server
-3. The plugin will generate default config files under `plugins/Craftorithm/`
+See the [Installation Guide](/en/installation)
 
 ## Creating Your First Recipe
 

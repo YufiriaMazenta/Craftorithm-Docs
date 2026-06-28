@@ -20,9 +20,7 @@ title: 快速开始
 
 ## 安装
 
-1. 将 `Craftorithm-x.x.x.jar` 放入服务器的 `plugins/` 目录
-2. 重启服务器
-3. 插件将在 `plugins/Craftorithm/` 下生成默认配置文件
+请查看[安装指引](/installation)
 
 ## 创建第一份配方
 

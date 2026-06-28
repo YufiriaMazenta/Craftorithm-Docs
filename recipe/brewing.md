@@ -5,7 +5,7 @@ title: 酿造配方
 # 酿造配方 (Brewing Recipe)
 
 ::: warning 前置条件
-酿造配方仅支持 **Paper** 服务端，使用 Paper 的 PotionMix API。Spigot 服务端无法使用此功能。
+酿造配方仅支持 **Paper** 服务端，Spigot 服务端无法使用此功能。
 :::
 
 ## YAML 示例

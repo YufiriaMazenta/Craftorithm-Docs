@@ -20,6 +20,10 @@ Place the downloaded Craftorithm-xx.jar into your plugins folder, then restart t
 
 To experience all features, it is recommended to use Paper server or its forks, and install either packetevents or ProtocolLib. Without a packet management plugin, the virtual recipe preview feature will not be available.
 
+### Migration from Old Version
+
+The plugin has built-in conversion from old recipe formats that runs automatically on startup. However, for language files, it is recommended to delete the old `lang` folder and let it regenerate.
+
 ## Soft Dependencies
 
 The following plugins are optional. Installing them unlocks additional features:
@@ -70,10 +74,3 @@ plugins/Craftorithm/
 ├── disabled_recipes.yml # Disabled recipe list
 └── lang/                # Language files
 ```
-
-## First Startup
-
-1. The plugin auto-detects the server locale and loads the corresponding language file
-2. Generates default `config.yml` and example files
-3. Registers recipes per-tick at the rate configured by `max_reg_recipe_per_tick` to avoid lag
-4. Auto-detects installed external item plugins and registers hooks
