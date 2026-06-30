@@ -36,8 +36,8 @@ const zhSidebar = {
         { text: '概述', link: '/trigger/' },
         { text: '合成触发器', link: '/trigger/craft-triggers' },
         { text: '事件触发器', link: '/trigger/bukkit-events' },
-        { text: '条件函数', link: '/trigger/conditions' },
-        { text: '动作函数', link: '/trigger/actions' },
+        { text: '条件', link: '/trigger/conditions' },
+        { text: '动作', link: '/trigger/actions' },
       ]
     }
   ],
@@ -46,8 +46,7 @@ const zhSidebar = {
       text: '脚本引擎',
       items: [
         { text: '语法概述', link: '/script/' },
-        { text: '表达式与运算符', link: '/script/expressions' },
-        { text: '函数参考', link: '/script/functions' },
+        { text: '函数', link: '/script/functions' },
       ]
     }
   ],
@@ -147,8 +146,7 @@ const enSidebar = {
       text: 'Script Engine',
       items: [
         { text: 'Syntax Overview', link: '/en/script/' },
-        { text: 'Expressions & Operators', link: '/en/script/expressions' },
-        { text: 'Function Reference', link: '/en/script/functions' },
+        { text: 'Functions', link: '/en/script/functions' },
       ]
     }
   ],

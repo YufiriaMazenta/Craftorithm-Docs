@@ -6,18 +6,21 @@ title: Script Engine
 
 Craftorithm includes a compiled script engine used for trigger condition evaluation and action execution.
 
-## Architecture
+## Usage
 
-```
-Source Code → Lexer → Token Stream
-           → Parser → AST (Abstract Syntax Tree)
-           → Compiler → Bytecode Instructions
-           → VM → Execution Result
-```
+[Trigger](/en/trigger/index.md)'s `conditions` and `actions` are essentially script expressions.
 
-Scripts are not simply interpreted — they are compiled into bytecode and executed on a stack-based virtual machine.
+[Menu](/en/ui/index.md) icon actions and custom page's open_actions and close_actions.
+
+## Documentation Navigation
+
+- [Built-in Functions](/en/script/functions.md)
+
+## Syntax
 
 ## Data Types
+
+Craftorithm's script system has four data types as follows:
 
 | Type | Description | Example |
 |------|-------------|---------|
@@ -26,25 +29,75 @@ Scripts are not simply interpreted — they are compiled into bytecode and execu
 | `Bool` | Boolean | `true`, `false` |
 | `NullValue` | Null | — |
 
-## Relationship with Triggers
+When parsing, strings must be enclosed in double quotes, otherwise unexpected errors will occur.
 
-Trigger `conditions` and `actions` are fundamentally script expressions:
+### Basic Syntax
 
-- **conditions**: Multiple expressions connected with `&&`, compiled into a single script returning a boolean
-- **actions**: Multiple expressions connected with newlines, compiled into a single script executed sequentially
+The script supports two syntaxes: `tell "Hello, World!"` and `tell("Hello, World!")`.
 
-## Run Script Command
+Generally, the second syntax is recommended as it is more intuitive.
 
-```bash
-/cra script <expression>
+### Operators
+
+The script supports multiple operators.
+
+#### Comparison Operators:
+
+`>` `<` `==` `>=` `<=` `!=`
+
+#### Logical NOT Operator:
+
+`!`
+
+Example: `!perm("craftorithm.perm")`
+
+#### Binary Infix Operators:
+
+`&&` `||`
+
+Example: `if game_mode("creative") && perm("craftorithm")`
+
+### Control Flow
+
+The script system supports if-else flow control, written as follows:
+
+```
+if game_mode("creative")
+tell "You are in creative mode"
+elseif game_mode("survival")
+tell "You are in survival mode"
+elseif game_mode == "ADVENTURE"
+tell "You are in adventure mode"
+else
+tell "You are in spectator mode"
+endif
 ```
 
-Used to test script expressions. Outputs the execution result and time cost.
+In YAML, it would look like this:
 
-## Security
+```yaml
+left:
+  - 'if game_mode("creative")'
+  - 'tell "You are in creative mode"'
+  - 'elseif game_mode("survival")'
+  - 'tell "You are in survival mode"'
+  - 'elseif game_mode == "ADVENTURE"'
+  - 'tell "You are in adventure mode"'
+  - 'else'
+  - 'tell "You are in spectator mode"'
+  - 'endif'
+```
 
-- **Instruction limit**: Maximum 100,000 instructions per execution to prevent infinite loops
-- **Script cache**: Compiled scripts are cached by name to avoid recompilation
-- **Thread safety**: VM instances are isolated, supporting concurrent execution
+### Comments
 
+The script system supports line comments. You can write like this: `tell "Hello world" //output statement`
 
+### Function Nesting
+
+In the script system, you can nest functions. For example: `tell("Is player in creative mode: ", game_mode("creative"))`
+
+It will first run `game_mode("creative")` to get the result, then output it with tell.
+
+Of course, you can also nest more layers. For example: `tell("Does player have permission: ", perm(context("perm")))`
+
+This will first get the variable named perm from the context, then check if the player has that permission, and finally output the result.

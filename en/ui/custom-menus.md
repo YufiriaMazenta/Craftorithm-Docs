@@ -40,7 +40,6 @@ icons:
 
 Supports special tags:
 - `<translate:lang:key>` — Multi-language translation
-- `<page>` / `<max_page>` — Pagination info
 
 ### layout — Grid Layout
 
@@ -67,19 +66,19 @@ The permission node required to open the menu.
 
 Each icon supports the following fields:
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `material` | string | Item material |
-| `name` | string | Display name |
-| `lore` | list\<string\> | Lore lines |
-| `custom_model_data` | integer | Custom model data |
-| `icon_type` | string | Icon type (see below) |
-| `recipe_id` | string | Associated recipe ID |
-| `recipe_type` | string | Associated recipe type |
-| `ingredient_slot` | integer | Ingredient slot index |
-| `view_click` | string | View click action (left/right) |
-| `edit_click` | string | Edit click action (left/right) |
-| `extra_lore` | list\<string\> | Dynamic appended lore lines |
+| Field | Description |
+|-------|-------------|
+| `material` | Item material |
+| `name` | Display name |
+| `lore` | Lore lines list |
+| `custom_model_data` | Custom model data |
+| `item_model` | Custom item model (1.21.2+) |
+| `icon_type` | Icon type (see below) |
+| `recipe_id` | Associated recipe ID |
+| `recipe_type` | Associated recipe type |
+| `ingredient_slot` | Ingredient slot index |
+| `view_click` | View click action (left/right) |
+| `edit_click` | Edit click action (left/right) |
 
 ## icon_type Values
 
@@ -87,12 +86,6 @@ Each icon supports the following fields:
 |------|-------------|
 | (empty) | Normal item icon |
 | `recipe_display` | Recipe display icon |
-| `recipe_list` | Recipe list entry |
-| `sort` | Sort toggle button |
-| `prev_page` | Previous page button |
-| `next_page` | Next page button |
-| `back` | Back button |
-| `result` | Recipe result icon |
 
 ## Full Example
 
@@ -116,10 +109,6 @@ icons:
   B:
     icon_type: recipe_display
     recipe_id: 'craftorithm:recipe2'
-  N:
-    icon_type: next_page
-    material: 'minecraft:arrow'
-    name: '&aNext Page'
 open_actions:
   - 'tell("&6Welcome to the recipe list!")'
 ```

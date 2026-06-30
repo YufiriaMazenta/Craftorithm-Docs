@@ -40,7 +40,6 @@ icons:
 
 支持以下特殊标签：
 - `<translate:lang:key>` — 多语言翻译
-- `<page>` / `<max_page>` — 分页信息
 
 ### layout — 布局网格
 
@@ -73,6 +72,7 @@ close_actions:
 | `name` | 显示名称 |
 | `lore` | 说明文本列表 |
 | `custom_model_data` | 自定义模型数据 |
+| `item_model` | 自定义物品模型（1.21.2+)
 | `icon_type` | 图标类型（见下表） |
 | `recipe_id` | 关联的配方 ID |
 | `recipe_type` | 关联的配方类型 |
@@ -86,12 +86,6 @@ close_actions:
 |------|------|
 | (空) | 普通物品图标 |
 | `recipe_display` | 配方展示图标 |
-| `recipe_list` | 配方列表入口 |
-| `sort` | 排序切换按钮 |
-| `prev_page` | 上一页按钮 |
-| `next_page` | 下一页按钮 |
-| `back` | 返回按钮 |
-| `result` | 配方结果图标 |
 
 ## 完整示例
 
@@ -115,10 +109,6 @@ icons:
   B:
     icon_type: recipe_display
     recipe_id: 'craftorithm:recipe2'
-  N:
-    icon_type: next_page
-    material: 'minecraft:arrow'
-    name: '&a下一页'
 open_actions:
   - 'tell("&6欢迎浏览配方！")'
 ```
