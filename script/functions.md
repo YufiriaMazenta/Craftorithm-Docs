@@ -16,7 +16,7 @@ title: 函数
 
 它接受一个参数，当输入多个参数时，后续的参数将会被忽略
 
-## `level`/`money`/`points`/`light_level`
+## `level`/`money`/`points`/`light-level`
 
 这四个函数的作用类似，都是用于返回玩家的某项数值
 
