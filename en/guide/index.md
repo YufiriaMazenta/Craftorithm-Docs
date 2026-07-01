@@ -7,7 +7,7 @@ title: Quick Start
 ## Prerequisites
 
 - **Java**: 21 or higher
-- **Server**: Paper / Spigot 1.19.4+ (Folia supported)
+- **Server**: Paper / Spigot 1.20+ (Folia supported)
 
 ## Download
 

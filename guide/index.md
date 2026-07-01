@@ -7,7 +7,7 @@ title: 快速开始
 ## 前置条件
 
 - **Java**: 21 或更高版本
-- **服务端**: Paper / Spigot 1.19.4+ (支持 Folia)
+- **服务端**: Paper / Spigot 1.20+ (支持 Folia)
 
 ## 下载
 
