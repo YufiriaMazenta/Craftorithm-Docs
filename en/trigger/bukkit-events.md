@@ -29,7 +29,6 @@ my_trigger:
 | `player_respawn` | Player respawns | — |
 | `player_interact` | Player interacts | `action` |
 | `player_interact_entity` | Interact with entity | `entity_type` |
-| `player_interact_at_entity` | Interact at entity location | — |
 | `player_advancement` | Advancement completed | `advancement` |
 | `player_level_change` | Level changes | `old_level`, `new_level` |
 | `player_exp_change` | Experience changes | `amount` |
@@ -37,7 +36,7 @@ my_trigger:
 | `player_toggle_sprint` | Sprint toggle | `sprinting` |
 | `player_item_consume` | Item consumed | `item` |
 | `player_item_held` | Held item slot changes | `previous_slot`, `new_slot` |
-| `player_animation` | Player animation | `animation` |
+| `player_animation` | Player animation | — |
 | `player_bed_enter` | Enter bed | — |
 | `player_bed_leave` | Leave bed | — |
 | `player_bucket_fill` | Fill bucket | — |
@@ -46,21 +45,19 @@ my_trigger:
 | `player_portal` | Enter portal | — |
 | `player_teleport` | Teleport | `cause` |
 | `player_fish` | Fishing | `state` |
-| `player_shear_entity` | Shear entity | — |
-| `player_unleash_entity` | Unleash entity | — |
+| `player_shear_entity` | Shear entity | `entity_type` |
 | `player_edit_book` | Edit book | — |
-| `player_statistic` | Statistic increase | `statistic` |
+| `player_statistic` | Statistic changes | `statistic`, `value` |
 | `player_swap_hand_items` | Swap hand items | — |
 | `player_drop_item` | Drop item | `item` |
 | `player_pickup_item` | Pick up item | `item` |
 | `player_velocity` | Velocity change | — |
 | `player_game_mode_change` | Game mode change | `new_game_mode` |
-| `player_resource_pack_status` | Resource pack status | `status` |
 | `player_item_damage` | Item durability loss | `item`, `damage` |
-| `player_item_mend` | Mending | `item`, `repair_amount` |
+| `player_item_mend` | Mending | `item`, `amound`, `repair_amount` |
 | `player_recipe_discover` | Recipe discovered | `recipe` |
-| `player_take_campfire` | Take item from campfire | — |
-| `player_move` | Player moves (actual displacement only) | — |
+| `player_take_campfire` | Take item from campfire | `item` |
+| `player_move` | Player moves | `from`, `to` |
 | `player_command_preprocess` | Command preprocessing | `message` |
 | `async_player_chat` | Async chat | `message` |
 
@@ -68,18 +65,18 @@ my_trigger:
 
 | Event | Description | Context Variables |
 |-------|-------------|-------------------|
-| `damage_entity` | Entity damaged by player | `damage`, `entity_type`, `entity_name` |
-| `kill_entity` | Entity killed by player | `entity_type`, `entity_name` |
+| `damage_entity` | Entity damaged | `damage`, `entity_type`, `entity_name` |
+| `kill_entity` | Entity killed | `entity_type`, `entity_name` |
 | `entity_shoot_bow` | Shoot bow | `force` |
-| `entity_breed` | Breeding | — |
-| `entity_tame` | Taming | — |
-| `entity_potion_effect` | Potion effect change | — |
+| `entity_breed` | Breeding | `entity_type` |
+| `entity_tame` | Taming | `entity_type` |
+| `entity_potion_effect` | Potion effect change | `effect_type` |
 
 ### Inventory Events
 
 | Event | Description | Context Variables |
 |-------|-------------|-------------------|
-| `inventory_click` | Click slot | `slot` |
+| `inventory_click` | Click slot | `slot`, `click_type` |
 | `inventory_close` | Close inventory | — |
 | `inventory_open` | Open inventory | — |
 
