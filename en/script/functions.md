@@ -16,7 +16,7 @@ This function resolves a PlaceholderAPI variable.
 
 It accepts one parameter. If multiple parameters are provided, subsequent parameters will be ignored.
 
-## `level`/`money`/`points`/`light_level`
+## `level`/`money`/`points`/`light-level`
 
 These four functions work similarly - they all return a numeric value for the player.
 
