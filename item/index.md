@@ -20,7 +20,7 @@ Craftorithm 提供统一的物品管理接口，支持自定义物品定义和�
 
 ## 物品文件
 
-自定义物品定义在 `plugins/Craftorithm/items/` 目录下，每个 YAML 文件定义一个物品。
+自定义物品定义在 `plugins/Craftorithm/items/` 目录下，每个 YAML 文件可以定义多个物品。
 
 ## 在配方中使用
 

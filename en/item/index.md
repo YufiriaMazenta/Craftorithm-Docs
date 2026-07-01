@@ -20,7 +20,7 @@ Items use the `namespace:id` format:
 
 ## Item Files
 
-Custom items are defined in `plugins/Craftorithm/items/` directory, with each YAML file defining items.
+Custom items are defined in `plugins/Craftorithm/items/` directory, with each YAML file capable of defining multiple items.
 
 ## Using Items in Recipes
 
