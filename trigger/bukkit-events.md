@@ -57,7 +57,7 @@ my_trigger:
 | `player_item_mend` | 经验修补 | `item`, `amount`, `repair_amount` |
 | `player_recipe_discover` | 发现配方 | `recipe`                          |
 | `player_take_campfire` | 从营火取出物品 | `item`                            |
-| `player_move` | 玩家移动 | `from`, `to`                      |
+| `player_move` | 玩家移动 | -                                 |
 | `player_command_preprocess` | 命令预处理 | `message`                         |
 | `async_player_chat` | 异步聊天 | `message`                         |
 

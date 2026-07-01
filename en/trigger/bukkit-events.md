@@ -21,45 +21,45 @@ my_trigger:
 
 ### Player Events
 
-| Event | Description | Context Variables |
-|-------|-------------|-------------------|
-| `player_join` | Player joins | — |
-| `player_quit` | Player quits | — |
-| `player_death` | Player dies | `killer_name` |
-| `player_respawn` | Player respawns | — |
-| `player_interact` | Player interacts | `action` |
-| `player_interact_entity` | Interact with entity | `entity_type` |
-| `player_advancement` | Advancement completed | `advancement` |
-| `player_level_change` | Level changes | `old_level`, `new_level` |
-| `player_exp_change` | Experience changes | `amount` |
-| `player_toggle_sneak` | Sneak toggle | `sneaking` |
-| `player_toggle_sprint` | Sprint toggle | `sprinting` |
-| `player_item_consume` | Item consumed | `item` |
-| `player_item_held` | Held item slot changes | `previous_slot`, `new_slot` |
-| `player_animation` | Player animation | — |
-| `player_bed_enter` | Enter bed | — |
-| `player_bed_leave` | Leave bed | — |
-| `player_bucket_fill` | Fill bucket | — |
-| `player_bucket_empty` | Empty bucket | — |
-| `player_changed_world` | World change | `from` |
-| `player_portal` | Enter portal | — |
-| `player_teleport` | Teleport | `cause` |
-| `player_fish` | Fishing | `state` |
-| `player_shear_entity` | Shear entity | `entity_type` |
-| `player_edit_book` | Edit book | — |
-| `player_statistic` | Statistic changes | `statistic`, `value` |
-| `player_swap_hand_items` | Swap hand items | — |
-| `player_drop_item` | Drop item | `item` |
-| `player_pickup_item` | Pick up item | `item` |
-| `player_velocity` | Velocity change | — |
-| `player_game_mode_change` | Game mode change | `new_game_mode` |
-| `player_item_damage` | Item durability loss | `item`, `damage` |
+| Event | Description | Context Variables                |
+|-------|-------------|----------------------------------|
+| `player_join` | Player joins | —                                |
+| `player_quit` | Player quits | —                                |
+| `player_death` | Player dies | `killer_name`                    |
+| `player_respawn` | Player respawns | —                                |
+| `player_interact` | Player interacts | `action`                         |
+| `player_interact_entity` | Interact with entity | `entity_type`                    |
+| `player_advancement` | Advancement completed | `advancement`                    |
+| `player_level_change` | Level changes | `old_level`, `new_level`         |
+| `player_exp_change` | Experience changes | `amount`                         |
+| `player_toggle_sneak` | Sneak toggle | `sneaking`                       |
+| `player_toggle_sprint` | Sprint toggle | `sprinting`                      |
+| `player_item_consume` | Item consumed | `item`                           |
+| `player_item_held` | Held item slot changes | `previous_slot`, `new_slot`      |
+| `player_animation` | Player animation | —                                |
+| `player_bed_enter` | Enter bed | —                                |
+| `player_bed_leave` | Leave bed | —                                |
+| `player_bucket_fill` | Fill bucket | —                                |
+| `player_bucket_empty` | Empty bucket | —                                |
+| `player_changed_world` | World change | `from`                           |
+| `player_portal` | Enter portal | —                                |
+| `player_teleport` | Teleport | `cause`                          |
+| `player_fish` | Fishing | `state`                          |
+| `player_shear_entity` | Shear entity | `entity_type`                    |
+| `player_edit_book` | Edit book | —                                |
+| `player_statistic` | Statistic changes | `statistic`, `value`             |
+| `player_swap_hand_items` | Swap hand items | —                                |
+| `player_drop_item` | Drop item | `item`                           |
+| `player_pickup_item` | Pick up item | `item`                           |
+| `player_velocity` | Velocity change | —                                |
+| `player_game_mode_change` | Game mode change | `new_game_mode`                  |
+| `player_item_damage` | Item durability loss | `item`, `damage`                 |
 | `player_item_mend` | Mending | `item`, `amound`, `repair_amount` |
-| `player_recipe_discover` | Recipe discovered | `recipe` |
-| `player_take_campfire` | Take item from campfire | `item` |
-| `player_move` | Player moves | `from`, `to` |
-| `player_command_preprocess` | Command preprocessing | `message` |
-| `async_player_chat` | Async chat | `message` |
+| `player_recipe_discover` | Recipe discovered | `recipe`                         |
+| `player_take_campfire` | Take item from campfire | `item`                           |
+| `player_move` | Player moves | -                                |
+| `player_command_preprocess` | Command preprocessing | `message`                        |
+| `async_player_chat` | Async chat | `message`                        |
 
 ### Entity Events
 
