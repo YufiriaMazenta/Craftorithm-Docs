@@ -8,7 +8,6 @@ title: Quick Start
 
 - **Java**: 21 or higher
 - **Server**: Paper / Spigot 1.19.4+ (Folia supported)
-- **Build tool**: CrypticLib (bundled automatically, no extra install needed)
 
 ## Download
 

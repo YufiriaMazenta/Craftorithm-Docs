@@ -8,7 +8,6 @@ title: 快速开始
 
 - **Java**: 21 或更高版本
 - **服务端**: Paper / Spigot 1.19.4+ (支持 Folia)
-- **构建工具**: CrypticLib (自动包含，无需额外安装)
 
 ## 下载
 

@@ -28,24 +28,25 @@ Item IDs can be used in recipe YAML fields such as `result`, `ingredient`, `base
 
 ## Item Detection Order
 
-When a recipe references an item, Craftorithm searches in the following order:
+When creating recipes via the menu, Craftorithm searches for matching items in the following order:
 
-1. Craftorithm custom items
-2. Minecraft vanilla items
-3. External item plugins (in the order configured by `item_plugin_hook_priority`)
+1. External item plugins (in the order configured by `item_plugin_hook_priority`)
+2. Craftorithm custom items
+
+If an item has no data value, its vanilla ID is returned.
 
 You can adjust the external plugin priority in `config.yml`:
 
 ```yaml
 item_plugin_hook_priority:
-  - craftengine
-  - nexo
-  - azureflow
-  - neigeitems
-  - itemsadder
-  - oraxen
-  - ecoitems
-  - executableitems
-  - mmoitems
-  - mythicmobs
+  - CraftEngine
+  - Nexo
+  - AzureFlow
+  - NeigeItems
+  - ItemsAdder
+  - Oraxen
+  - EcoItems
+  - ExecutableItems
+  - MMOItems
+  - MythicMobs
 ```

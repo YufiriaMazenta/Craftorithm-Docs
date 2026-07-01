@@ -55,18 +55,18 @@ Example: `!perm("craftorithm.perm")`
 
 `&&` `||`
 
-Example: `if game_mode("creative") && perm("craftorithm")`
+Example: `if gamemode("creative") && perm("craftorithm")`
 
 ### Control Flow
 
 The script system supports if-else flow control, written as follows:
 
 ```
-if game_mode("creative")
+if gamemode("creative")
 tell "You are in creative mode"
-elseif game_mode("survival")
+elseif gamemode("survival")
 tell "You are in survival mode"
-elseif game_mode == "ADVENTURE"
+elseif gamemode == "ADVENTURE"
 tell "You are in adventure mode"
 else
 tell "You are in spectator mode"
@@ -77,11 +77,11 @@ In YAML, it would look like this:
 
 ```yaml
 left:
-  - 'if game_mode("creative")'
+  - 'if gamemode("creative")'
   - 'tell "You are in creative mode"'
-  - 'elseif game_mode("survival")'
+  - 'elseif gamemode("survival")'
   - 'tell "You are in survival mode"'
-  - 'elseif game_mode == "ADVENTURE"'
+  - 'elseif gamemode == "ADVENTURE"'
   - 'tell "You are in adventure mode"'
   - 'else'
   - 'tell "You are in spectator mode"'
@@ -94,9 +94,9 @@ The script system supports line comments. You can write like this: `tell "Hello 
 
 ### Function Nesting
 
-In the script system, you can nest functions. For example: `tell("Is player in creative mode: ", game_mode("creative"))`
+In the script system, you can nest functions. For example: `tell("Is player in creative mode: ", gamemode("creative"))`
 
-It will first run `game_mode("creative")` to get the result, then output it with tell.
+It will first run `gamemode("creative")` to get the result, then output it with tell.
 
 Of course, you can also nest more layers. For example: `tell("Does player have permission: ", perm(context("perm")))`
 

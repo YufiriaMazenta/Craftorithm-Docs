@@ -28,24 +28,25 @@ Craftorithm 提供统一的物品管理接口，支持自定义物品定义和�
 
 ## 物品检测顺序
 
-当配方中引用物品时，Craftorithm 按以下顺序查找：
+当使用菜单创建配方时，Craftorithm会按以下顺序查找匹配的物品：
 
-1. Craftorithm 自定义物品
-2. Minecraft 原版物品
-3. 外部物品插件（按 `item_plugin_hook_priority` 配置的顺序）
+1. 外部物品插件（按 `item_plugin_hook_priority` 配置的顺序）
+2. Craftorithm 自定义物品
 
-可在 `config.yml` 中调整外部插件的优先级：
+如果一个物品没有数据值，那么会返回它的原版id
+
+可在 `config.yml` 中调整外部物品插件的优先级：
 
 ```yaml
 item_plugin_hook_priority:
-  - craftengine
-  - nexo
-  - azureflow
-  - neigeitems
-  - itemsadder
-  - oraxen
-  - ecoitems
-  - executableitems
-  - mmoitems
-  - mythicmobs
+  - CraftEngine
+  - Nexo
+  - AzureFlow
+  - NeigeItems
+  - ItemsAdder
+  - Oraxen
+  - EcoItems
+  - ExecutableItems
+  - MMOItems
+  - MythicMobs
 ```

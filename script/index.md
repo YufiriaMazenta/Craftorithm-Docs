@@ -56,18 +56,18 @@ Craftorithm的脚本系统具有四种数据类型，分别如下：
 
 `&&` `||`
 
-例如：`if game_mode("creative") && perm("craftorithm")`
+例如：`if gamemode("creative") && perm("craftorithm")`
 
-### 控制流
+### 
 
 脚本系统支持使用if-else进行流程控制，写法如下：
 
 ```
-if game_mode("creative")
+if gamemode("creative")
 tell "你正在创造模式"
-elseif game_mode("survival")
+elseif gamemode("survival")
 tell "你正在生存模式"
-elseif game_mode == "ADVENTURE"
+elseif gamemode == "ADVENTURE"
 tell "你正在冒险模式"
 else
 tell "你正在旁观者模式"
@@ -78,11 +78,11 @@ endif
 
 ```yaml
 left:
-  - 'if game_mode("creative")'
+  - 'if gamemode("creative")'
   - 'tell "你正在创造模式"'
-  - 'elseif game_mode("survival")'
+  - 'elseif gamemode("survival")'
   - 'tell "你正在生存模式"'
-  - 'elseif game_mode == "ADVENTURE"'
+  - 'elseif gamemode == "ADVENTURE"'
   - 'tell "你正在冒险模式"'
   - 'else'
   - 'tell "你正在旁观者模式"'
@@ -95,9 +95,9 @@ left:
 
 ### 函数嵌套
 
-在脚本系统中，可以进行函数嵌套，例如`tell("玩家是否是创造模式：", game_mode("creative"))`
+在脚本系统中，可以进行函数嵌套，例如`tell("玩家是否是创造模式：", gamemode("creative"))`
 
-它会先运行`game_mode("creative")`得到结果，然后再tell输出
+它会先运行`gamemode("creative")`得到结果，然后再tell输出
 
 当然，也可以更多层的嵌套，例如`tell("玩家是否有权限：", perm(context("perm")))`
 
