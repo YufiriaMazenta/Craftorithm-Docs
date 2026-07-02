@@ -111,7 +111,7 @@ on_diamond_advancement:
     - 'context("advancement") == "minecraft:story/mine_diamond"'
   actions:
     - 'tell("&b你挖到了钻石！")'
-    - 'give-money(1000)'
+    - 'give_money(1000)'
 ```
 
 ### 示例：检查聊天消息

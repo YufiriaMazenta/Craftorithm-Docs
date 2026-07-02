@@ -32,7 +32,7 @@ trigger_id:                    # 触发器 ID（唯一标识）
     - 'level >= 10'
   actions:                     # 动作脚本列表（按顺序执行）
     - 'tell("&a条件通过！")'
-    - 'give-level(100)'
+    - 'give_level(100)'
   priority: 0                  # 执行优先级（数字越小越先执行）
   enabled: true                # 是否启用
   cooldown: 5                  # 冷却时间（秒），0 = 无冷却

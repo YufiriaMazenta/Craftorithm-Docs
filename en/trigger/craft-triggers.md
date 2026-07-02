@@ -61,7 +61,7 @@ costly_recipe:
   conditions:
     - 'level >= 30'
   actions:
-    - 'take-level(30)'
+    - 'take_level(30)'
     - 'tell("&6Cost 30 levels!")'
 ```
 

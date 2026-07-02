@@ -57,6 +57,21 @@ Example: `!perm("craftorithm.perm")`
 
 Example: `if gamemode("creative") && perm("craftorithm")`
 
+#### Arithmetic Operators
+
+`+` `-` `*` `/`
+
+Basic arithmetic operations are supported. Multiplication and division have higher precedence than addition and subtraction. Parentheses can be used to change precedence.
+
+Examples:
+- `context("value") * 100 - 5`
+- `(context("level") + 1) * 10`
+
+The `+` operator also supports string concatenation. When either operand is a string, it automatically concatenates:
+
+- `"Hello, " + context("name") + "!"`
+- `"HP: " + context("hp")`
+
 ### Control Flow
 
 The script system supports if-else flow control, written as follows:
@@ -101,3 +116,11 @@ It will first run `gamemode("creative")` to get the result, then output it with 
 Of course, you can also nest more layers. For example: `tell("Does player have permission: ", perm(context("perm")))`
 
 This will first get the variable named perm from the context, then check if the player has that permission, and finally output the result.
+
+### Function Naming Restrictions
+
+Function names **may only contain letters, digits, and underscores** (`[a-zA-Z0-9_]`). **Hyphens (`-`) are not allowed.** This is because `-` is parsed as the subtraction operator by the script engine.
+
+✅ Valid: `my_func`, `take_money`
+
+❌ Invalid: `my-func`, `take-money`

@@ -16,7 +16,7 @@ This function resolves a PlaceholderAPI variable.
 
 It accepts one parameter. If multiple parameters are provided, subsequent parameters will be ignored.
 
-## `level`/`money`/`points`/`light-level`
+## `level`/`money`/`points`/`light_level`
 
 These four functions work similarly - they all return a numeric value for the player.
 
@@ -44,9 +44,9 @@ This function only works in item-related triggers. Its purpose is to check wheth
 
 It accepts one parameter, which is the item ID, using the same item system as recipes.
 
-## `in-rain`/`in-water`
+## `in_rain`/`in_water`
 
-These two functions work similarly. `in-rain` returns whether the player is in rain, and `in-water` returns whether the player is in water. Neither accepts any parameters.
+These two functions work similarly. `in_rain` returns whether the player is in rain, and `in_water` returns whether the player is in water. Neither accepts any parameters.
 
 ## `context`
 
@@ -78,13 +78,13 @@ Both functions execute commands and automatically resolve PlaceholderAPI variabl
 
 `console` executes the command as the server console.
 
-## `take-money`/`give-money`/`take-level`/`give-level`/`give-exp`/`take-points`/`give-points`
+## `take_money`/`give_money`/`take_level`/`give_level`/`give_exp`/`take_points`/`give_points`
 
 These seven functions work similarly - they all accept a numeric parameter.
 
-`take-money`, `take-level`, and `take-points` deduct the player's Vault balance, experience level, and PlayerPoints balance respectively.
+`take_money`, `take_level`, and `take_points` deduct the player's Vault balance, experience level, and PlayerPoints balance respectively.
 
-`give-money`, `give-level`, `give-exp`, and `give-points` add to the player's Vault balance, experience level, experience points, and PlayerPoints balance respectively.
+`give_money`, `give_level`, `give_exp`, and `give_points` add to the player's Vault balance, experience level, experience points, and PlayerPoints balance respectively.
 
 ## `close`/`back`
 
@@ -100,13 +100,13 @@ This function opens a Craftorithm custom menu.
 
 It accepts one parameter, which is the name of the menu to open.
 
-## `discover-recipe`/`undiscover-recipe`
+## `discover_recipe`/`undiscover_recipe`
 
 Both functions are used for recipe book management and each accepts only one parameter.
 
-`discover-recipe` unlocks a recipe for the player in the recipe book.
+`discover_recipe` unlocks a recipe for the player in the recipe book.
 
-`undiscover-recipe` locks the specified recipe.
+`undiscover_recipe` locks the specified recipe.
 
 ## `sound`
 
@@ -150,5 +150,15 @@ After registration, it can be used in triggers:
 actions:
   - 'my_func("hello")'
 ```
+
+## Function Naming Restrictions
+
+Custom function names **may only contain letters, digits, and underscores** (`[a-zA-Z0-9_]`). **Hyphens (`-`) are not allowed.**
+
+This is because `-` is parsed as the subtraction operator by the script engine, which would cause the function name to be split into multiple tokens and fail to resolve correctly.
+
+✅ Valid function names: `my_func`, `take_money`, `giveExp2`, `check_level`
+
+❌ Invalid function names: `my-func`, `take-money`, `give-exp`
 
 For detailed API, see [Script API](/api/scripts.md).

@@ -33,7 +33,7 @@ trigger_id:                    # Unique trigger identifier
     - 'level >= 10'
   actions:                     # Action script list (executed in order)
     - 'tell("&aConditions passed!")'
-    - 'give-level(100)'
+    - 'give_level(100)'
   priority: 0                  # Execution priority (lower = earlier)
   enabled: true                # Whether enabled
   cooldown: 5                  # Cooldown in seconds, 0 = no cooldown

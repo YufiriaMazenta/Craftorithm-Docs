@@ -16,7 +16,7 @@ title: 函数
 
 它接受一个参数，当输入多个参数时，后续的参数将会被忽略
 
-## `level`/`money`/`points`/`light-level`
+## `level`/`money`/`points`/`light_level`
 
 这四个函数的作用类似，都是用于返回玩家的某项数值
 
@@ -44,9 +44,9 @@ title: 函数
 
 它接受一个参数，这个参数是物品ID，和在配方里的物品系统相同
 
-## `in-rain`/`in-water`
+## `in_rain`/`in_water`
 
-这两个函数的作用类似，`in-rain`返回玩家是否在雨中，`in-water`返回玩家是否在水中，他们都不接受任何参数
+这两个函数的作用类似，`in_rain`返回玩家是否在雨中，`in_water`返回玩家是否在水中，他们都不接受任何参数
 
 ## `context`
 
@@ -78,13 +78,13 @@ title: 函数
 
 `console`是以服务器后台身份执行命令
 
-## `take-money`/`give-money`/`take-level`/`give-level`/`give-exp`/`take-points`/`give-points`
+## `take_money`/`give_money`/`take_level`/`give_level`/`give_exp`/`take_points`/`give_points`
 
 这七个函数的用法都差不多，他们都接受一个数字类型的变量
 
-`take-money` `take-level` `take-points`分别是扣除玩家Vault钱数、等级和PlayerPoints点数
+`take_money` `take_level` `take_points`分别是扣除玩家Vault钱数、等级和PlayerPoints点数
 
-`give-money` `give-level` `give-exp` `give-points`分别是给予玩家Vault钱数、等级、经验和PlayerPoints点数
+`give_money` `give_level` `give_exp` `give_points`分别是给予玩家Vault钱数、等级、经验和PlayerPoints点数
 
 ## `close`/`back`
 
@@ -100,13 +100,13 @@ title: 函数
 
 它接受一个参数，会打开对应名字的菜单
 
-## `discover-recipe`/`undiscover-recipe`
+## `discover_recipe`/`undiscover_recipe`
 
 这两个函数都是用于配方书管理的，它们都只接受一个参数
 
-`discover-recipe`是为玩家在配方书解锁一个配方
+`discover_recipe`是为玩家在配方书解锁一个配方
 
-`undiscover-recipe`则是取消解锁指定配方
+`undiscover_recipe`则是取消解锁指定配方
 
 ## `sound`
 
@@ -150,5 +150,15 @@ ScriptFunctionRegistry.INSTANCE.register("my_func", (context, args) -> {
 actions:
   - 'my_func("hello")'
 ```
+
+## 函数命名限制
+
+自定义函数的名称**只能包含字母、数字和下划线**（`[a-zA-Z0-9_]`），**不允许使用连字符 `-`**。
+
+这是因为 `-` 在脚本引擎中被解析为减法运算符，会导致函数名被拆分为多个 token，从而无法正确识别。
+
+✅ 合法的函数名：`my_func`、`take_money`、`giveExp2`、`check_level`
+
+❌ 不合法的函数名：`my-func`、`take-money`、`give-exp`
 
 详细 API 参见 [Script API](/api/scripts.md)。

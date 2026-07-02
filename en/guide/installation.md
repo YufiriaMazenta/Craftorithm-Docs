@@ -30,8 +30,8 @@ The following plugins are optional. Installing them unlocks additional features:
 
 | Plugin | Feature |
 |--------|---------|
-| Vault | Economy system (`money` condition function, `take-money`/`give-money` actions) |
-| PlayerPoints | Points system (`points` condition function, `take-points`/`give-points` actions) |
+| Vault | Economy system (`money` condition function, `take_money`/`give_money` actions) |
+| PlayerPoints | Points system (`points` condition function, `take_points`/`give_points` actions) |
 | PlaceholderAPI | Variable parsing (`papi` condition function) |
 | ProtocolLib | Recipe book fake result preview |
 | PacketEvents | Recipe book fake result preview (ProtocolLib alternative) |

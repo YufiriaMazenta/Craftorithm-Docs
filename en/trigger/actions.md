@@ -11,6 +11,6 @@ Actions are written in the `actions` list of triggers and execute in order after
 ```yaml
 actions:
   - 'tell("&aConditions passed!")'
-  - 'give-level(100)'
+  - 'give_level(100)'
   - 'command("give %player_name% diamond 1")'
 ```

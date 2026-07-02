@@ -111,7 +111,7 @@ on_diamond_advancement:
     - 'context("advancement") == "minecraft:story/mine_diamond"'
   actions:
     - 'tell("&bYou found diamonds!")'
-    - 'give-money(1000)'
+    - 'give_money(1000)'
 ```
 
 ### Example: Check Chat Message

@@ -30,8 +30,8 @@ title: 安装与依赖
 
 | 插件             | 功能                                       |
 |----------------|------------------------------------------|
-| Vault          | 条件函数 `money`、动作 `take-money`/`give-money` |
-| PlayerPoints   | 条件函数 `points`、动作 `take-points`/`give-points` |
+| Vault          | 条件函数 `money`、动作 `take_money`/`give_money` |
+| PlayerPoints   | 条件函数 `points`、动作 `take_points`/`give_points` |
 | PlaceholderAPI | 条件函数 `papi`                              |
 | ProtocolLib    | 配方书虚拟结果预览                                |
 | packetevents   | 配方书虚拟结果预览                                |
