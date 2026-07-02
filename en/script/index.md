@@ -59,13 +59,13 @@ Example: `if gamemode("creative") && perm("craftorithm")`
 
 #### Arithmetic Operators
 
-`+` `-` `*` `/`
+`+` `-` `*` `/` `%`
 
-Basic arithmetic operations are supported. Multiplication and division have higher precedence than addition and subtraction. Parentheses can be used to change precedence.
+Basic arithmetic operations including modulus are supported. Multiplication and division have higher precedence than addition and subtraction. Parentheses can be used to change precedence.
 
 Examples:
 - `context("value") * 100 - 5`
-- `(context("level") + 1) * 10`
+- `(context("level") + 1) * 10 % 7`
 
 The `+` operator also supports string concatenation. When either operand is a string, it automatically concatenates:
 
