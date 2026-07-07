@@ -118,6 +118,16 @@ The second parameter is the volume.
 
 The third parameter is the pitch.
 
+## `set_inv_item`(1.11.2.0+)
+
+This function sets an item at a specified position in the player's currently open inventory page. It must accept two parameters.
+
+The second parameter is the item ID, using the same item system as recipes, and it can specify quantity.
+
+Example: `set_inv_item(0, "minecraft:bucket 1")`
+
+The replacement is forced. To prevent unexpected issues, the item replacement operation is delayed by 1 tick.
+
 ## `set`
 
 This function is similar to declaring a variable. It is generally used in conjunction with the `context` function.

@@ -17,13 +17,13 @@ Aliases: `/cra`, `/craft`, `/crafto`
 ### Recipe Management
 
 | Command | Arguments | Description |
-|---------|-----------|-------------|
+|------|----|------|
 | `create` | `<type> [recipe_id] [filename]` | Open recipe creation GUI |
 | `edit` | `<recipe_id>` | Open recipe editing GUI |
 | `remove` | `<recipe_name>` | Delete recipe file and unregister |
 | `disable` | `<recipe_id>` | Disable a recipe (including vanilla recipes) |
 | `display` | `<recipe_id> [player]` | Display a recipe as a GUI |
-| `recipebook` | `[type]` | Open recipe book browser |
+| `recipebook` | `[--player <name>] [--type <type>]` | Open recipe book browser |
 
 ### Item Management
 
@@ -76,7 +76,7 @@ The `create` command supports the following type values:
 /cra display craftorithm:my_sword PlayerName
 
 # Open the recipe book
-/cra recipebook
+/cra recipebook --player Steve --type vanilla_shaped
 
 # Execute a script
 /cra script perm("craftorithm.vip")

@@ -17,13 +17,13 @@ title: 命令参考
 ### 配方管理
 
 | 命令 | 参数 | 说明 |
-|------|------|------|
+|------|----|------|
 | `create` | `<type> [recipe_id] [filename]` | 打开配方创建 GUI |
 | `edit` | `<recipe_id>` | 打开配方编辑 GUI |
 | `remove` | `<recipe_name>` | 删除配方文件并注销 |
 | `disable` | `<recipe_id>` | 禁用配方（含原版配方） |
 | `display` | `<recipe_id> [player]` | 以 GUI 形式展示配方 |
-| `recipebook` | `[type]` | 打开配方书浏览界面 |
+| `recipebook` | `[--player <name>] [--type <type>]` | 打开配方书浏览界面 |
 
 ### 物品管理
 
@@ -76,7 +76,7 @@ title: 命令参考
 /cra display craftorithm:my_sword PlayerName
 
 # 打开配方书
-/cra recipebook
+/cra recipebook --player Steve --type vanilla_shaped
 
 # 执行脚本
 /cra script perm("craftorithm.vip")

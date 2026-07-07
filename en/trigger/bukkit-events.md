@@ -54,7 +54,7 @@ my_trigger:
 | `player_velocity` | Velocity change | —                                |
 | `player_game_mode_change` | Game mode change | `new_game_mode`                  |
 | `player_item_damage` | Item durability loss | `item`, `damage`                 |
-| `player_item_mend` | Mending | `item`, `amound`, `repair_amount` |
+| `player_item_mend` | Mending | `item`, `amount`, `repair_amount` |
 | `player_recipe_discover` | Recipe discovered | `recipe`                         |
 | `player_take_campfire` | Take item from campfire | `item`                           |
 | `player_move` | Player moves | -                                |
