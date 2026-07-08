@@ -54,6 +54,14 @@ This function retrieves a variable's value from the context, so it may return an
 
 It accepts one parameter, which is the name of the variable to retrieve.
 
+Since version 1.13.3.0, you can also use the `${variable_name}` syntax to retrieve context variables.
+
+`${variable_name}` can also be used inside strings, for example:
+```yaml
+set("player_name", "Steve")
+tell("Hello, ${player_name}")
+```
+
 ## `tell`/`actionbar`/`title`/`log`
 
 These four functions all output content and automatically resolve PlaceholderAPI variables.
@@ -139,6 +147,44 @@ It accepts two parameters: the first parameter is the variable name (string type
 This is a special function that pauses the current script execution and resumes after the specified number of ticks.
 
 It accepts one parameter, which must be an integer.
+
+## `abs`(1.11.3.0+)
+
+This function returns the absolute value of the input. For example, `abs(-1)` returns 1.
+
+## `min`(1.11.3.0+)
+
+This function returns the smaller of two values. For example, `min(1, 0)` returns 0.
+
+## `max`(1.11.3.0+)
+
+This function returns the larger of two values. For example, `max(1, 0)` returns 1.
+
+## `round`(1.11.3.0+)
+
+This function rounds the value to the nearest integer. For example, `round(10.6)` returns 11.
+
+## `floor` `ceil`(1.11.3.0+)
+
+`floor` rounds down, while `ceil` rounds up.
+
+For example, `floor(6.1)` returns 6, and `ceil(6.8)` returns 7.
+
+## `pow`(1.11.3.0+)
+
+This function performs exponentiation. It requires two numeric parameters, which can be floating-point numbers.
+
+For example, `pow(2, 4)` returns 2 to the power of 4, which is 16.
+
+## `random`(1.11.3.0+)
+
+This function returns a random number. It accepts 0, 1, or 2 parameters.
+
+When no parameters are provided, it returns a random number between 0 and 1 (inclusive of 0, exclusive of 1).
+
+When one parameter is provided, it returns a random number between 0 and the input value (inclusive of 0, exclusive of the input).
+
+When two parameters are provided, it returns a random number between the first and second values (inclusive of the smaller value, exclusive of the larger value).
 
 # Custom Function Registration
 
