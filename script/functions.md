@@ -191,7 +191,7 @@ tell("Hello, ${player_name}")
 插件开发者可通过 `ScriptFunctionRegistry` 注册自定义函数：
 
 ```java
-ScriptFunctionRegistry.INSTANCE.register("my_func", (context, args) -> {
+ScriptFunctionRegistry.INSTANCE.register("my_func", (context, vm, args) -> {
     // args 是 ScriptValue 列表
     // context 包含 Player 和变量
     String msg = args.get(0).getString();

@@ -50,21 +50,11 @@ int cmp = num.compare(otherValue); // -1, 0, 1
 ```java
 ScriptFunctionRegistry registry = ScriptFunctionRegistry.INSTANCE;
 
-// Register condition function
-registry.register("my_condition", (context, args) -> {
+registry.register("my_condition", (context, vm, args) -> {
     if (args.isEmpty()) return ScriptValue.Bool.FALSE;
     String key = args.get(0).getString();
     boolean result = checkCondition(context.getPlayer(), key);
     return result ? ScriptValue.Bool.TRUE : ScriptValue.Bool.FALSE;
-});
-
-// Register action function
-registry.register("my_action", (context, args) -> {
-    String msg = args.stream()
-        .map(ScriptValue::getString)
-        .collect(Collectors.joining());
-    context.getPlayer().sendMessage(msg);
-    return ScriptValue.NullValue.INSTANCE;
 });
 ```
 
@@ -85,15 +75,15 @@ Implement the `ScriptModule` interface for batch function registration:
 public class MyModule implements ScriptModule {
     @Override
     public void registerFunctions(ScriptFunctionRegistry registry) {
-        registry.register("func1", this::func1);
-        registry.register("func2", this::func2);
+        registry.register("module", "func1", this::func1);
+        registry.register("module", "func2", this::func2);
     }
 
-    private ScriptValue func1(ScriptContext ctx, List<ScriptValue> args) {
+    private ScriptValue func1(ScriptContext ctx, ScriptVM vm, ScriptValue... args) {
         // ...
     }
 
-    private ScriptValue func2(ScriptContext ctx, List<ScriptValue> args) {
+    private ScriptValue func2(ScriptContext ctx, ScriptVM vm, ScriptValue... args) {
         // ...
     }
 }

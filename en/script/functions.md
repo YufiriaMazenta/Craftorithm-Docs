@@ -191,7 +191,7 @@ When two parameters are provided, it returns a random number between the first a
 Plugin developers can register custom functions through `ScriptFunctionRegistry`:
 
 ```java
-ScriptFunctionRegistry.INSTANCE.register("my_func", (context, args) -> {
+ScriptFunctionRegistry.INSTANCE.register("my_func", (context, vm, args) -> {
     // args is a list of ScriptValue
     // context contains Player and variables
     String msg = args.get(0).getString();
