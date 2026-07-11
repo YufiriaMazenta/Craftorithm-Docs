@@ -176,15 +176,25 @@ This function performs exponentiation. It requires two numeric parameters, which
 
 For example, `pow(2, 4)` returns 2 to the power of 4, which is 16.
 
-## `random`(1.11.3.0+)
+## `random`(1.11.3.0+) / `random_int`(1.11.4.0+)
 
-This function returns a random number. It accepts 0, 1, or 2 parameters.
+Both functions return a random number. The difference is that `random` returns a floating-point number, while `random_int` returns an integer.
+
+`random` accepts 0, 1, or 2 parameters, while `random_int` must accept at least one parameter.
 
 When no parameters are provided, it returns a random number between 0 and 1 (inclusive of 0, exclusive of 1).
 
 When one parameter is provided, it returns a random number between 0 and the input value (inclusive of 0, exclusive of the input).
 
 When two parameters are provided, it returns a random number between the first and second values (inclusive of the smaller value, exclusive of the larger value).
+
+## `int` / `float`(1.11.4.0+)
+
+These two functions perform type conversion. `int` forces a number to be an integer, while `float` forces a number to be a floating-point number.
+
+Both must accept one parameter.
+
+For example, `set("num_var", int(1.1))` - although 1.1 is passed in, the actual value set is 1.
 
 # Custom Function Registration
 

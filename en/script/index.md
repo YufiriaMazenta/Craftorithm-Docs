@@ -20,12 +20,13 @@ Craftorithm includes a compiled script engine used for trigger condition evaluat
 
 ## Data Types
 
-Craftorithm's script system has four data types as follows:
+Craftorithm's script system has five data types as follows:
 
 | Type | Description | Example |
 |------|-------------|---------|
 | `Str` | String | `"hello"` |
-| `Num` | Number | `100`, `3.14`, `-5` |
+| `Num` | Floating-point number | `100.0`, `3.14`, `-5.0` |
+| `Int` | Integer | `10` `5` `7` |
 | `Bool` | Boolean | `true`, `false` |
 | `NullValue` | Null | — |
 
