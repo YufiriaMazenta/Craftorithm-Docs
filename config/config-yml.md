@@ -17,11 +17,12 @@ title: config.yml
 
 ### 配方设置
 
-| 键 | 类型 | 默认值 | 说明 |
-|----|------|--------|------|
-| `remove_all_vanilla_recipe` | boolean | `false` | 移除所有原版配方 |
-| `enable_anvil_recipe` | boolean | `true` | 启用自定义铁砧配方 |
-| `max_reg_recipe_per_tick` | integer | `20` | 每 tick 最大配方注册数（防卡顿） |
+| 键                  | 类型      | 默认值     | 说明                        |
+|--------------------|---------|---------|---------------------------|
+| `remove_all_vanilla_recipe` | boolean | `false` | 移除所有原版配方                  |
+| `enable_anvil_recipe` | boolean | `true`  | 启用自定义铁砧配方                 |
+| `max_reg_recipe_per_tick` | integer | `12` | 每 tick 最大配方注册数（防卡顿）       |
+| `use_experimental_recipe_ingredients` | boolean | `true`  | 是否启用实验性配方材料功能，会改变配方材料匹配模式 |
 
 ### 物品设置
 
@@ -62,6 +63,9 @@ reload_when_ia_reload: true
 debug: false
 #单个tick最多注册几个配方
 max_reg_recipe_per_tick: 20
+#是否启用实验性配方材料功能
+#启用后，除1.21.3及以上的切石机配方外，合成材料的识别将不会受到NBT/组件变更的影响，但可能在配方书等场景下出现一些问题
+use_experimental_recipe_ingredients: true
 cannot_craft_items: []
 #依照上面的挂钩顺序挂钩插件可以挂钩的物品插件,插件自动识别物品ID时将会优先识别上面的插件
 #不包含在此列表里的物品插件将不会尝试挂钩,除非该插件主动挂钩

@@ -75,6 +75,7 @@ type: 'vanilla_smithing_trim'
 base: 'minecraft:diamond_chestplate'
 addition: 'minecraft:iron_ingot'
 template: 'minecraft:coast_armor_trim_smithing_template'
+trim_pattern: 'minecraft:eye' #1.21.5及以上,必须设定trim_pattern, 否则无法注册配方
 ```
 
 ### 字段说明
@@ -86,3 +87,4 @@ template: 'minecraft:coast_armor_trim_smithing_template'
 | `addition` | string | 是 | 纹饰材料 |
 | `template` | string | 是 | 纹饰模板 |
 | `fake_result_preview` | string | 否 | 合成时显示的虚假预览物品                         |
+| `copy_components_rules` | list | 否 | 组件复制规则 |
