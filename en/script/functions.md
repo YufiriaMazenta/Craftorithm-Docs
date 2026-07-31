@@ -48,20 +48,6 @@ It accepts one parameter, which is the item ID, using the same item system as re
 
 These two functions work similarly. `in_rain` returns whether the player is in rain, and `in_water` returns whether the player is in water. Neither accepts any parameters.
 
-## `context`
-
-This function retrieves a variable's value from the context, so it may return any type of value.
-
-It accepts one parameter, which is the name of the variable to retrieve.
-
-Since version 1.13.3.0, you can also use the `${variable_name}` syntax to retrieve context variables.
-
-`${variable_name}` can also be used inside strings, for example:
-```yaml
-set("player_name", "Steve")
-tell("Hello, ${player_name}")
-```
-
 ## `tell`/`actionbar`/`title`/`log`
 
 These four functions all output content and automatically resolve PlaceholderAPI variables.
@@ -135,12 +121,6 @@ The second parameter is the item ID, using the same item system as recipes, and 
 Example: `set_inv_item(0, "minecraft:bucket 1")`
 
 The replacement is forced. To prevent unexpected issues, the item replacement operation is delayed by 1 tick.
-
-## `set`
-
-This function is similar to declaring a variable. It is generally used in conjunction with the `context` function.
-
-It accepts two parameters: the first parameter is the variable name (string type), and the second parameter is the variable content (can be any type).
 
 ## `delay`
 

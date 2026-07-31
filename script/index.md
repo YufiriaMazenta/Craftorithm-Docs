@@ -33,96 +33,162 @@ Craftorithm的脚本系统具有四种数据类型，分别如下：
 
 在解析时，字符串一定要使用双引号包裹，否则将出现意外的错误
 
-### 基础写法
+### 写法示例
 
-脚本支持两种写法，分别是`tell "你好，世界！"`和`tell("你好，世界！")`
-
-通常来说，建议使用第二种写法，会更加直观一些
-
-### 运算符
-
-脚本支持多种运算符
-
-#### 比较运算符：
-
-`>` `<` `==` `>=` `<=` `!=`
-
-#### 逻辑非运算符
-
-`!`
-
-例如：`!perm("craftorithm.perm")`
-
-#### 二元中缀运算符
-
-`&&` `||`
-
-例如：`if gamemode("creative") && perm("craftorithm")`
-
-#### 算术运算符
-
-`+` `-` `*` `/` `%`
-
-支持基本的加减乘除和取余运算，乘除优先级高于加减，可以使用括号改变优先级。
-
-例如：
-- `context("value") * 100 - 5`
-- `(context("level") + 1) * 10 % 7`
-
-`+` 运算符同时支持字符串拼接，当任一侧为字符串时会自动进行拼接：
-
-- `"Hello, " + context("name") + "!"`
-- `"HP: " + context("hp")`
-
-### 控制流
-
-脚本系统支持使用if-else进行流程控制，写法如下：
+#### 1. 数据类型
 
 ```
-if gamemode("creative")
-tell "你正在创造模式"
-elseif gamemode("survival")
-tell "你正在生存模式"
-elseif gamemode == "ADVENTURE"
-tell "你正在冒险模式"
+// 字符串
+var greeting = "Hello World"
+var name = "Steve"
+
+// 整数
+var level = 10
+var health = 20
+
+// 浮点数
+var pi = 3.14
+var speed = 1.5
+
+// 布尔
+var alive = true
+var online = false
+
+```
+
+#### 2. 变量
+
+```
+// 声明（var 关键字）
+var x = 10
+var y = 20
+
+// 重新赋值（不需要 var，但变量必须已声明）
+x = 30
+y = x + 10
+
+// 访问变量
+var sum = x + y
+var message = "value is " + x
+
+// 字符串内插值（${} 语法，仅限字符串内）
+var text = "x=${x}, y=${y}"
+```
+
+#### 3. 运算符
+
+```
+// 算术运算
+var a = 10 + 3      // 13
+var b = 10 - 3      // 7
+var c = 10 * 3      // 30
+var d = 10 / 3      // 3（整数除法）
+var e = 10 % 3      // 1（取模）
+
+// 比较运算（返回布尔值）
+var eq = (10 == 10)   // true
+var neq = (10 != 5)   // true
+var gt = (10 > 5)     // true
+var gte = (10 >= 10)  // true
+var lt = (5 < 10)     // true
+var lte = (5 <= 10)   // true
+
+// 逻辑运算
+var and = (true && true)    // true
+var or = (true || false)    // true
+var not = (!true)           // false
+
+// 一元运算
+var neg = -100
+var notFlag = !false
+```
+
+#### 4. 字符串
+
+```
+// 普通字符串
+var s1 = "Hello"
+var s2 = "World"
+
+// 字符串拼接
+var s3 = s1 + " " + s2    // "Hello World"
+
+// 字符串插值（${} 语法，仅限字符串内）
+var player = "Steve"
+var msg1 = "Hello ${player}"           // "Hello Steve"
+var msg2 = "Level: ${level}"           // "Level: 10"
+var msg3 = "${s1} ${s2}!"              // "Hello World!"
+
+// 转义字符
+var s4 = "He said \"Hi\""             // 双引号
+var s5 = "Line1\nLine2"               // 换行
+var s6 = "Path\\to\\file"             // 反斜杠
+var s7 = "Tab\there"                  // 制表符
+```
+
+#### 5. 条件判断
+
+```
+// 基本 if
+if level >= 10
+  tell("High level")
+endif
+
+// if-else
+if health > 0
+  tell("Alive")
 else
-tell "你正在旁观者模式"
+  tell("Dead")
+endif
+
+// if-elseif-else
+if score >= 90
+  tell("Grade: A")
+elseif score >= 80
+  tell("Grade: B")
+elseif score >= 70
+  tell("Grade: C")
+else
+  tell("Grade: F")
+endif
+
+// 嵌套条件
+if online == true
+  if level >= 10
+    tell("Online high level player")
+  else
+    tell("Online low level player")
+  endif
+endif
+
+// 复合条件
+if level >= 10 && online == true
+  tell("Qualified")
+endif
+
+if health <= 0 || online == false
+  tell("Not available")
+endif
+
+// 逻辑非
+if !online
+  tell("Offline")
 endif
 ```
 
-如果是放在yaml中，可以是这样：
-
-```yaml
-left:
-  - 'if gamemode("creative")'
-  - 'tell "你正在创造模式"'
-  - 'elseif gamemode("survival")'
-  - 'tell "你正在生存模式"'
-  - 'elseif gamemode == "ADVENTURE"'
-  - 'tell "你正在冒险模式"'
-  - 'else'
-  - 'tell "你正在旁观者模式"'
-  - 'endif'
+#### 6. 函数调用
 ```
+// 模块函数调用（冒号 : 分隔）
+math:sqrt(144)
+math:random()
+math:random_int(100)
+math:abs(-100)
+math:max(10, 20)
+math:pow(2, 8)
+math:floor(3.7)
+math:ceil(3.2)
+math:round(3.5)
 
-### 注释
-
-脚本系统是支持行注释的，也就是说，你可以这样写`tell "Hello world" //输出语句`
-
-### 函数嵌套
-
-在脚本系统中，可以进行函数嵌套，例如`tell("玩家是否是创造模式：", gamemode("creative"))`
-
-它会先运行`gamemode("creative")`得到结果，然后再tell输出
-
-当然，也可以更多层的嵌套，例如`tell("玩家是否有权限：", perm(context("perm")))`
-
-这句话会先从上下文中获得名为perm的变量，然后再判断玩家是否有这个权限，最后输出结果
-
-### 函数命名限制
-
-函数名称**只能包含字母、数字和下划线**（`[a-zA-Z0-9_]`），**不允许使用连字符 `-`**。这是因为 `-` 在脚本引擎中被解析为减法运算符。
-
-✅ 合法：`my_func`、`take_money`
-
-❌ 不合法：`my-func`、`take-money`
+// 无参函数
+level()
+```

@@ -32,96 +32,162 @@ Craftorithm's script system has five data types as follows:
 
 When parsing, strings must be enclosed in double quotes, otherwise unexpected errors will occur.
 
-### Basic Syntax
+### Usage Examples
 
-The script supports two syntaxes: `tell "Hello, World!"` and `tell("Hello, World!")`.
-
-Generally, the second syntax is recommended as it is more intuitive.
-
-### Operators
-
-The script supports multiple operators.
-
-#### Comparison Operators:
-
-`>` `<` `==` `>=` `<=` `!=`
-
-#### Logical NOT Operator:
-
-`!`
-
-Example: `!perm("craftorithm.perm")`
-
-#### Binary Infix Operators:
-
-`&&` `||`
-
-Example: `if gamemode("creative") && perm("craftorithm")`
-
-#### Arithmetic Operators
-
-`+` `-` `*` `/` `%`
-
-Basic arithmetic operations including modulus are supported. Multiplication and division have higher precedence than addition and subtraction. Parentheses can be used to change precedence.
-
-Examples:
-- `context("value") * 100 - 5`
-- `(context("level") + 1) * 10 % 7`
-
-The `+` operator also supports string concatenation. When either operand is a string, it automatically concatenates:
-
-- `"Hello, " + context("name") + "!"`
-- `"HP: " + context("hp")`
-
-### Control Flow
-
-The script system supports if-else flow control, written as follows:
+#### 1. Data Types
 
 ```
-if gamemode("creative")
-tell "You are in creative mode"
-elseif gamemode("survival")
-tell "You are in survival mode"
-elseif gamemode == "ADVENTURE"
-tell "You are in adventure mode"
+// String
+var greeting = "Hello World"
+var name = "Steve"
+
+// Integer
+var level = 10
+var health = 20
+
+// Floating-point number
+var pi = 3.14
+var speed = 1.5
+
+// Boolean
+var alive = true
+var online = false
+
+```
+
+#### 2. Variables
+
+```
+// Declaration (var keyword)
+var x = 10
+var y = 20
+
+// Reassignment (no var needed, but variable must be declared)
+x = 30
+y = x + 10
+
+// Accessing variables
+var sum = x + y
+var message = "value is " + x
+
+// String interpolation (${ } syntax, only inside strings)
+var text = "x=${x}, y=${y}"
+```
+
+#### 3. Operators
+
+```
+// Arithmetic operations
+var a = 10 + 3      // 13
+var b = 10 - 3      // 7
+var c = 10 * 3      // 30
+var d = 10 / 3      // 3 (integer division)
+var e = 10 % 3      // 1 (modulus)
+
+// Comparison operations (return boolean)
+var eq = (10 == 10)   // true
+var neq = (10 != 5)   // true
+var gt = (10 > 5)     // true
+var gte = (10 >= 10)  // true
+var lt = (5 < 10)     // true
+var lte = (5 <= 10)   // true
+
+// Logical operations
+var and = (true && true)    // true
+var or = (true || false)    // true
+var not = (!true)           // false
+
+// Unary operations
+var neg = -100
+var notFlag = !false
+```
+
+#### 4. Strings
+
+```
+// Normal strings
+var s1 = "Hello"
+var s2 = "World"
+
+// String concatenation
+var s3 = s1 + " " + s2    // "Hello World"
+
+// String interpolation (${ } syntax, only inside strings)
+var player = "Steve"
+var msg1 = "Hello ${player}"           // "Hello Steve"
+var msg2 = "Level: ${level}"           // "Level: 10"
+var msg3 = "${s1} ${s2}!"              // "Hello World!"
+
+// Escape characters
+var s4 = "He said \"Hi\""             // Double quotes
+var s5 = "Line1\nLine2"               // Newline
+var s6 = "Path\\to\\file"             // Backslash
+var s7 = "Tab\there"                  // Tab
+```
+
+#### 5. Conditional Statements
+
+```
+// Basic if
+if level >= 10
+  tell("High level")
+endif
+
+// if-else
+if health > 0
+  tell("Alive")
 else
-tell "You are in spectator mode"
+  tell("Dead")
+endif
+
+// if-elseif-else
+if score >= 90
+  tell("Grade: A")
+elseif score >= 80
+  tell("Grade: B")
+elseif score >= 70
+  tell("Grade: C")
+else
+  tell("Grade: F")
+endif
+
+// Nested conditions
+if online == true
+  if level >= 10
+    tell("Online high level player")
+  else
+    tell("Online low level player")
+  endif
+endif
+
+// Compound conditions
+if level >= 10 && online == true
+  tell("Qualified")
+endif
+
+if health <= 0 || online == false
+  tell("Not available")
+endif
+
+// Logical NOT
+if !online
+  tell("Offline")
 endif
 ```
 
-In YAML, it would look like this:
-
-```yaml
-left:
-  - 'if gamemode("creative")'
-  - 'tell "You are in creative mode"'
-  - 'elseif gamemode("survival")'
-  - 'tell "You are in survival mode"'
-  - 'elseif gamemode == "ADVENTURE"'
-  - 'tell "You are in adventure mode"'
-  - 'else'
-  - 'tell "You are in spectator mode"'
-  - 'endif'
+#### 6. Function Calls
 ```
+// Module function calls (colon : separator)
+math:sqrt(144)
+math:random()
+math:random_int(100)
+math:abs(-100)
+math:max(10, 20)
+math:pow(2, 8)
+math:floor(3.7)
+math:ceil(3.2)
+math:round(3.5)
 
-### Comments
-
-The script system supports line comments. You can write like this: `tell "Hello world" //output statement`
-
-### Function Nesting
-
-In the script system, you can nest functions. For example: `tell("Is player in creative mode: ", gamemode("creative"))`
-
-It will first run `gamemode("creative")` to get the result, then output it with tell.
-
-Of course, you can also nest more layers. For example: `tell("Does player have permission: ", perm(context("perm")))`
-
-This will first get the variable named perm from the context, then check if the player has that permission, and finally output the result.
-
-### Function Naming Restrictions
-
-Function names **may only contain letters, digits, and underscores** (`[a-zA-Z0-9_]`). **Hyphens (`-`) are not allowed.** This is because `-` is parsed as the subtraction operator by the script engine.
-
-✅ Valid: `my_func`, `take_money`
-
-❌ Invalid: `my-func`, `take-money`
+// Parameterless functions
+level()
+```
