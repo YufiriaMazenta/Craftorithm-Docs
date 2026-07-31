@@ -25,7 +25,7 @@ Example:
 ```yaml
 conditions:
   - 'perm("craftorithm.vip")'
-  - 'level >= 10'
+  - 'level() >= 10'
   - 'world("world_nether")'
 ```
 
@@ -59,15 +59,15 @@ script_conditions:
     body:
       - 'if !perm("craftorithm.recipe.1")'
       - '  tell("&cYou don\'t have permission!")'
-      - '  close'
+      - '  close()'
       - '  return false'
       - 'elseif context("ingredient_0_0_amount") < 2'
       - '  tell("&cNot enough materials!")'
-      - '  close'
+      - '  close()'
       - '  return false'
       - 'elseif context("ingredient_0_0") == "items:example_item:1"'
       - '  tell("&cCannot use this material!")'
-      - '  close'
+      - '  close()'
       - '  return false'
       - 'else'
       - '  return true'

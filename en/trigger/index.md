@@ -30,7 +30,7 @@ trigger_id:                    # Unique trigger identifier
     - 'craftorithm:my_recipe'
   conditions:                  # Condition script list (all must pass)
     - 'perm("craftorithm.vip")'
-    - 'level >= 10'
+    - 'level() >= 10'
   actions:                     # Action script list (executed in order)
     - 'tell("&aConditions passed!")'
     - 'give_level(100)'

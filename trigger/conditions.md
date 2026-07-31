@@ -25,7 +25,7 @@ conditions支持多种写法, 分别如下:
 ```yaml
 conditions:
   - 'perm("craftorithm.vip")'
-  - 'level >= 10'
+  - 'level() >= 10'
   - 'world("world_nether")'
 ```
 
@@ -59,19 +59,19 @@ script_conditions:
     body:
       - 'if !perm("craftorithm.recipe.1")'
       - '  tell("&c你没有权限!")'
-      - '  close'
+      - '  close()'
       - '  return false'
       - 'elseif context("ingredient_0_0_amount") < 2'
       - '  tell("&c材料数量不足!")'
-      - '  close'
+      - '  close()'
       - '  return false'
       - 'elseif context("ingredient_0_0") == "items:example_item:1"'
       - '  tell("&c不能使用这个材料!")'
-      - '  close'
+      - '  close()'
       - '  return false'
       - 'else'
       - '  return true'
       - 'endif'
   actions:
-    - 'tell "&a合成成功！消耗10级经验"'
+    - 'tell("&a合成成功！消耗10级经验")'
 ```

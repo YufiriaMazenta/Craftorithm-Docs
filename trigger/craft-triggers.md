@@ -75,7 +75,7 @@ vip_recipe:
     - 'craftorithm:vip_sword'
   conditions:
     - 'perm("craftorithm.vip")'
-    - 'level >= 10'
+    - 'level() >= 10'
   actions:
     - 'tell("&aVIP 配方合成成功！")'
   priority: 0
@@ -89,7 +89,7 @@ costly_recipe:
   recipes:
     - 'craftorithm:legendary_sword'
   conditions:
-    - 'level >= 30'
+    - 'level() >= 30'
   actions:
     - 'take_level(30)'
     - 'tell("&6消耗 30 等级！")'

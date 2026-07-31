@@ -29,7 +29,7 @@ trigger_id:                    # 触发器 ID（唯一标识）
     - 'craftorithm:my_recipe'
   conditions:                  # 条件脚本列表（全部满足才通过）
     - 'perm("craftorithm.vip")'
-    - 'level >= 10'
+    - 'level() >= 10'
   actions:                     # 动作脚本列表（按顺序执行）
     - 'tell("&a条件通过！")'
     - 'give_level(100)'
