@@ -38,7 +38,9 @@ type: 'vanilla_shaped'      # Recipe type (required)
 result: 'minecraft:diamond'  # Output item (required)
 group: 'example'             # Recipe group (optional)
 recipe_id: 'my_recipe'       # Custom recipe ID (optional, defaults to filename)
-recipe_book_category: misc   # Recipe book category (optional, 1.19.3+)
+result_processors:           # Result processors (optional, 1.13.0.0+)
+  enchantments:
+    type: copy_from_source
 ```
 
 ## Item Reference Formats
@@ -65,3 +67,13 @@ Opens a graphical interface to create recipes through click-based interaction.
 ### Manual YAML (Recommended for Advanced Users)
 
 Create YAML files directly in the `recipes/` directory. Best for batch creation or precise control.
+
+## Result Processors (result_processors)
+
+The result processor feature was added in version 1.13.0.0 to add additional effects to recipe results during crafting. Result processors can copy, add, or remove item components.
+
+**Note**: Stonecutting recipes (`vanilla_stonecutting`) do not currently support result processors.
+
+Supported recipe types: Anvil, Smithing, Smelting, Brewing, Shaped/Shapeless recipes.
+
+For detailed usage, see [Result Processors](/en/recipe/result-processor.md).

@@ -18,10 +18,6 @@ result: 'minecraft:netherite_sword'
 base: 'minecraft:diamond_sword'
 addition: 'minecraft:netherite_ingot'
 template: 'minecraft:netherite_upgrade_smithing_template'
-copy_components_rules:
-  - 'enchantments'
-  - 'display_name'
-  - 'custom_model_data'
 ```
 
 ### 字段说明
@@ -37,6 +33,8 @@ copy_components_rules:
 | `fake_result_preview` | string | 否 | 合成时显示的虚假预览物品                         |
 
 ### 组件复制规则 (copy_components_rules)
+
+**注意**：从 1.13.0.0 版本开始，推荐使用新的 `result_processors` 配置项，它提供了更强大的功能。旧的 `copy_components_rules` 语法仍然兼容。详见 [结果处理器](/recipe/index.md#结果处理器-result_processors)。
 
 指定从基础物品复制哪些组件到产出物品：
 

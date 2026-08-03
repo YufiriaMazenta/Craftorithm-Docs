@@ -49,6 +49,8 @@ enable_anvil_recipe: true
 
 ## 组件复制规则
 
+**注意**：从 1.13.0.0 版本开始，推荐使用新的 `result_processors` 配置项，它提供了更强大的功能。旧的 `copy_components_rules` 语法仍然兼容。详见 [结果处理器](/recipe/index.md#结果处理器-result_processors)。
+
 与锻造配方相同，支持的规则参见 [锻造配方 - 组件复制规则](/recipe/smithing#组件复制规则-copy-components-rules)。
 
 ## 注意事项

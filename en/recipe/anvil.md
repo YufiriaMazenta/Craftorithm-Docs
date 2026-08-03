@@ -49,6 +49,8 @@ Set to `false` to disable all custom anvil recipes.
 
 ## Copy Components Rules
 
+**Note**: Starting from version 1.13.0.0, it is recommended to use the new `result_processors` configuration option, which provides more powerful features. The old `copy_components_rules` syntax is still compatible. See [Result Processors](/en/recipe/index.md#result-processors-result_processors).
+
 Same as smithing recipes. See [Smithing Recipes — Copy Components Rules](/recipe/smithing#copy-components-rules) for the full list of supported rules.
 
 ## Notes

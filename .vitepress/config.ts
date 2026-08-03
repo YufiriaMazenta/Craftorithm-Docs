@@ -24,6 +24,7 @@ const zhSidebar = {
         { text: '切石配方 Stonecutting', link: '/recipe/stonecutting' },
         { text: '酿造配方 Brewing', link: '/recipe/brewing' },
         { text: '铁砧配方 Anvil', link: '/recipe/anvil' },
+        { text: '结果处理器', link: '/recipe/result-processor' },
         { text: '禁用配方', link: '/recipe/disable' },
         { text: '配方书', link: '/recipe/recipe-book' },
       ]
@@ -124,6 +125,7 @@ const enSidebar = {
         { text: 'Stonecutting Recipes', link: '/en/recipe/stonecutting' },
         { text: 'Brewing Recipes', link: '/en/recipe/brewing' },
         { text: 'Anvil Recipes', link: '/en/recipe/anvil' },
+        { text: 'Result Processors', link: '/en/recipe/result-processor' },
         { text: 'Disabling Recipes', link: '/en/recipe/disable' },
         { text: 'Recipe Book', link: '/en/recipe/recipe-book' },
       ]

@@ -24,6 +24,8 @@ title: 命令参考
 | `disable` | `<recipe_id>` | 禁用配方（含原版配方） |
 | `display` | `<recipe_id> [player]` | 以 GUI 形式展示配方 |
 | `recipebook` | `[--player <name>] [--type <type>]` | 打开配方书浏览界面 |
+| `discover` | `<target> <recipe_key_pattern>` | 为玩家解锁配方 (1.13.0.0+) |
+| `undiscover` | `<target> <recipe_key_pattern>` | 取消玩家解锁配方 (1.13.0.0+) |
 
 ### 物品管理
 
@@ -80,6 +82,13 @@ title: 命令参考
 
 # 执行脚本
 /cra script perm("craftorithm.vip")
+
+# 为玩家解锁配方（支持正则表达式）
+/cra discover Steve minecraft:.*
+/cra discover Steve craftorithm:my_.*
+
+# 取消玩家解锁配方
+/cra undiscover Steve minecraft:diamond_sword
 ```
 
 ## Tab 补全

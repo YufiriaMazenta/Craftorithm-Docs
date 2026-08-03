@@ -24,6 +24,8 @@ Aliases: `/cra`, `/craft`, `/crafto`
 | `disable` | `<recipe_id>` | Disable a recipe (including vanilla recipes) |
 | `display` | `<recipe_id> [player]` | Display a recipe as a GUI |
 | `recipebook` | `[--player <name>] [--type <type>]` | Open recipe book browser |
+| `discover` | `<target> <recipe_key_pattern>` | Unlock recipes for player (1.13.0.0+) |
+| `undiscover` | `<target> <recipe_key_pattern>` | Lock recipes for player (1.13.0.0+) |
 
 ### Item Management
 
@@ -80,6 +82,13 @@ The `create` command supports the following type values:
 
 # Execute a script
 /cra script perm("craftorithm.vip")
+
+# Unlock recipes for player (supports regex)
+/cra discover Steve minecraft:.*
+/cra discover Steve craftorithm:my_.*
+
+# Lock recipes for player
+/cra undiscover Steve minecraft:diamond_sword
 ```
 
 ## Tab Completion

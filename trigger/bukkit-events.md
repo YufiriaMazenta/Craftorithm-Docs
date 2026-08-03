@@ -91,6 +91,36 @@ my_trigger:
 
 每个事件类型会自动注入相关变量到脚本上下文中，可通过 `context("变量名")` 函数访问。
 
+### event 对象 (1.13.0.0+)
+
+从 1.13.0.0 版本开始，所有触发器的上下文中都新增了 `event` 对象，可以直接操作 Bukkit 事件对象。
+
+`event` 对象是一个反射属性解析器，可以通过方法调用来访问事件的属性。
+
+#### 使用示例
+
+```yaml
+on_craft_diamond_sword:
+  type: 'crafting'
+  recipes:
+    - 'minecraft:diamond_sword'
+  conditions:
+    mode: script
+    body:
+      - 'if event.get("view").get("player").invoke("getName") == "Yufiria_"'
+      - '  tell("是插件开发者正在进行合成！")'
+      - 'endif'
+  actions:
+    - 'tell("&a合成成功！")'
+    - 'give_level(100)'
+```
+
+#### 访问方式
+
+- `event.get("propertyName")` - 获取事件的属性
+- `.invoke("methodName")` - 调用对象的方法
+- 链式调用支持：`event.get("view").get("player").invoke("getName")`
+
 ### 示例：检查击杀的实体类型
 
 ```yaml

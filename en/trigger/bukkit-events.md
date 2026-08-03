@@ -91,6 +91,36 @@ my_trigger:
 
 Each event type automatically injects relevant variables into the script context. Access them via `context("variable_name")`.
 
+### event Object (1.13.0.0+)
+
+Starting from version 1.13.0.0, all triggers now have an `event` object in their context that allows direct access to the Bukkit event object.
+
+The `event` object is a reflective property resolver that can access event properties through method calls.
+
+#### Usage Example
+
+```yaml
+on_craft_diamond_sword:
+  type: 'crafting'
+  recipes:
+    - 'minecraft:diamond_sword'
+  conditions:
+    mode: script
+    body:
+      - 'if event.get("view").get("player").invoke("getName") == "Yufiria_"'
+      - '  tell("The plugin developer is crafting!")'
+      - 'endif'
+  actions:
+    - 'tell("&aCrafting successful!")'
+    - 'give_level(100)'
+```
+
+#### Access Methods
+
+- `event.get("propertyName")` - Get event property
+- `.invoke("methodName")` - Call method on object
+- Chained calls supported: `event.get("view").get("player").invoke("getName")`
+
 ### Example: Check Killed Entity Type
 
 ```yaml

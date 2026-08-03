@@ -18,10 +18,6 @@ result: 'minecraft:netherite_sword'
 base: 'minecraft:diamond_sword'
 addition: 'minecraft:netherite_ingot'
 template: 'minecraft:netherite_upgrade_smithing_template'
-copy_components_rules:
-  - 'enchantments'
-  - 'display_name'
-  - 'custom_model_data'
 ```
 
 ### Fields
@@ -62,6 +58,8 @@ template: 'minecraft:coast_armor_trim_smithing_template'
 > Note: Trim recipes cannot set the result — the `result` configuration option is not available.
 
 ## Copy Components Rules
+
+**Note**: Starting from version 1.13.0.0, it is recommended to use the new `result_processors` configuration option, which provides more powerful features. The old `copy_components_rules` syntax is still compatible. See [Result Processors](/en/recipe/index.md#result-processors-result_processors).
 
 Specifies which components to copy from the base item to the output item:
 
