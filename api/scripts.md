@@ -10,7 +10,7 @@ title: Script API
 ScriptEngine engine = ScriptEngine.INSTANCE;
 
 // 执行脚本表达式
-ScriptContext context = new ScriptContext(player, variables);
+ScriptContext context = new ScriptContext(BukkitPlayer.byPlayer(player), variables);
 ScriptValue result = engine.execute("perm(\"craftorithm.vip\")", context);
 ```
 
@@ -20,11 +20,10 @@ ScriptValue result = engine.execute("perm(\"craftorithm.vip\")", context);
 // 创建脚本上下文
 Map<String, ScriptValue> vars = new HashMap<>();
 vars.put("key", new ScriptValue.Str("value"));
-ScriptContext ctx = new ScriptContext(player, vars);
+ScriptContext context = new ScriptContext(BukkitPlayer.byPlayer(player), vars);
 
 // 获取变量
 ScriptValue val = ctx.getVariable("key");
-Player player = ctx.getPlayer();
 ```
 
 ## ScriptValue 类型

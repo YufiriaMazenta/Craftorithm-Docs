@@ -40,7 +40,7 @@ dependencies {
 ```java
 import pers.yufiria.craftorithm.api.CraftorithmAPI;
 
-CraftorithmAPI api = CraftorithmAPI.INSTANCE;
+CraftorithmAPI api = Craftorithm.api();
 ```
 
 ## API 模块

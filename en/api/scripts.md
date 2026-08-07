@@ -10,7 +10,7 @@ title: Script API
 ScriptEngine engine = ScriptEngine.INSTANCE;
 
 // Execute script expression
-ScriptContext context = new ScriptContext(player, variables);
+ScriptContext context = new ScriptContext(BukkitPlayer.byPlayer(player), variables);
 ScriptValue result = engine.execute("perm(\"craftorithm.vip\")", context);
 ```
 
@@ -20,11 +20,10 @@ ScriptValue result = engine.execute("perm(\"craftorithm.vip\")", context);
 // Create script context
 Map<String, ScriptValue> vars = new HashMap<>();
 vars.put("key", new ScriptValue.Str("value"));
-ScriptContext ctx = new ScriptContext(player, vars);
+ScriptContext ctx = new ScriptContext(BukkitPlayer.byPlayer(player), vars);
 
 // Get variables
 ScriptValue val = ctx.getVariable("key");
-Player player = ctx.getPlayer();
 ```
 
 ## ScriptValue Types

@@ -6,10 +6,28 @@ title: Hook Development
 
 ## ItemPluginHook Interface
 
-To integrate a custom item plugin with Craftorithm, implement the `ItemPluginHook` interface:
+To integrate a custom item plugin with Craftorithm, implement the `ItemPluginHook` interface and the `ItemProvider` interface:
 
 ```java
 public class MyPluginHook implements ItemPluginHook {
+    
+    @Override
+    public ItemProvider itemProvider() {
+        return new MyPluginItemProvider();
+    }
+
+    @Override
+    public String pluginName() {
+        return "MyPlugin";
+    }
+
+
+
+}
+```
+
+```java
+public class MyPluginItemProvider implements ItemProvider {
 
     @Override
     public String namespace() {
@@ -23,10 +41,17 @@ public class MyPluginHook implements ItemPluginHook {
     }
 
     @Override
-    public String matchItemId(ItemStack itemStack) {
+    public NamespacedItemIdStack matchItemId(ItemStack itemStack, boolean ignoreAmount) {
         // Reverse-lookup item ID from ItemStack
         String id = MyPluginAPI.getItemId(itemStack);
-        return id != null ? "myplugin:" + id : null;
+        if (id == null) {
+            return null;
+        }
+        if (ignoreAmount) {
+            return new NamespacedItemIdStack(new NamespacedItemId(namespace(), id));
+        } else {
+            return new NamespacedItemIdStack(new NamespacedItemId(namespace(), id), itemStack.getAmount());
+        }
     }
 }
 ```
@@ -39,22 +64,6 @@ Register during plugin startup:
 CraftorithmAPI.INSTANCE.registerItemPluginHook(new MyPluginHook());
 ```
 
-## Module Structure
-
-If developing as an independent Gradle submodule, reference the existing implementations under `hook/`:
-
-```
-hook/
-├── myplugin/
-│   ├── build.gradle.kts
-│   └── src/main/java/.../MyPluginHook.java
-```
-
-Add the submodule in `settings.gradle.kts`:
-
-```kotlin
-include(":hook:myplugin")
-```
 
 ## Existing Hook Reference
 

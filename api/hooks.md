@@ -6,10 +6,28 @@ title: Hook 开发
 
 ## ItemPluginHook 接口
 
-要将自定义物品插件接入 Craftorithm，需实现 `ItemPluginHook` 接口：
+要将自定义物品插件接入 Craftorithm，需实现 `ItemPluginHook` 接口和 `ItemProvider` 接口：
 
 ```java
 public class MyPluginHook implements ItemPluginHook {
+    
+    @Override
+    public ItemProvider itemProvider() {
+        return new MyPluginItemProvider();
+    }
+
+    @Override
+    public String pluginName() {
+        return "MyPlugin";
+    }
+
+
+
+}
+```
+
+```java
+public class MyPluginItemProvider implements ItemProvider {
 
     @Override
     public String namespace() {
@@ -23,10 +41,17 @@ public class MyPluginHook implements ItemPluginHook {
     }
 
     @Override
-    public String matchItemId(ItemStack itemStack) {
+    public NamespacedItemIdStack matchItemId(ItemStack itemStack, boolean ignoreAmount) {
         // 从 ItemStack 反查物品 ID
         String id = MyPluginAPI.getItemId(itemStack);
-        return id != null ? "myplugin:" + id : null;
+        if (id == null) {
+            return null;
+        }
+        if (ignoreAmount) {
+            return new NamespacedItemIdStack(new NamespacedItemId(namespace(), id));
+        } else {
+            return new NamespacedItemIdStack(new NamespacedItemId(namespace(), id), itemStack.getAmount());
+        }
     }
 }
 ```
@@ -39,22 +64,6 @@ public class MyPluginHook implements ItemPluginHook {
 CraftorithmAPI.INSTANCE.registerItemPluginHook(new MyPluginHook());
 ```
 
-## 模块结构
-
-如果作为独立 Gradle 子模块开发，参考 `hook/` 目录下的现有实现：
-
-```
-hook/
-├── myplugin/
-│   ├── build.gradle.kts
-│   └── src/main/java/.../MyPluginHook.java
-```
-
-在 `settings.gradle.kts` 中添加子项目：
-
-```kotlin
-include(":hook:myplugin")
-```
 
 ## 现有 Hook 参考
 
