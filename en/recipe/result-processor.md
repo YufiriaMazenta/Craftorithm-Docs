@@ -8,17 +8,15 @@ Result processors are a feature added in version 1.13.0.0 that allows adding add
 
 ## Supported Recipe Types
 
-| Recipe Type | type Value | Support Status |
-|-------------|------------|----------------|
-| Anvil Recipe | `anvil` | ✅ Supported |
-| Smithing Transform | `vanilla_smithing_transform` | ✅ Supported |
-| Smelting | `vanilla_smelting_*` | ✅ Supported |
-| Brewing | `vanilla_brewing` | ✅ Supported |
-| Shaped Recipe | `vanilla_shaped` | ✅ Supported |
-| Shapeless Recipe | `vanilla_shapeless` | ✅ Supported |
-| Stonecutting | `vanilla_stonecutting` | ❌ Not Supported |
-
-**Note**: Stonecutting recipes (`vanilla_stonecutting`) do not currently support result processors.
+| Recipe Type | type Value | Support Status                     |
+|-------------|------------|------------------------------------|
+| Anvil Recipe | `anvil` | ✅ Supported                       |
+| Smithing Transform | `vanilla_smithing_transform` | ✅ Supported                       |
+| Smelting | `vanilla_smelting_*` | ✅ Supported                       |
+| Brewing | `vanilla_brewing` | ✅ Supported                       |
+| Shaped Recipe | `vanilla_shaped` | ✅ Supported                       |
+| Shapeless Recipe | `vanilla_shapeless` | ✅ Supported                       |
+| Stonecutting | `vanilla_stonecutting` | ✅ Supported on 1.13.2.0 and later |
 
 ## Basic Syntax
 
@@ -33,6 +31,33 @@ result_processors:
     data:  # optional, depends on strategy
       <configuration>
 ```
+
+### List Format
+
+The same component supports list format, executing multiple processing actions in order:
+
+```yaml
+result_processors:
+  enchantments:
+    - type: copy_from_source
+    - type: remove
+      data:
+        value:
+          - "minecraft:sharpness"
+    - type: add
+      data:
+        minecraft:unbreaking: 3
+```
+
+### Source Item Meaning
+
+The meaning of the source item varies by recipe type:
+
+| Recipe Type | Source Item |
+|-------------|-------------|
+| Anvil/Smithing | base item (left slot) |
+| Smelting/Stonecutting/Brewing | input item |
+| Crafting table | null (no source item) |
 
 ## Processing Strategies
 
@@ -163,25 +188,36 @@ result_processors:
   enchantments:
     type: copy_from_source
 
-  # Add custom enchantments (overrides the copy above)
+  # List format example: copy source enchantments, remove sharpness, then add mending
   # enchantments:
-  #   type: add
-  #   data:
-  #     minecraft:sharpness: 5
-  #     minecraft:mending: 1
-  #     minecraft:unbreaking: 3
+  #   - type: copy_from_source
+  #   - type: remove
+  #     data:
+  #       value:
+  #         - "minecraft:sharpness"
+  #   - type: add
+  #     data:
+  #       minecraft:mending: 1
 
   # Copy display name
   display_name:
     type: copy_from_source
 
-  # Add custom lore
+  # Add custom lore (single action)
   lore:
     type: add
     data:
       value:
         - "&7Legendary Weapon"
         - "&aForged with Nether Star"
+
+  # List format example: copy lore from source, then append custom lines
+  # lore:
+  #   - type: copy_from_source
+  #   - type: add
+  #     data:
+  #       value:
+  #         - "&7Crafted via anvil"
 
   # Merge attributes
   attributes:
@@ -255,8 +291,14 @@ addition: 'minecraft:diamond'
 
 result_processors:
   custom_persistent_data:
-    # Copy all PDC
+    # Single action: copy all PDC
     type: copy_from_source
+
+    # List format example: copy then add custom key
+    # - type: copy_from_source
+    # - type: add
+    #   data:
+    #     myns:custom_key: "value"
 
     # Copy only specific key
     # type: copy_from_source

@@ -72,8 +72,4 @@ Create YAML files directly in the `recipes/` directory. Best for batch creation 
 
 The result processor feature was added in version 1.13.0.0 to add additional effects to recipe results during crafting. Result processors can copy, add, or remove item components.
 
-**Note**: Stonecutting recipes (`vanilla_stonecutting`) do not currently support result processors.
-
-Supported recipe types: Anvil, Smithing, Smelting, Brewing, Shaped/Shapeless recipes.
-
 For detailed usage, see [Result Processors](/en/recipe/result-processor.md).

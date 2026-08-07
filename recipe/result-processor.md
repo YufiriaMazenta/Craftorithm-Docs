@@ -8,15 +8,15 @@ title: 结果处理器
 
 ## 支持的配方类型
 
-| 配方类型 | type 值 | 支持状态 |
-|----------|---------|----------|
-| 铁砧配方 | `anvil` | ✅ 支持 |
-| 锻造台改造 | `vanilla_smithing_transform` | ✅ 支持 |
-| 熔炉烧炼 | `vanilla_smelting_*` | ✅ 支持 |
-| 酿造台 | `vanilla_brewing` | ✅ 支持 |
-| 有序配方 | `vanilla_shaped` | ✅ 支持 |
-| 无序配方 | `vanilla_shapeless` | ✅ 支持 |
-| 切石机 | `vanilla_stonecutting` | ❌ 不支持 |
+| 配方类型 | type 值 | 支持状态                  |
+|----------|---------|---------------------------|
+| 铁砧配方 | `anvil` | ✅ 支持                   |
+| 锻造台改造 | `vanilla_smithing_transform` | ✅ 支持                   |
+| 熔炉烧炼 | `vanilla_smelting_*` | ✅ 支持                   |
+| 酿造台 | `vanilla_brewing` | ✅ 支持                   |
+| 有序配方 | `vanilla_shaped` | ✅ 支持                   |
+| 无序配方 | `vanilla_shapeless` | ✅ 支持                   |
+| 切石机 | `vanilla_stonecutting` | ✅ 1.13.2.0及以上版本支持 |
 
 **注意**：切石机配方 (`vanilla_stonecutting`) 暂不支持结果处理器。
 
@@ -33,6 +33,33 @@ result_processors:
     data:  # 可选，取决于处理策略
       <配置>
 ```
+
+### 列表格式
+
+同一组件支持列表格式，按顺序执行多个处理动作：
+
+```yaml
+result_processors:
+  enchantments:
+    - type: copy_from_source
+    - type: remove
+      data:
+        value:
+          - "minecraft:sharpness"
+    - type: add
+      data:
+        minecraft:unbreaking: 3
+```
+
+### sourceItem 含义
+
+不同配方类型中，源物品(source)的含义不同：
+
+| 配方类型 | sourceItem |
+|----------|------------|
+| 铁砧/锻造台 | base 物品（左侧物品） |
+| 烧炼/切石/酿造 | 输入物品 |
+| 工作台 | null（无源物品） |
 
 ## 处理策略
 
@@ -163,25 +190,36 @@ result_processors:
   enchantments:
     type: copy_from_source
 
-  # 添加自定义附魔（覆盖上面的复制）
+  # 列表格式示例: 先复制source附魔, 再移除锋利, 再添加经验修补
   # enchantments:
-  #   type: add
-  #   data:
-  #     minecraft:sharpness: 5
-  #     minecraft:mending: 1
-  #     minecraft:unbreaking: 3
+  #   - type: copy_from_source
+  #   - type: remove
+  #     data:
+  #       value:
+  #         - "minecraft:sharpness"
+  #   - type: add
+  #     data:
+  #       minecraft:mending: 1
 
   # 复制显示名称
   display_name:
     type: copy_from_source
 
-  # 添加自定义 lore
+  # 添加自定义 lore（单个动作）
   lore:
     type: add
     data:
       value:
         - "&7传世神器"
         - "&a由下界合金之星锻造"
+
+  # 列表格式示例: 先从source复制lore, 再追加自定义行
+  # lore:
+  #   - type: copy_from_source
+  #   - type: add
+  #     data:
+  #       value:
+  #         - "&7由铁砧合成"
 
   # 合并属性
   attributes:
@@ -255,8 +293,14 @@ addition: 'minecraft:diamond'
 
 result_processors:
   custom_persistent_data:
-    # 复制全部 PDC
+    # 单个动作: 复制全部 PDC
     type: copy_from_source
+
+    # 列表格式示例: 复制后再添加自定义 key
+    # - type: copy_from_source
+    # - type: add
+    #   data:
+    #     myns:custom_key: "value"
 
     # 只复制指定 key
     # type: copy_from_source
