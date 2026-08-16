@@ -19,7 +19,19 @@ Craftorithm 内置了一个编译型脚本引擎，用于触发器的条件判�
 
 ## 语法
 
-## 数据类型
+### 全局变量(1.13.3.0+)
+
+从1.13.3.0开始, 脚本系统具有全局变量, 可以在所有使用脚本的地方使用, 例如触发器, UI
+
+目前一共有三个全局变量: server, recipe_manager和item_manager
+
+server即为服务端的Server实例, 一般为CraftServer
+
+recipe_manager为插件提供的配方管理者
+
+item_manager为插件的物品系统管理者
+
+### 数据类型
 
 Craftorithm的脚本系统具有四种数据类型，分别如下：
 

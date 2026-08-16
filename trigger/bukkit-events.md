@@ -4,7 +4,7 @@ title: 事件触发器
 
 # 事件触发器
 
-Craftorithm 支持 44+ 种 Bukkit 事件作为触发器类型，覆盖玩家、实体、背包、方块等各类事件。
+Craftorithm 支持多种 Bukkit 事件作为触发器类型，覆盖玩家、实体、背包、方块等各类事件。
 
 ## 使用方式
 
@@ -74,11 +74,13 @@ my_trigger:
 
 ### 背包事件
 
-| 事件名 | 说明 | 上下文变量 |
-|--------|------|-----------|
-| `inventory_click` | 点击格子 | `slot`, `click_type` |
-| `inventory_close` | 关闭背包 | — |
-| `inventory_open` | 打开背包 | — |
+| 事件名               | 说明           | 上下文变量           |
+|----------------------|----------------|----------------------|
+| `inventory_click`    | 点击格子       | `slot`, `click_type` |
+| `inventory_close`    | 关闭背包       | —                    |
+| `inventory_open`     | 打开背包       | —                    |
+| `prepare_grindstone` | 砂轮显示结果时 | —                    |
+| `trade_select`       | 选择村民交易项 | `index`               |
 
 ### 方块事件
 
@@ -127,7 +129,7 @@ on_craft_diamond_sword:
 on_kill_zombie:
   type: 'kill_entity'
   conditions:
-    - 'context("entity_type") == "ZOMBIE"'
+    - 'entity_type == "ZOMBIE"'
   actions:
     - 'tell("&a你击杀了一只僵尸！")'
 ```
@@ -138,7 +140,7 @@ on_kill_zombie:
 on_diamond_advancement:
   type: 'player_advancement'
   conditions:
-    - 'context("advancement") == "minecraft:story/mine_diamond"'
+    - 'advancement == "minecraft:story/mine_diamond"'
   actions:
     - 'tell("&b你挖到了钻石！")'
     - 'give_money(1000)'

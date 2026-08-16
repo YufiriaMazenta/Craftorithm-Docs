@@ -39,8 +39,8 @@ craft_example:
   recipes:
     - 'craftorithm:shaped_01'
   conditions:
-    - 'context("ingredient_0_0_amount") >= 2'
-    - 'context("ingredient_0_0") != "items:example_item:1"'
+    - 'ingredient_0_0_amount >= 2'
+    - 'ingredient_0_0 != "items:example_item:1"'
 ```
 
 在这个示例中,他会获取配方第一行第一个物品的数量和物品id, 并在数量大于等于2, 且不能是`items:example_item:1`这个特殊物品, 才能合成

@@ -41,8 +41,8 @@ craft_example:
   recipes:
     - 'craftorithm:shaped_01'
   conditions:
-    - 'context("ingredient_0_0_amount") >= 2'
-    - 'context("ingredient_0_0") != "items:example_item:1"'
+    - 'ingredient_0_0_amount >= 2'
+    - 'ingredient_0_0 != "items:example_item:1"'
 ```
 
 In this example, it gets the quantity and item ID of the first row, first column material, and only allows crafting when the quantity is >= 2 and the item is not `items:example_item:1`.

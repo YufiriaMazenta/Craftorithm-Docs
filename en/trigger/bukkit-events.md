@@ -4,7 +4,7 @@ title: Event triggers
 
 # Event triggers
 
-Craftorithm supports 44+ Bukkit event types as trigger types, covering player, entity, inventory, and block events.
+Craftorithm supports multiple Bukkit event types as trigger types, covering player, entity, inventory, and block events.
 
 ## Usage
 
@@ -79,6 +79,8 @@ my_trigger:
 | `inventory_click` | Click slot | `slot`, `click_type` |
 | `inventory_close` | Close inventory | — |
 | `inventory_open` | Open inventory | — |
+| `prepare_grindstone` | Grindstone shows result | — |
+| `trade_select` | Select villager trade | `index` |
 
 ### Block Events
 
@@ -127,7 +129,7 @@ on_craft_diamond_sword:
 on_kill_zombie:
   type: 'kill_entity'
   conditions:
-    - 'context("entity_type") == "ZOMBIE"'
+    - 'entity_type == "ZOMBIE"'
   actions:
     - 'tell("&aYou killed a zombie!")'
 ```
@@ -138,7 +140,7 @@ on_kill_zombie:
 on_diamond_advancement:
   type: 'player_advancement'
   conditions:
-    - 'context("advancement") == "minecraft:story/mine_diamond"'
+    - 'advancement == "minecraft:story/mine_diamond"'
   actions:
     - 'tell("&bYou found diamonds!")'
     - 'give_money(1000)'

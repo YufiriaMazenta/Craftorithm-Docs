@@ -176,6 +176,14 @@ title: 函数
 
 例如`set("num_var", int(1.1))`, 虽然传入的是1.1, 但是实际设置的值是1
 
+### `match_item_id`(1.13.3.0+)
+
+这个函数的作用是识别一个物品的id,不包含数量. 类似于配方文件里使用的物品id
+
+他要求传入ItemStack类型的变量, 所以大部分情况下需要通过event对象进行获取
+
+例如`match_item_id(event.get("item"))`, 如果这个物品拥有由插件定义的id, 将会返回一个字符串, 如果没有, 将会返回nil
+
 # 自定义函数注册
 
 插件开发者可通过 `ScriptFunctionRegistry` 注册自定义函数：

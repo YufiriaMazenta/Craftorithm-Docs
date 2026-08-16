@@ -176,6 +176,14 @@ Both must accept one parameter.
 
 For example, `set("num_var", int(1.1))` - although 1.1 is passed in, the actual value set is 1.
 
+## `match_item_id`(1.13.3.0+)
+
+This function identifies an item's ID without the quantity, similar to the item ID format used in recipe files.
+
+It requires an ItemStack type variable, so in most cases you need to obtain it through the event object.
+
+For example, `match_item_id(event.get("item"))` - if the item has a plugin-defined ID, it returns a string; otherwise, it returns nil.
+
 # Custom Function Registration
 
 Plugin developers can register custom functions through `ScriptFunctionRegistry`:

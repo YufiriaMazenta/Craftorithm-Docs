@@ -18,7 +18,19 @@ Craftorithm includes a compiled script engine used for trigger condition evaluat
 
 ## Syntax
 
-## Data Types
+### Global Variables (1.13.3.0+)
+
+Starting from version 1.13.3.0, the script system has global variables that can be used anywhere scripts are used, such as triggers and UI.
+
+There are currently three global variables: `server`, `recipe_manager`, and `item_manager`.
+
+`server` is the server's Server instance, typically CraftServer.
+
+`recipe_manager` is the plugin's recipe manager.
+
+`item_manager` is the plugin's item system manager.
+
+### Data Types
 
 Craftorithm's script system has five data types as follows:
 
