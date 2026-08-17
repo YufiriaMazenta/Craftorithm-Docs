@@ -26,10 +26,31 @@ title: config.yml
 
 ### 物品设置
 
-| 键 | 类型 | 默认值 | 说明 |
-|----|------|--------|------|
-| `item_plugin_hook_priority` | list | (有序列表) | 外部物品插件检测优先级 |
-| `cannot_craft_items` | list | `[]` | 禁止合成的物品 ID 列表 |
+| 键                            | 类型 | 默认值 | 说明                                               |
+|-------------------------------|------|--------|----------------------------------------------------|
+| `item_plugin_hook_priority`   | list | (有序列表) | 外部物品插件检测优先级                             |
+| `cannot_craft_items`          | list | `[]` | 禁止合成的物品 ID 列表(在1.13.4.0版本移除)         |
+| `blocked_crafting_lore_rules` | list | `[]` | 阻止包含指定lore的物品被用于合成(1.13.4.0版本添加) |
+
+`blocked_crafting_lore_rules`是1.13.4.0新增的功能, 可以设定包含某条lore的物品不能被用作配方材料, 可以作用于所有配方类型
+
+判断是否包含lore时会忽略颜色, 所以在配置时也不要设置, 否则无法匹配到
+
+配方键支持正则或精准匹配
+
+配置格式:
+
+```yaml
+blocked_crafting_lore_rules:
+  - lore: '无法用于合成' 
+    blocked_recipes:
+      - '.*' #匹配所有配方
+  - lore: '无法用于原版配方'
+    blocked_recipes:
+      - 'minecraft:.*' #匹配原版配方
+      - 'craftorithm:vanilla_shaped' #精确匹配
+```
+
 
 ### 命令设置
 
@@ -66,7 +87,15 @@ max_reg_recipe_per_tick: 20
 #是否启用实验性配方材料功能
 #启用后，除1.21.3及以上的切石机配方外，合成材料的识别将不会受到NBT/组件变更的影响，但可能在配方书等场景下出现一些问题
 use_experimental_recipe_ingredients: true
-cannot_craft_items: []
+#设定包含指定lore不能被用于某些配方的规则
+blocked_crafting_lore_rules:
+  - lore: '无法用于合成'
+    blocked_recipes:
+      - '.*' #匹配所有配方
+  - lore: '无法用于原版配方'
+    blocked_recipes:
+      - 'minecraft:.*' #匹配原版配方
+      - 'craftorithm:vanilla_shaped' #精确匹配
 #依照上面的挂钩顺序挂钩插件可以挂钩的物品插件,插件自动识别物品ID时将会优先识别上面的插件
 #不包含在此列表里的物品插件将不会尝试挂钩,除非该插件主动挂钩
 item_plugin_hook_priority:

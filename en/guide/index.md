@@ -39,6 +39,14 @@ The recipe will be automatically saved to the `plugins/Craftorithm/recipes/` dir
 
 Place the corresponding materials in a crafting table and confirm the recipe appears in the crafting result.
 
+## PlaceholderAPI Variables
+
+Starting from version 1.13.4.0, Craftorithm provides some PlaceholderAPI variables:
+
+`%craftorithm_discovered%` returns the number of recipes the current player has discovered.
+
+`%craftorithm_discovered_<recipe_key>%` returns whether the player has discovered the specified recipe, e.g., `%craftorithm_discovered_minecraft:diamond_sword%`
+
 ## Next Steps
 
 - [Recipe System](/recipe/) — Learn the details of 11 recipe types

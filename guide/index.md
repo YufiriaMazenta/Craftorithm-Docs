@@ -39,6 +39,14 @@ title: 快速开始
 
 在工作台中放入对应的材料，确认配方出现在合成结果中。
 
+## PlaceholderAPI变量
+
+从1.13.4.0开始, Craftorithm提供了一些PlaceholderAPI变量
+
+`%craftorithm_discovered%` 返回当前玩家发现的配方数量
+
+`%craftorithm_discovered_<recipe_key>%` 返回玩家是否发现了该配方, 例如`%craftorithm_discovered_minecraft:diamond_sword%`
+
 ## 下一步
 
 - [配方系统](/recipe/) — 了解 11 种配方类型的详细写法

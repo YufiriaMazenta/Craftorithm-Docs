@@ -21,14 +21,35 @@ The main configuration file `plugins/Craftorithm/config.yml` controls core plugi
 |-----|------|---------|-------------|
 | `remove_all_vanilla_recipe` | boolean | `false` | Remove all vanilla recipes |
 | `enable_anvil_recipe` | boolean | `true` | Enable custom anvil recipes |
-| `max_reg_recipe_per_tick` | integer | `20` | Max recipes registered per tick (anti-lag) |
+| `use_experimental_recipe_ingredients` | boolean | `true` | Enable experimental recipe ingredients (1.21.3+ stonecutter recipes unaffected by NBT/component changes) |
+| `max_reg_recipe_per_tick` | integer | `12` | Max recipes registered per tick (anti-lag) |
 
 ### Item Settings
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | `item_plugin_hook_priority` | list | (ordered list) | External item plugin detection priority |
-| `cannot_craft_items` | list | `[]` | Item IDs that cannot be used in crafting |
+| `cannot_craft_items` | list | `[]` | Item IDs that cannot be used in crafting (removed in 1.13.4.0) |
+| `blocked_crafting_lore_rules` | list | `[]` | Prevent items with specified lore from being used in crafting (added in 1.13.4.0) |
+
+`blocked_crafting_lore_rules` is a new feature in 1.13.4.0. It allows you to set rules that items with a specific lore line cannot be used as recipe materials. This applies to all recipe types.
+
+Lore matching ignores color codes, so do not include color codes in your config, or the match will fail.
+
+Recipe keys support both regex and exact matching.
+
+Configuration format:
+
+```yaml
+blocked_crafting_lore_rules:
+  - lore: 'Cannot be used for crafting'
+    blocked_recipes:
+      - '.*' # Match all recipes
+  - lore: 'Cannot be used for vanilla recipes'
+    blocked_recipes:
+      - 'minecraft:.*' # Regex match vanilla recipes
+      - 'craftorithm:vanilla_shaped' # Exact match
+```
 
 ### Command Settings
 
@@ -61,8 +82,19 @@ reload_when_ia_reload: true
 # Whether to enable debug mode
 debug: false
 # Maximum number of recipes registered per tick
-max_reg_recipe_per_tick: 20
-cannot_craft_items: []
+max_reg_recipe_per_tick: 12
+# Enable experimental recipe ingredients
+# When enabled, recipe material identification is not affected by NBT/component changes (except 1.21.3+ stonecutter recipes), but may cause issues in recipe book
+use_experimental_recipe_ingredients: true
+# Rules to prevent items with specified lore from being used in certain recipes
+blocked_crafting_lore_rules:
+  - lore: 'Cannot be used for crafting'
+    blocked_recipes:
+      - '.*' # Match all recipes
+  - lore: 'Cannot be used for vanilla recipes'
+    blocked_recipes:
+      - 'minecraft:.*' # Match vanilla recipes
+      - 'craftorithm:vanilla_shaped' # Exact match
 # Hook item plugins in the order listed above for item detection priority
 # Item plugins not in this list will not be hooked unless they actively hook into Craftorithm
 item_plugin_hook_priority:
