@@ -8,32 +8,33 @@ Craftorithm integrates with 10+ external item plugins through its hook system, a
 
 ## Supported Plugins
 
-| Plugin | Namespace | ID Format              | Notes |
-|--------|-----------|------------------------|-------|
-| CraftEngine | `craftengine` | `craftengine:<id>`     | — |
-| Nexo | `nexo` | `nexo:<id>`            | — |
-| AzureFlow | `azureflow` | `azureflow:<id>`       | — |
-| NeigeItems | `neigeitems` | `neigeitems:<id>`      | — |
-| ItemsAdder | `itemsadder` | `itemsadder:<id>`      | Auto-reload supported |
-| Oraxen | `oraxen` | `oraxen:<id>`          | Auto-reload supported |
-| EcoItems | `ecoitems` | `ecoitems:<id>`        | — |
+| Plugin | Namespace | ID Format | Notes |
+|--------|-----------|-----------|-------|
+| CraftEngine | `craft_engine` | `craft_engine:<id>` | — |
+| Nexo | `nexo` | `nexo:<id>` | — |
+| AzureFlow | `azureflow` | `azureflow:<id>` | — |
+| NeigeItems | `neige_items` | `neige_items:<id>` | — |
+| ItemsAdder | `items_adder` | `items_adder:<id>` | Auto-reload supported |
+| Oraxen | `oraxen` | `oraxen:<id>` | Auto-reload supported |
+| EcoItems | `ecoitems` | `ecoitems:<id>` | — |
 | ExecutableItems | `executableitems` | `executableitems:<id>` | — |
 | MMOItems | `mmoitems` | `mmoitems:<type>:<id>` | Requires type prefix |
-| MythicMobs | `mythicmobs` | `mythicmobs:<id>`      | — |
-| SX-Item | `sx-item` | `sx-item:<id>`         | — |
+| MythicMobs | `mythic_mobs` | `mythic_mobs:<id>` | — |
+| SX-Item | `sx_item` | `sx_item:<id>` | — |
+| CustomFishing | `custom_fishing` | `custom_fishing:<id>` | — |
 
 ## Usage Examples
 
 ```yaml
 # Using ItemsAdder item as recipe output
 type: 'vanilla_shaped'
-result: 'itemsadder:ruby_sword'
+result: 'items_adder:ruby_sword'
 shape:
   - ' A '
   - ' B '
   - ' B '
 ingredients:
-  A: 'mythicmobs:ruby'
+  A: 'mythic_mobs:ruby'
   B: 'minecraft:stick'
 
 # Using MMOItems item
@@ -46,15 +47,4 @@ ingredients:
 
 ## Hook Priority
 
-When multiple plugins register items with the same ID, Craftorithm searches in the order defined by `item_plugin_hook_priority` in `config.yml` and returns the first match.
-
-## Auto-Reload
-
-- **ItemsAdder**: When ItemsAdder runs `/ia reload`, Craftorithm automatically reloads recipes
-- **Oraxen**: When Oraxen reloads, Craftorithm automatically reloads recipes
-
-You can disable this behavior in `config.yml`:
-
-```yaml
-reload_when_ia_reload: false
-```
+When an item is defined by multiple plugins, Craftorithm searches in the order defined by `item_plugin_hook_priority` in `config.yml` and returns the first match.

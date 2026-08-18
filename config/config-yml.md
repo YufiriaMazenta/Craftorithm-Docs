@@ -26,29 +26,34 @@ title: config.yml
 
 ### 物品设置
 
-| 键                            | 类型 | 默认值 | 说明                                               |
-|-------------------------------|------|--------|----------------------------------------------------|
-| `item_plugin_hook_priority`   | list | (有序列表) | 外部物品插件检测优先级                             |
-| `cannot_craft_items`          | list | `[]` | 禁止合成的物品 ID 列表(在1.13.4.0版本移除)         |
-| `blocked_crafting_lore_rules` | list | `[]` | 阻止包含指定lore的物品被用于合成(1.13.4.0版本添加) |
+| 键                             | 类型 | 默认值 | 说明                                               |
+|--------------------------------|------|--------|----------------------------------------------------|
+| `item_plugin_hook_priority`    | list | (有序列表) | 外部物品插件检测优先级                             |
+| `cannot_craft_items`           | list | `[]` | 禁止合成的物品 ID 列表(在1.13.4.0版本移除)         |
+| `blocked_crafting_lore_rules`  | list | `[]` | 阻止包含指定lore的物品被用于合成(1.13.5.0版本移除) |
+| `ingredient_restriction_rules` | list | [] | 通过设置不同规则来阻止物品被用于合成(1.13.5.0版本添加,替代上面两个功能 |
 
-`blocked_crafting_lore_rules`是1.13.4.0新增的功能, 可以设定包含某条lore的物品不能被用作配方材料, 可以作用于所有配方类型
+`ingredient_restriction_rules`是1.13.5.0新增的功能, 可以设定符合物品不能被用作指定配方的材料, 可以作用于所有配方类型
 
-判断是否包含lore时会忽略颜色, 所以在配置时也不要设置, 否则无法匹配到
-
-配方键支持正则或精准匹配
+在1.13.5.0版本的插件启动时, 会对原`cannot_craft_items`和`blocked_crafting_lore_rules`进行自动转换, 无需手动更新
 
 配置格式:
 
 ```yaml
-blocked_crafting_lore_rules:
-  - lore: '无法用于合成' 
-    blocked_recipes:
-      - '.*' #匹配所有配方
-  - lore: '无法用于原版配方'
-    blocked_recipes:
-      - 'minecraft:.*' #匹配原版配方
-      - 'craftorithm:vanilla_shaped' #精确匹配
+ingredient_restriction_rules:
+  - type: item_id
+    item_id: minecraft:diamond
+    recipes:
+      - .*
+  - type: lore
+    lore: 无法用于合成
+    recipes:
+      - .*
+  - type: lore
+    lore: 无法用于原版配方
+    recipes:
+      - minecraft:.*
+      - craftorithm:vanilla_shaped
 ```
 
 
@@ -68,36 +73,27 @@ blocked_crafting_lore_rules:
 ## 示例
 
 ```yaml
-#插件的配置版本
-config_version: 2
-#是否开启版本更新检查
+# 是否进行更新检测
 check_update: true
-#是否移除所有的原版配方
+# 是否卸载所有的原版配方
 remove_all_vanilla_recipe: false
-#是否启用插件铁砧配方
-enable_anvil_recipe: true
-#是否启用bstats插件使用数据统计
+# 是否允许插件通过bStats收集使用信息
 bstats: true
-#是否在ItemsAdder重载时也重载Craftorithm
+# 是否启用铁砧配方
+enable_anvil_recipe: true
+# 是否在ItemsAdder重载时跟随一起重载
 reload_when_ia_reload: true
-#是否开启调试
-debug: false
-#单个tick最多注册几个配方
-max_reg_recipe_per_tick: 20
-#是否启用实验性配方材料功能
-#启用后，除1.21.3及以上的切石机配方外，合成材料的识别将不会受到NBT/组件变更的影响，但可能在配方书等场景下出现一些问题
+debug: true
+# 每tick注册的配方数量，调低此数值可以减少服务器卡顿
+max_reg_recipe_per_tick: 12
+# 是否启用实验性配方材料功能
+# 启用后，除1.21.3及以上的切石机配方外，合成材料的识别将不会受到NBT/组件变更的影响，但可能在配方书等场景下出现一些问题
 use_experimental_recipe_ingredients: true
-#设定包含指定lore不能被用于某些配方的规则
-blocked_crafting_lore_rules:
-  - lore: '无法用于合成'
-    blocked_recipes:
-      - '.*' #匹配所有配方
-  - lore: '无法用于原版配方'
-    blocked_recipes:
-      - 'minecraft:.*' #匹配原版配方
-      - 'craftorithm:vanilla_shaped' #精确匹配
-#依照上面的挂钩顺序挂钩插件可以挂钩的物品插件,插件自动识别物品ID时将会优先识别上面的插件
-#不包含在此列表里的物品插件将不会尝试挂钩,除非该插件主动挂钩
+# 是否启用script的裸脚本语法
+# 为false的情况下，无法使用形如`tell "Hello world"`这样的写法，必须使用`tell("hello, world")
+enable_script_bare_args: false
+# 依照上面的挂钩顺序挂钩插件可以挂钩的物品插件,插件自动识别物品ID时将会优先识别上面的插件
+# 不包含在此列表里的物品插件将不会尝试挂钩,除非该插件主动挂钩
 item_plugin_hook_priority:
   - CraftEngine
   - Nexo
@@ -109,10 +105,12 @@ item_plugin_hook_priority:
   - ExecutableItems
   - MMOItems
   - MythicMobs
+# 插件主命令的别名，只在插件启动时读取一次
 main_command_aliases:
   - cra
   - craft
   - crafto
+# 不进行隔离的监听器类，在此列表里的监听器类可以检测到Craftorithm的配方
 not_convert_listener_classes:
   - a4.papers.chatfilter.chatfilter.events.AnvilListener
   - com.ghostchu.quickshop.shade.tne.menu.paper.listener.PaperInventoryClickListener
@@ -131,4 +129,19 @@ not_convert_listener_classes:
   - com.badbones69.crazycrates.paper.listeners.crates.types.WarCrateListener
   - com.ryderbelserion.fusion.paper.api.builders.gui.listeners.GuiListener
   - club.kid7.bannermaker.pluginutilities.gui.CustomGUIInventoryListener
+ingredient_restriction_rules:
+  - type: item_id
+    item_id: minecraft:diamond
+    recipes:
+      - .*
+  - type: lore
+    lore: 无法用于合成
+    recipes:
+      - .*
+  - type: lore
+    lore: 无法用于原版配方
+    recipes:
+      - minecraft:.*
+      - craftorithm:vanilla_shaped
+
 ```
