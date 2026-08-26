@@ -22,7 +22,7 @@ boolean exists = api.containsRecipe("craftorithm:my_recipe");
 Map<NamespacedKey, Recipe> recipes = api.getCraftorithmRecipes();
 
 // 获取所有服务器配方（含原版）
-Map<NamespacedKey, Recipe> allRecipes = api.getServerRecipes();
+Set<NamespacedKey> allRecipes = api.getServerRecipeKeys();
 ```
 
 ## 按类型获取配方
@@ -66,6 +66,52 @@ api.removeCraftorithmRecipe(key, true);
 ```java
 String fileName = api.getRecipeFileNameByKey(key);
 NamespacedKey key = api.getRecipeKeyByFileName("my_recipe");
+```
+
+## 结果处理器(1.13.6.0+)
+
+结果处理器支持用户注册自定义的组件类型, 只需要实现`pers.yufiria.craftorithm.resultprocessor.ComponentProcessorFactory`接口, 并将其注册即可
+
+例如:
+
+```java
+ResultProcessorManager.INSTANCE.registerFactory(new ComponentProcessorFactory() {
+    @Override
+    public String componentName() {
+        return "custom_component";
+    }
+
+    @Override
+    public ResultProcessor createProcessor(String type, @Nullable ConfigurationSection data) {
+        return new ResultProcessor() {
+            @Override
+            public String processorName() {
+                return componentName();
+            }
+
+            @Override
+            public void processItem(@Nullable ItemStack sourceItem, @NotNull ItemStack resultItem, @Nullable Player player) {
+                //进行一些操作
+            }
+        };
+    }
+});
+```
+
+对于已有的结果处理器, 也可以添加额外的操作类型, 例如:
+
+```java
+LoreProcessorFactory.INSTANCE.handlers().put("random_lore", configurationSection -> new ResultProcessor() {
+    @Override
+    public String processorName() {
+        return LoreProcessorFactory.INSTANCE.componentName();
+    }
+
+    @Override
+    public void processItem(@Nullable ItemStack sourceItem, @NotNull ItemStack resultItem, @Nullable Player player) {
+        //进行一些操作
+    }
+});
 ```
 
 ## 相关类

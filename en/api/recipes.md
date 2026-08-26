@@ -21,8 +21,8 @@ boolean exists = api.containsRecipe("craftorithm:my_recipe");
 // Get all Craftorithm-registered recipes
 Map<NamespacedKey, Recipe> recipes = api.getCraftorithmRecipes();
 
-// Get all server recipes (including vanilla)
-Map<NamespacedKey, Recipe> allRecipes = api.getServerRecipes();
+// Get all server recipe keys (including vanilla)
+Set<NamespacedKey> allRecipes = api.getServerRecipeKeys();
 ```
 
 ## Getting Recipes by Type
@@ -66,6 +66,52 @@ api.removeCraftorithmRecipe(key, true);  // true = delete file
 ```java
 String fileName = api.getRecipeFileNameByKey(key);
 NamespacedKey key = api.getRecipeKeyByFileName("my_recipe");
+```
+
+## Result Processors (1.13.6.0+)
+
+Result processors support registering custom component types. Simply implement the `pers.yufiria.craftorithm.resultprocessor.ComponentProcessorFactory` interface and register it.
+
+Example:
+
+```java
+ResultProcessorManager.INSTANCE.registerFactory(new ComponentProcessorFactory() {
+    @Override
+    public String componentName() {
+        return "custom_component";
+    }
+
+    @Override
+    public ResultProcessor createProcessor(String type, @Nullable ConfigurationSection data) {
+        return new ResultProcessor() {
+            @Override
+            public String processorName() {
+                return componentName();
+            }
+
+            @Override
+            public void processItem(@Nullable ItemStack sourceItem, @NotNull ItemStack resultItem, @Nullable Player player) {
+                // Perform custom processing
+            }
+        };
+    }
+});
+```
+
+For existing result processors, you can also add additional handler types:
+
+```java
+LoreProcessorFactory.INSTANCE.handlers().put("random_lore", configurationSection -> new ResultProcessor() {
+    @Override
+    public String processorName() {
+        return LoreProcessorFactory.INSTANCE.componentName();
+    }
+
+    @Override
+    public void processItem(@Nullable ItemStack sourceItem, @NotNull ItemStack resultItem, @Nullable Player player) {
+        // Perform custom processing
+    }
+});
 ```
 
 ## Related Classes
