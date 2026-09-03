@@ -17,12 +17,14 @@ title: config.yml
 
 ### 配方设置
 
-| 键                  | 类型      | 默认值     | 说明                        |
-|--------------------|---------|---------|---------------------------|
-| `remove_all_vanilla_recipe` | boolean | `false` | 移除所有原版配方                  |
-| `enable_anvil_recipe` | boolean | `true`  | 启用自定义铁砧配方                 |
-| `max_reg_recipe_per_tick` | integer | `12` | 每 tick 最大配方注册数（防卡顿）       |
-| `use_experimental_recipe_ingredients` | boolean | `true`  | 是否启用实验性配方材料功能，会改变配方材料匹配模式 |
+| 键                | 类型       | 默认值     | 说明                                                            |
+|------------------|----------|---------|---------------------------------------------------------------|
+| `remove_all_vanilla_recipe` | boolean  | `false` | 移除所有原版配方                                                      |
+| `enable_anvil_recipe` | boolean  | `true`  | 启用自定义铁砧配方                                                     |
+| `max_reg_recipe_per_tick` | integer  | `100`   | 每 tick 最大配方注册数（防卡顿）                                           |
+| `use_experimental_recipe_ingredients` | boolean  | `true`  | 是否启用实验性配方材料功能，会改变配方材料匹配模式                                     |
+| `ingredient_use_set_threshold` | interger | `8`| 在一个材料允许多少种物品的情况下，使用HashSet替代ArrayList进行材料匹配，在材料种类较多的情况下可以提升性能 |
+
 
 ### 物品设置
 
@@ -68,7 +70,12 @@ ingredient_restriction_rules:
 | 键 | 类型 | 默认值 | 说明 |
 |----|------|--------|------|
 | `bstats` | boolean | `true` | 启用 bStats 统计 |
-| `reload_when_ia_reload` | boolean | `true` | ItemsAdder 重载时自动重载 |
+
+### 兼容性设置
+
+| 键 | 类型 | 默认值 | 说明 |
+|----|------|--------|------|
+| `not_convert_listener_classes` | list | (17个监听器类) | 不进行隔离的监听器类，在此列表里的监听器类可以检测到Craftorithm的配方 |
 
 ## 示例
 
@@ -81,23 +88,23 @@ remove_all_vanilla_recipe: false
 bstats: true
 # 是否启用铁砧配方
 enable_anvil_recipe: true
-# 是否在ItemsAdder重载时跟随一起重载
-reload_when_ia_reload: true
 debug: true
 # 每tick注册的配方数量，调低此数值可以减少服务器卡顿
-max_reg_recipe_per_tick: 12
+max_reg_recipe_per_tick: 100
 # 是否启用实验性配方材料功能
 # 启用后，除1.21.3及以上的切石机配方外，合成材料的识别将不会受到NBT/组件变更的影响，但可能在配方书等场景下出现一些问题
 use_experimental_recipe_ingredients: true
-# 是否启用script的裸脚本语法
-# 为false的情况下，无法使用形如`tell "Hello world"`这样的写法，必须使用`tell("hello, world")
-enable_script_bare_args: false
-# 依照上面的挂钩顺序挂钩插件可以挂钩的物品插件,插件自动识别物品ID时将会优先识别上面的插件
+# 配方材料数量超过此阈值时使用 Set 替代 List 进行匹配，提升大量材料时的查找性能
+ingredient_use_set_threshold: 8
+# 依照上面的挂钩顺序挂钩插件可以挂钩的物品插件,插件自动识别物品ID时将会从上到下依次判断
 # 不包含在此列表里的物品插件将不会尝试挂钩,除非该插件主动挂钩
 item_plugin_hook_priority:
+  - CustomFishing
   - CraftEngine
   - Nexo
   - AzureFlow
+  - SX-Item
+  - EmakiItem
   - NeigeItems
   - ItemsAdder
   - Oraxen
@@ -105,6 +112,7 @@ item_plugin_hook_priority:
   - ExecutableItems
   - MMOItems
   - MythicMobs
+  - Craftorithm
 # 插件主命令的别名，只在插件启动时读取一次
 main_command_aliases:
   - cra

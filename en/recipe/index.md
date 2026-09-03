@@ -4,7 +4,7 @@ title: Recipe System
 
 # Recipe System Overview
 
-Craftorithm supports 12 recipe types, covering all crafting methods in Minecraft.
+Craftorithm supports 12 recipe types, covering most crafting methods in Minecraft.
 
 ## Supported Recipe Types
 

@@ -4,7 +4,7 @@ title: 物品系统
 
 # 物品系统概述
 
-Craftorithm 提供统一的物品管理接口，支持自定义物品定义和对接 10+ 外部物品插件。
+Craftorithm 提供统一的物品管理接口，支持自定义物品定义和对接 13 外部物品插件。
 
 ## 物品 ID 格式
 
@@ -39,9 +39,12 @@ Craftorithm 提供统一的物品管理接口，支持自定义物品定义和�
 
 ```yaml
 item_plugin_hook_priority:
+  - CustomFishing
   - CraftEngine
   - Nexo
   - AzureFlow
+  - SX-Item
+  - EmakiItem
   - NeigeItems
   - ItemsAdder
   - Oraxen
@@ -49,4 +52,5 @@ item_plugin_hook_priority:
   - ExecutableItems
   - MMOItems
   - MythicMobs
+  - Craftorithm
 ```

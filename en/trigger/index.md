@@ -52,7 +52,7 @@ Listen for recipe crafting events with a dual-phase mechanism (prepare + execute
 | `smithing` | Smithing table |
 | `anvil` | Anvil |
 
-### Event Triggers (44+ types)
+### Event Triggers (53 types)
 
 Listen for Bukkit events. See [Event Triggers](/en/trigger/bukkit-events).
 

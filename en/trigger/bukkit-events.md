@@ -46,6 +46,7 @@ my_trigger:
 | `player_teleport` | Teleport | `cause`                          |
 | `player_fish` | Fishing | `state`                          |
 | `player_shear_entity` | Shear entity | `entity_type`                    |
+| `player_unleash_entity` | Unleash entity | —                                |
 | `player_edit_book` | Edit book | —                                |
 | `player_statistic` | Statistic changes | `statistic`, `value`             |
 | `player_swap_hand_items` | Swap hand items | —                                |
@@ -53,6 +54,7 @@ my_trigger:
 | `player_pickup_item` | Pick up item | `item`                           |
 | `player_velocity` | Velocity change | —                                |
 | `player_game_mode_change` | Game mode change | `new_game_mode`                  |
+| `player_resource_pack_status` | Resource pack status change | `status`                         |
 | `player_item_damage` | Item durability loss | `item`, `damage`                 |
 | `player_item_mend` | Mending | `item`, `amount`, `repair_amount` |
 | `player_recipe_discover` | Recipe discovered | `recipe`                         |

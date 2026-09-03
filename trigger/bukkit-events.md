@@ -46,6 +46,7 @@ my_trigger:
 | `player_teleport` | 传送 | `cause`                           |
 | `player_fish` | 钓鱼 | `state`                           |
 | `player_shear_entity` | 剪羊毛 | `entity_type`                     |
+| `player_unleash_entity` | 解开绳子 | —                                 |
 | `player_edit_book` | 编辑书本 | —                                 |
 | `player_statistic` | 统计值变化 | `statistic`, `value`              |
 | `player_swap_hand_items` | 切换主副手 | —                                 |
@@ -53,6 +54,7 @@ my_trigger:
 | `player_pickup_item` | 拾取物品 | `item`                            |
 | `player_velocity` | 速度变化 | —                                 |
 | `player_game_mode_change` | 游戏模式变化 | `new_game_mode`                   |
+| `player_resource_pack_status` | 资源包状态变化 | `status`                          |
 | `player_item_damage` | 物品损坏 | `item`, `damage`                  |
 | `player_item_mend` | 经验修补 | `item`, `amount`, `repair_amount` |
 | `player_recipe_discover` | 发现配方 | `recipe`                          |

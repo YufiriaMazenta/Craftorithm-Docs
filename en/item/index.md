@@ -4,7 +4,7 @@ title: Item System
 
 # Item System Overview
 
-Craftorithm provides a unified item management interface, supporting custom item definitions and integration with 10+ external item plugins.
+Craftorithm provides a unified item management interface, supporting custom item definitions and integration with 13 external item plugins.
 
 ## Item ID Format
 
@@ -39,9 +39,12 @@ You can adjust the external plugin priority in `config.yml`:
 
 ```yaml
 item_plugin_hook_priority:
+  - CustomFishing
   - CraftEngine
   - Nexo
   - AzureFlow
+  - SX-Item
+  - EmakiItem
   - NeigeItems
   - ItemsAdder
   - Oraxen
@@ -49,4 +52,5 @@ item_plugin_hook_priority:
   - ExecutableItems
   - MMOItems
   - MythicMobs
+  - Craftorithm
 ```

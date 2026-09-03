@@ -22,7 +22,8 @@ The main configuration file `plugins/Craftorithm/config.yml` controls core plugi
 | `remove_all_vanilla_recipe` | boolean | `false` | Remove all vanilla recipes |
 | `enable_anvil_recipe` | boolean | `true` | Enable custom anvil recipes |
 | `use_experimental_recipe_ingredients` | boolean | `true` | Enable experimental recipe ingredients (1.21.3+ stonecutter recipes unaffected by NBT/component changes) |
-| `max_reg_recipe_per_tick` | integer | `12` | Max recipes registered per tick (anti-lag) |
+| `max_reg_recipe_per_tick` | integer | `100` | Max recipes registered per tick (anti-lag) |
+| `ingredient_use_set_threshold` | integer | `8` | Threshold for using HashSet instead of ArrayList for ingredient matching when multiple item types are allowed, improves performance with many ingredient types |
 
 ### Item Settings
 
@@ -67,7 +68,12 @@ ingredient_restriction_rules:
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | `bstats` | boolean | `true` | Enable bStats statistics |
-| `reload_when_ia_reload` | boolean | `true` | Auto-reload when ItemsAdder reloads |
+
+### Compatibility Settings
+
+| Key | Type | Default | Description |
+|-----|------|---------|-------------|
+| `not_convert_listener_classes` | list | (17 listener classes) | Listener classes that are not isolated, can detect Craftorithm recipes |
 
 ## Example
 
@@ -80,23 +86,23 @@ remove_all_vanilla_recipe: false
 bstats: true
 # Whether to enable anvil recipes
 enable_anvil_recipe: true
-# Whether to auto-reload when ItemsAdder reloads
-reload_when_ia_reload: true
 debug: true
 # Max recipes registered per tick, lower values reduce server lag
-max_reg_recipe_per_tick: 12
+max_reg_recipe_per_tick: 100
 # Enable experimental recipe ingredients
 # When enabled, recipe material identification is not affected by NBT/component changes (except 1.21.3+ stonecutter recipes), but may cause issues in recipe book
 use_experimental_recipe_ingredients: true
-# Enable bare argument syntax for script engine
-# When false, you must use `tell("Hello world")` instead of `tell "Hello world"`
-enable_script_bare_args: false
+# Threshold for using HashSet instead of ArrayList for ingredient matching when multiple item types are allowed
+ingredient_use_set_threshold: 8
 # Hook item plugins in the order listed above for item detection priority
 # Item plugins not in this list will not be hooked unless they actively hook into Craftorithm
 item_plugin_hook_priority:
+  - CustomFishing
   - CraftEngine
   - Nexo
   - AzureFlow
+  - SX-Item
+  - EmakiItem
   - NeigeItems
   - ItemsAdder
   - Oraxen
@@ -104,6 +110,7 @@ item_plugin_hook_priority:
   - ExecutableItems
   - MMOItems
   - MythicMobs
+  - Craftorithm
 # Plugin main command aliases, only read once on startup
 main_command_aliases:
   - cra
