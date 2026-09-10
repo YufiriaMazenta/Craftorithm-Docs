@@ -8,20 +8,20 @@ Craftorithm 通过 Hook 系统对接 10+ 外部物品插件，在配方中直接
 
 ## 支持的插件
 
-| 插件 | 命名空间          | ID 格式                | 特殊说明     |
-|------|-------------------|------------------------|--------------|
-| CraftEngine | `craft_engine`    | `craft_engine:<id>`    | -            |
-| Nexo | `nexo`            | `nexo:<id>`            | -            |
-| AzureFlow | `azureflow`       | `azureflow:<id>`       | -            |
-| NeigeItems | `neige_items`     | `neige_items:<id>`     | -            |
-| ItemsAdder | `items_adder`     | `items_adder:<id>`     | 支持自动重载 |
-| Oraxen | `oraxen`          | `oraxen:<id>`          | 支持自动重载 |
-| EcoItems | `ecoitems`        | `ecoitems:<id>`        | -            |
-| ExecutableItems | `executableitems` | `executableitems:<id>` | -            |
-| MMOItems | `mmoitems`        | `mmoitems:<type>:<id>` | 需要类型前缀 |
-| MythicMobs | `mythic_mobs`     | `mythic_mobs:<id>`     | -            |
-| SX-Item | `sx_item`         | `sx_item:<id>`         | -            |
-| CustonFishing | `custom_fishing`  | `custom_fishing:<id>`  | -            |
+| 插件 | 命名空间          | ID 格式                | 特殊说明 |
+|------|-------------------|------------------------|----------|
+| CraftEngine | `craft_engine`    | `craft_engine:<id>`    | -        |
+| Nexo | `nexo`            | `nexo:<id>`            | -        |
+| AzureFlow | `azureflow`       | `azureflow:<id>`       | -        |
+| NeigeItems | `neige_items`     | `neige_items:<id>`     | -        |
+| ItemsAdder | `items_adder`     | `items_adder:<id>`     | -        |
+| Oraxen | `oraxen`          | `oraxen:<id>`          | -        |
+| EcoItems | `ecoitems`        | `ecoitems:<id>`        | -        |
+| ExecutableItems | `executableitems` | `executableitems:<id>` | -        |
+| MMOItems | `mmoitems`        | `mmoitems:<type>:<id>` | -        |
+| MythicMobs | `mythic_mobs`     | `mythic_mobs:<id>`     | -        |
+| SX-Item | `sx_item`         | `sx_item:<id>`         | -        |
+| CustonFishing | `custom_fishing`  | `custom_fishing:<id>`  | -        |
 
 ## 使用示例
 

@@ -14,11 +14,11 @@ Craftorithm integrates with 10+ external item plugins through its hook system, a
 | Nexo | `nexo` | `nexo:<id>` | — |
 | AzureFlow | `azureflow` | `azureflow:<id>` | — |
 | NeigeItems | `neige_items` | `neige_items:<id>` | — |
-| ItemsAdder | `items_adder` | `items_adder:<id>` | Auto-reload supported |
-| Oraxen | `oraxen` | `oraxen:<id>` | Auto-reload supported |
+| ItemsAdder | `items_adder` | `items_adder:<id>` | — |
+| Oraxen | `oraxen` | `oraxen:<id>` | — |
 | EcoItems | `ecoitems` | `ecoitems:<id>` | — |
 | ExecutableItems | `executableitems` | `executableitems:<id>` | — |
-| MMOItems | `mmoitems` | `mmoitems:<type>:<id>` | Requires type prefix |
+| MMOItems | `mmoitems` | `mmoitems:<type>:<id>` | — |
 | MythicMobs | `mythic_mobs` | `mythic_mobs:<id>` | — |
 | SX-Item | `sx_item` | `sx_item:<id>` | — |
 | CustomFishing | `custom_fishing` | `custom_fishing:<id>` | — |

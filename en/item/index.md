@@ -13,10 +13,10 @@ Items use the `namespace:id` format:
 | Source | Format | Example |
 |--------|--------|---------|
 | Minecraft vanilla | `minecraft:<id>` | `minecraft:diamond_sword` |
-| Craftorithm custom | `craftorithm:<id>` | `craftorithm:my_item` |
+| Craftorithm custom | `items:<file>:<id>` | `items:weapons:my_item` |
 | Item Tag | `tag:<tag_name>` | `tag:planks` |
 | Item Pack | `item_pack:<name>` | `item_pack:ores` |
-| External plugins | `<plugin>:<id>` | `itemsadder:my_item` |
+| External plugins | `<plugin>:<id>` | `craft_engine:my_item` |
 
 ## Item Files
 

@@ -19,7 +19,7 @@ title: 自定义物品
 /cra item save weapons epic_sword
 ```
 
-物品将保存到 `plugins/Craftorithm/items/weapons.yml`，ID 为 `craftorithm:epic_sword`。
+物品将保存到 `plugins/Craftorithm/items/weapons.yml`，ID 为 `items:weapons:epic_sword`。
 
 ## 给予物品
 
@@ -57,7 +57,7 @@ epic_sword:
 
 ```yaml
 type: 'vanilla_shaped'
-result: 'craftorithm:epic_sword'
+result: 'items:weapons:epic_sword'
 shape:
   - ' A '
   - ' B '

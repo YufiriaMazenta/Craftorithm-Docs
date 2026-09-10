@@ -19,7 +19,7 @@ Example:
 /cra item save weapons epic_sword
 ```
 
-The item will be saved to `plugins/Craftorithm/items/weapons.yml` with ID `craftorithm:epic_sword`.
+The item will be saved to `plugins/Craftorithm/items/weapons.yml` with ID `items:weapons:epic_sword`.
 
 ## Giving Items
 
@@ -41,7 +41,7 @@ Item definition files are located in `plugins/Craftorithm/items/`:
 
 ```yaml
 type: 'vanilla_shaped'
-result: 'craftorithm:epic_sword'
+result: 'items:weapons:epic_sword'
 shape:
   - ' A '
   - ' B '

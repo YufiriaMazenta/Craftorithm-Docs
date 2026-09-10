@@ -10,13 +10,13 @@ Craftorithm 提供统一的物品管理接口，支持自定义物品定义和�
 
 物品使用 `命名空间:ID` 格式标识：
 
-| 来源 | 格式 | 示例 |
-|------|------|------|
+| 来源 | 格式 | 示例                      |
+|------|------|---------------------------|
 | Minecraft 原版 | `minecraft:<id>` | `minecraft:diamond_sword` |
-| Craftorithm 自定义 | `craftorithm:<id>` | `craftorithm:my_item` |
-| 物品Tag | `tag:<tag_name>` | `tag:planks` |
-| 物品组 | `item_pack:<name>` | `item_pack:ores` |
-| 外部插件 | `<plugin>:<id>` | `itemsadder:my_item` |
+| Craftorithm 自定义 | `craftorithm:<id>` | `items:file:my_item`      |
+| 物品Tag | `tag:<tag_name>` | `tag:planks`              |
+| 物品组 | `item_pack:<name>` | `item_pack:ores`          |
+| 外部插件 | `<plugin>:<id>` | `craft_engine:my_item`    |
 
 ## 物品文件
 

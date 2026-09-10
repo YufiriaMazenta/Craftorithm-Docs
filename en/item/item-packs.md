@@ -31,6 +31,16 @@ ores:
   - 'minecraft:gold_ingot'
 ```
 
+Item packs can also include tags or other item packs defined above them:
+
+```yaml
+pack1:
+  - 'minecraft:stone'
+pack2:
+  - 'item_pack:pack1'
+  - 'tag:minecraft:leaves'
+```
+
 ## Using in Recipes
 
 Reference item packs with the `item_pack:<name>` prefix:

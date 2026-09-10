@@ -31,6 +31,16 @@ ores:
   - 'minecraft:gold_ingot'
 ```
 
+物品组中可以包含tag或定义在它上面的物品组, 例如:
+
+```yaml
+pack1:
+  - 'minecraft:stone'
+pack2:
+  - 'item_pack:pack1'
+  - 'tag:minecraft:leaves'
+```
+
 ## 在配方中使用
 
 使用 `item_pack:<name>` 前缀引用物品组：

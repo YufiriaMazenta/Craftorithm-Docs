@@ -69,6 +69,7 @@ const zhSidebar = {
       items: [
         { text: '文件总览', link: '/config/' },
         { text: 'config.yml', link: '/config/config-yml' },
+        { text: '数据库', link: '/config/database-yml'},
         { text: '自定义燃料', link: '/config/custom-fuels' },
         { text: '禁用配方列表', link: '/config/disabled-recipes' },
         { text: '多语言', link: '/config/languages' },
@@ -169,6 +170,7 @@ const enSidebar = {
       items: [
         { text: 'File Overview', link: '/en/config/' },
         { text: 'config.yml', link: '/en/config/config-yml' },
+        { text: 'Database', link: '/en/config/database-yml' },
         { text: 'Custom Fuels', link: '/en/config/custom-fuels' },
         { text: 'Disabled Recipes', link: '/en/config/disabled-recipes' },
         { text: 'Languages', link: '/en/config/languages' },

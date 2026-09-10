@@ -24,6 +24,9 @@ The main configuration file `plugins/Craftorithm/config.yml` controls core plugi
 | `use_experimental_recipe_ingredients` | boolean | `true` | Enable experimental recipe ingredients (1.21.3+ stonecutter recipes unaffected by NBT/component changes) |
 | `max_reg_recipe_per_tick` | integer | `100` | Max recipes registered per tick (anti-lag) |
 | `ingredient_use_set_threshold` | integer | `8` | Threshold for using HashSet instead of ArrayList for ingredient matching when multiple item types are allowed, improves performance with many ingredient types |
+| `recipe_discovery_sync.enable` | boolean | `false` | Enable syncing discovered recipe data. When enabled, players' discovered recipe data is stored in the database and automatically unlocked when joining the server |
+| `recipe_discovery_sync.join_sync_delay_ticks` | integer | `20` | Delay in ticks after player joins before syncing |
+| `recipe_discovery_sync.interval_ticks` | integer | `6000` | Interval in ticks for periodically saving online players' discovered recipes to database (default 300 seconds / 5 minutes) |
 
 ### Item Settings
 
