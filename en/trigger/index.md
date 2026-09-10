@@ -37,7 +37,7 @@ trigger_id:                    # Unique trigger identifier
   priority: 0                  # Execution priority (lower = earlier)
   enabled: true                # Whether enabled
   cooldown: 5                  # Cooldown in seconds, 0 = no cooldown
-  per-player: true             # Per-player or global cooldown
+  per_player: true             # Per-player or global cooldown
 ```
 
 ## Trigger Types

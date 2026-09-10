@@ -36,7 +36,7 @@ trigger_id:                    # 触发器 ID（唯一标识）
   priority: 0                  # 执行优先级（数字越小越先执行）
   enabled: true                # 是否启用
   cooldown: 5                  # 冷却时间（秒），0 = 无冷却
-  per-player: true             # 冷却是每个玩家独立还是全局
+  per_player: true             # 冷却是每个玩家独立还是全局
 ```
 
 ## 触发器类型
