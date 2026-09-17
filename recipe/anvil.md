@@ -55,6 +55,8 @@ enable_anvil_recipe: true
 
 ## 注意事项
 
-- 铁砧配方的 `base` 和 `addition` 均支持物品组 (`item_pack:`)
+- 铁砧配方的 `base` 和 `addition` 均支持物品组 (`item_pack:`) 与物品 Tag (`tag:`)
+- 铁砧配方可以指定材料数量，例如 `tag:minecraft:planks 4` 表示标签内每个物品都要求 4 个；物品组自 1.14.1.0 起也支持，如 `item_pack:all_wood 4`
+- 数量后缀只在铁砧配方中有效，其他配方类型的材料不支持数量
 - `cost_level` 为 0 时不消耗经验
 - 多个铁砧配方匹配同一输入时，优先使用第一个匹配的配方

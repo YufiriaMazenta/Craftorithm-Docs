@@ -55,6 +55,8 @@ Same as smithing recipes. See [Smithing Recipes — Copy Components Rules](/reci
 
 ## Notes
 
-- Both `base` and `addition` support item packs (`item_pack:`)
+- Both `base` and `addition` support item packs (`item_pack:`) and item tags (`tag:`)
+- Anvil recipes support ingredient amounts, e.g. `tag:minecraft:planks 4` requires 4 of every item in the tag. Item packs support this since 1.14.1.0, e.g. `item_pack:all_wood 4`
+- The amount suffix is only valid in anvil recipes; ingredients of other recipe types do not support amounts
 - `cost_level` of 0 means no experience is consumed
 - When multiple anvil recipes match the same input, the first matching recipe is used

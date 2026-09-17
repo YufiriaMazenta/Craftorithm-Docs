@@ -24,9 +24,9 @@ title: config.yml
 | `max_reg_recipe_per_tick`                     | integer  | `100`   | 每 tick 最大配方注册数（防卡顿）                                                                           |
 | `use_experimental_recipe_ingredients`         | boolean  | `true`  | 是否启用实验性配方材料功能，会改变配方材料匹配模式                                                         |
 | `ingredient_use_set_threshold`                | interger | `8`     | 在一个材料允许多少种物品的情况下，使用HashSet替代ArrayList进行材料匹配，在材料种类较多的情况下可以提升性能 |
-| `recipe_discovery_sync.enable`                | boolean  | `false` | 是否开启同步已解锁配方数据，开启后，玩家的已解锁配方数据会存储到数据库中，并在玩家加入服务器时自动解锁     |
-| `recipe_discovery_sync.join_sync_delay_ticks` | integer  | `20`    | 玩家加入服务器后，等待多少tick再执行同步                                                                   |
-| `recipe_discovery_sync.interval_ticks` | integer  | `6000`  | 定时保存在线玩家已解锁配方到数据库的间隔（tick），默认300秒（5分钟）                                                                  |
+| `save_discovered_recipes.enable`                | boolean  | `true`  | 是否将玩家已解锁配方存储到数据库，开启后玩家的已解锁配方会写入数据库，并在玩家加入服务器、插件重载与服务器启动后从数据库恢复 |
+| `save_discovered_recipes.join_discover_delay_ticks` | integer | `20` | 玩家加入服务器后，等待多少tick再从数据库读取已解锁配方                                          |
+| `save_discovered_recipes.interval_ticks` | integer  | `6000`  | 定时保存在线玩家已解锁配方到数据库的间隔（tick），默认300秒（5分钟）                                                                  |
 
 ### 物品设置
 

@@ -41,17 +41,13 @@ public class MyPluginItemProvider implements ItemProvider {
     }
 
     @Override
-    public NamespacedItemIdStack matchItemId(ItemStack itemStack, boolean ignoreAmount) {
+    public NamespacedItemId matchItemId(ItemStack itemStack) {
         // 从 ItemStack 反查物品 ID
         String id = MyPluginAPI.getItemId(itemStack);
         if (id == null) {
             return null;
         }
-        if (ignoreAmount) {
-            return new NamespacedItemIdStack(new NamespacedItemId(namespace(), id));
-        } else {
-            return new NamespacedItemIdStack(new NamespacedItemId(namespace(), id), itemStack.getAmount());
-        }
+        return NamespacedItemId.of(namespace(), id);
     }
 }
 ```
@@ -88,4 +84,5 @@ CraftorithmAPI.INSTANCE.registerItemPluginHook(new MyPluginHook());
 - Hook 类在 Craftorithm 启动后、配方加载前初始化
 - `matchItem()` 应返回 `null` 表示未找到物品
 - `matchItemId()` 应返回 `null` 表示不是该插件的物品
+- `matchItemId()` 只负责返回物品 ID，物品数量由 Craftorithm 统一处理
 - 避免在 Hook 中执行耗时操作

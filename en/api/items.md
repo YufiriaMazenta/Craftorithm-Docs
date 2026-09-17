@@ -11,7 +11,7 @@ title: Item API
 ItemStack item = api.getCraftorithmItem("my_item");
 
 // Get via NamespacedItemIdStack
-NamespacedItemIdStack idStack = new NamespacedItemIdStack("craftorithm", "my_item", 1);
+NamespacedItemIdStack idStack = new NamespacedItemIdStack(NamespacedItemId.of("craftorithm", "my_item"), 1);
 ItemStack item = api.getItem(idStack);
 
 // Get with player context (supports PAPI variables)
@@ -22,8 +22,8 @@ ItemStack item = api.getItem(idStack, player);
 
 ```java
 // Reverse-lookup item ID from ItemStack
-String itemId = api.matchItemId(itemStack, false);
-// Returns format like "craftorithm:my_item" or "minecraft:diamond"
+Optional<NamespacedItemIdStack> idStack = api.matchItemId(itemStack, false);
+// Returns an ID like "craftorithm:my_item" or "minecraft:diamond"
 ```
 
 ## Getting All Custom Items

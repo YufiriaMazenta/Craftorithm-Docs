@@ -41,17 +41,13 @@ public class MyPluginItemProvider implements ItemProvider {
     }
 
     @Override
-    public NamespacedItemIdStack matchItemId(ItemStack itemStack, boolean ignoreAmount) {
+    public NamespacedItemId matchItemId(ItemStack itemStack) {
         // Reverse-lookup item ID from ItemStack
         String id = MyPluginAPI.getItemId(itemStack);
         if (id == null) {
             return null;
         }
-        if (ignoreAmount) {
-            return new NamespacedItemIdStack(new NamespacedItemId(namespace(), id));
-        } else {
-            return new NamespacedItemIdStack(new NamespacedItemId(namespace(), id), itemStack.getAmount());
-        }
+        return NamespacedItemId.of(namespace(), id);
     }
 }
 ```
@@ -88,4 +84,5 @@ CraftorithmAPI.INSTANCE.registerItemPluginHook(new MyPluginHook());
 - Hook classes are initialized after Craftorithm starts but before recipes load
 - `matchItem()` should return `null` if the item is not found
 - `matchItemId()` should return `null` if the item does not belong to that plugin
+- `matchItemId()` only returns the item ID; item amounts are handled by Craftorithm
 - Avoid performing expensive operations in hooks

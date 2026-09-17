@@ -66,3 +66,4 @@ ingredients:
 - Item packs are only valid in input fields (`ingredient`, `base`, `addition`, etc.)
 - The `result` (output) field does **not** support item packs
 - Items in the pack must be valid vanilla IDs or registered external plugin items
+- Amounts written on item IDs inside the pack are ignored. Specify the amount at the recipe reference instead, e.g. `item_pack:all_wood 4` (since 1.14.1.0; currently only anvil recipes support amounts)
