@@ -6,11 +6,11 @@ title: Installation & Dependencies
 
 ## System Requirements
 
-| Item | Requirement |
-|------|-------------|
-| Java | 21+ |
-| Server | Paper / Spigot 1.19.4+ |
-| Folia | Fully supported |
+| Item | Requirement          |
+|------|----------------------|
+| Java | 21+                  |
+| Server | Paper / Spigot 1.20+ |
+| Folia | Fully supported      |
 
 ## Installation
 
