@@ -49,14 +49,14 @@ Set to `false` to disable all custom anvil recipes.
 
 ## Copy Components Rules
 
-**Note**: Starting from version 1.13.0.0, it is recommended to use the new `result_processors` configuration option, which provides more powerful features. The old `copy_components_rules` syntax is still compatible. See [Result Processors](/en/recipe/index.md#result-processors-result_processors).
+**Note**: It is recommended to use the new `result_processors` configuration option, which provides more powerful features. The old `copy_components_rules` syntax is still compatible. See [Result Processors](/en/recipe/index.md#result-processors-result_processors).
 
 Same as smithing recipes. See [Smithing Recipes — Copy Components Rules](/recipe/smithing#copy-components-rules) for the full list of supported rules.
 
 ## Notes
 
 - Both `base` and `addition` support item packs (`item_pack:`) and item tags (`tag:`)
-- Anvil recipes support ingredient amounts, e.g. `tag:minecraft:planks 4` requires 4 of every item in the tag. Item packs support this since 1.14.1.0, e.g. `item_pack:all_wood 4`
+- Anvil recipes support ingredient amounts, e.g. `tag:minecraft:planks 4` requires 4 of every item in the tag. Item packs also support this, e.g. `item_pack:all_wood 4`
 - The amount suffix is only valid in anvil recipes; ingredients of other recipe types do not support amounts
 - `cost_level` of 0 means no experience is consumed
 - When multiple anvil recipes match the same input, the first matching recipe is used

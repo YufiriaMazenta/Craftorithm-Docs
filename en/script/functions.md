@@ -102,11 +102,11 @@ Both functions are used for recipe book management and each accepts only one par
 
 `undiscover_recipe` locks the specified recipe.
 
-Since 1.14.2.0, the parameter can be either an exact recipe key or a regular expression. All matching recipes will be unlocked or locked.
+The parameter can be either an exact recipe key or a regular expression. All matching recipes will be unlocked or locked.
 
 For example, `discover_recipe("minecraft:.*")` unlocks all vanilla recipes.
 
-## `recipe_discovered`(1.14.2.0+)
+## `recipe_discovered`
 
 This function checks whether a player has discovered a recipe. It accepts one parameter (the recipe key).
 
@@ -122,7 +122,7 @@ The second parameter is the volume.
 
 The third parameter is the pitch.
 
-## `set_inv_item`(1.11.2.0+)
+## `set_inv_item`
 
 This function sets an item at a specified position in the player's currently open inventory page. It must accept two parameters.
 
@@ -138,35 +138,35 @@ This is a special function that pauses the current script execution and resumes 
 
 It accepts one parameter, which must be an integer.
 
-## `abs`(1.11.3.0+)
+## `abs`
 
 This function returns the absolute value of the input. For example, `abs(-1)` returns 1.
 
-## `min`(1.11.3.0+)
+## `min`
 
 This function returns the smaller of two values. For example, `min(1, 0)` returns 0.
 
-## `max`(1.11.3.0+)
+## `max`
 
 This function returns the larger of two values. For example, `max(1, 0)` returns 1.
 
-## `round`(1.11.3.0+)
+## `round`
 
 This function rounds the value to the nearest integer. For example, `round(10.6)` returns 11.
 
-## `floor` `ceil`(1.11.3.0+)
+## `floor` `ceil`
 
 `floor` rounds down, while `ceil` rounds up.
 
 For example, `floor(6.1)` returns 6, and `ceil(6.8)` returns 7.
 
-## `pow`(1.11.3.0+)
+## `pow`
 
 This function performs exponentiation. It requires two numeric parameters, which can be floating-point numbers.
 
 For example, `pow(2, 4)` returns 2 to the power of 4, which is 16.
 
-## `random`(1.11.3.0+) / `random_int`(1.11.4.0+)
+## `random` / `random_int`
 
 Both functions return a random number. The difference is that `random` returns a floating-point number, while `random_int` returns an integer.
 
@@ -178,7 +178,7 @@ When one parameter is provided, it returns a random number between 0 and the inp
 
 When two parameters are provided, it returns a random number between the first and second values (inclusive of the smaller value, exclusive of the larger value).
 
-## `int` / `float`(1.11.4.0+)
+## `int` / `float`
 
 These two functions perform type conversion. `int` forces a number to be an integer, while `float` forces a number to be a floating-point number.
 
@@ -186,7 +186,7 @@ Both must accept one parameter.
 
 For example, `set("num_var", int(1.1))` - although 1.1 is passed in, the actual value set is 1.
 
-## `match_item_id`(1.13.3.0+)
+## `match_item_id`
 
 This function identifies an item's ID without the quantity, similar to the item ID format used in recipe files.
 

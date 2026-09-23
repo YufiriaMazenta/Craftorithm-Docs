@@ -68,7 +68,7 @@ String fileName = api.getRecipeFileNameByKey(key);
 NamespacedKey key = api.getRecipeKeyByFileName("my_recipe");
 ```
 
-## 结果处理器(1.13.6.0+)
+## 结果处理器
 
 结果处理器支持用户注册自定义的组件类型, 只需要实现`pers.yufiria.craftorithm.resultprocessor.ComponentProcessorFactory`接口, 并将其注册即可
 

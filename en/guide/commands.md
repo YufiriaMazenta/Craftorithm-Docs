@@ -22,11 +22,11 @@ Aliases: `/cra`, `/craft`, `/crafto`
 | `edit` | `<recipe_id>` | Open recipe editing GUI |
 | `remove` | `<recipe_name>` | Delete recipe file and unregister |
 | `disable` | `<recipe_id>` | Disable a recipe (including vanilla recipes) |
-| `restore` | `<recipe_id>` | Restore a disabled recipe (1.13.7.0+) |
+| `restore` | `<recipe_id>` | Restore a disabled recipe |
 | `display` | `<recipe_id> [player]` | Display a recipe as a GUI |
 | `recipebook` | `[--player <name>] [--type <type>]` | Open recipe book browser |
-| `discover` | `<target> <recipe_key_pattern>` | Unlock recipes for player (1.13.0.0+) |
-| `undiscover` | `<target> <recipe_key_pattern>` | Lock recipes for player (1.13.0.0+) |
+| `discover` | `<target> <recipe_key_pattern>` | Unlock recipes for player |
+| `undiscover` | `<target> <recipe_key_pattern>` | Lock recipes for player |
 
 ### Item Management
 

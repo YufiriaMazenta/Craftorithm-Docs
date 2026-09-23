@@ -4,7 +4,7 @@ title: 结果处理器
 
 # 结果处理器 (Result Processors)
 
-结果处理器是 1.13.0.0 版本新增的功能，用于在合成时为配方结果添加额外效果。通过结果处理器，你可以复制、添加或移除物品的组件。
+结果处理器是用于在合成时为配方结果添加额外效果的功能。通过结果处理器，你可以复制、添加或移除物品的组件。
 
 ## 支持的配方类型
 
@@ -16,9 +16,7 @@ title: 结果处理器
 | 酿造台 | `vanilla_brewing` | ✅ 支持                   |
 | 有序配方 | `vanilla_shaped` | ✅ 支持                   |
 | 无序配方 | `vanilla_shapeless` | ✅ 支持                   |
-| 切石机 | `vanilla_stonecutting` | ✅ 1.13.2.0及以上版本支持 |
-
-**注意**：切石机配方 (`vanilla_stonecutting`) 暂不支持结果处理器。
+| 切石机 | `vanilla_stonecutting` | ✅ 支持（仅 Paper 及衍生端） |
 
 ## 基本语法
 

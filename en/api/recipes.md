@@ -68,7 +68,7 @@ String fileName = api.getRecipeFileNameByKey(key);
 NamespacedKey key = api.getRecipeKeyByFileName("my_recipe");
 ```
 
-## Result Processors (1.13.6.0+)
+## Result Processors
 
 Result processors support registering custom component types. Simply implement the `pers.yufiria.craftorithm.resultprocessor.ComponentProcessorFactory` interface and register it.
 

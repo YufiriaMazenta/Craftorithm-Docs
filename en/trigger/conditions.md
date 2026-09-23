@@ -10,11 +10,9 @@ Conditions are written in the `conditions` list of triggers. Each string in the 
 
 ## Syntax
 
-### Version 1.11.4.0 and later
-
 Conditions support multiple syntaxes as follows:
 
-#### 1. Legacy syntax (backward compatible):
+### 1. Legacy syntax (backward compatible):
 
 In this syntax, `conditions` is a list. Each expression in the list must return a Bool type variable, otherwise an error will occur.
 
@@ -29,7 +27,7 @@ conditions:
   - 'world("world_nether")'
 ```
 
-#### 2. New syntax
+### 2. New syntax
 
 In the new syntax, the structure of `conditions` is as follows:
 

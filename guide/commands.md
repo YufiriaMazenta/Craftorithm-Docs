@@ -22,11 +22,11 @@ title: 命令参考
 | `edit`       | `<recipe_id>` | 打开配方编辑 GUI            |
 | `remove`     | `<recipe_name>` | 删除配方文件并注销             |
 | `disable`    | `<recipe_id>` | 禁用配方（含原版配方）           |
-| `restore`    | `<recipe_id>` | 还原一个被禁用的配方(1.13.7.0+) |
+| `restore`    | `<recipe_id>` | 还原一个被禁用的配方 |
 | `display`    | `<recipe_id> [player]` | 以 GUI 形式展示配方          |
 | `recipebook` | `[--player <name>] [--type <type>]` | 打开配方书浏览界面             |
-| `discover`   | `<target> <recipe_key_pattern>` | 为玩家解锁配方 (1.13.0.0+)   |
-| `undiscover` | `<target> <recipe_key_pattern>` | 取消玩家解锁配方 (1.13.0.0+)  |
+| `discover`   | `<target> <recipe_key_pattern>` | 为玩家解锁配方   |
+| `undiscover` | `<target> <recipe_key_pattern>` | 取消玩家解锁配方  |
 
 ### 物品管理
 

@@ -41,7 +41,7 @@ Place the corresponding materials in a crafting table and confirm the recipe app
 
 ## PlaceholderAPI Variables
 
-Starting from version 1.13.4.0, Craftorithm provides some PlaceholderAPI variables:
+Craftorithm provides some PlaceholderAPI variables:
 
 `%craftorithm_discovered%` returns the number of recipes the current player has discovered.
 

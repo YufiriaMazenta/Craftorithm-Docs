@@ -2,11 +2,11 @@
 title: database.yml
 ---
 
-Since version 1.14.0.0, the plugin supports databases, configured through `database.yml`.
+Craftorithm supports databases, configured through `database.yml`.
 
 Sqlite, Mysql and PostgreSQL are supported out of the box. Other plugins can also add extra database type support to Craftorithm.
 
-PostgreSQL support was added in 1.14.2.0
+The PostgreSQL JDBC driver is downloaded automatically by Paper at runtime, so no manual installation is needed.
 
 To add extra database type support, implement the `pers.yufiria.craftorithm.database.loader.DataSourceLoader` interface and register it through `pers.yufiria.craftorithm.database.DataSourceManager#registerDatabaseLoader`.
 
@@ -37,7 +37,7 @@ mysql:
     check_connections_every_ms: 5000
     test_before_get: true
 
-# PostgreSQL-specific configuration (1.14.2.0+)
+# PostgreSQL-specific configuration
 postgresql:
   host: "localhost"
   port: 5432

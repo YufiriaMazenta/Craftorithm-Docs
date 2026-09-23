@@ -95,9 +95,9 @@ my_trigger:
 
 Each event type automatically injects relevant variables into the script context. Access them via `context("variable_name")`.
 
-### event Object (1.13.0.0+)
+### event Object
 
-Starting from version 1.13.0.0, all triggers now have an `event` object in their context that allows direct access to the Bukkit event object.
+All triggers have an `event` object in their context that allows direct access to the Bukkit event object.
 
 The `event` object is a reflective property resolver that can access event properties through method calls.
 

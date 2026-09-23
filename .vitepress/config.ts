@@ -234,6 +234,7 @@ export default defineConfig({
           { text: '配置', link: '/config/' },
           { text: 'UI', link: '/ui/' },
           { text: 'API', link: '/api/' },
+          { text: '更新日志', link: '/changelog' },
         ],
         sidebar: zhSidebar,
         outline: {
@@ -282,6 +283,7 @@ export default defineConfig({
           { text: 'Config', link: '/en/config/' },
           { text: 'UI', link: '/en/ui/' },
           { text: 'API', link: '/en/api/' },
+          { text: 'Changelog', link: '/en/changelog' },
         ],
         sidebar: enSidebar,
         outline: {

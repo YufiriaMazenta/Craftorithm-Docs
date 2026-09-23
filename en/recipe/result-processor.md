@@ -4,7 +4,7 @@ title: Result Processors
 
 # Result Processors
 
-Result processors are a feature added in version 1.13.0.0 that allows adding additional effects to recipe results during crafting. With result processors, you can copy, add, or remove item components.
+Result processors are a feature that allows adding additional effects to recipe results during crafting. With result processors, you can copy, add, or remove item components.
 
 ## Supported Recipe Types
 
@@ -16,7 +16,7 @@ Result processors are a feature added in version 1.13.0.0 that allows adding add
 | Brewing | `vanilla_brewing` | ✅ Supported                       |
 | Shaped Recipe | `vanilla_shaped` | ✅ Supported                       |
 | Shapeless Recipe | `vanilla_shapeless` | ✅ Supported                       |
-| Stonecutting | `vanilla_stonecutting` | ✅ Supported on 1.13.2.0 and later |
+| Stonecutting | `vanilla_stonecutting` | ✅ Supported (Paper and its forks only) |
 
 ## Basic Syntax
 

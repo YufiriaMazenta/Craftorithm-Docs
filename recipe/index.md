@@ -38,7 +38,7 @@ type: 'vanilla_shaped'      # 配方类型（必填）
 result: 'minecraft:diamond'  # 产出物品（必填）
 group: 'example'             # 配方分组（可选）
 recipe_id: 'my_recipe'       # 自定义配方 ID（可选，默认为文件名）
-result_processors:           # 结果处理器（可选，1.13.0.0+）
+result_processors:           # 结果处理器（可选）
   enchantments:
     type: copy_from_source
 ```
@@ -70,6 +70,6 @@ result_processors:           # 结果处理器（可选，1.13.0.0+）
 
 ## 结果处理器 (result_processors)
 
-1.13.0.0 版本新增了结果处理器功能，用于在合成时为配方结果添加额外效果。结果处理器可以复制、添加或移除物品的组件。
+结果处理器用于在合成时为配方结果添加额外效果。结果处理器可以复制、添加或移除物品的组件。
 
 详细用法参见 [结果处理器](/recipe/result-processor.md)。

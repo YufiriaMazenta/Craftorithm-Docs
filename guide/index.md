@@ -41,7 +41,7 @@ title: 快速开始
 
 ## PlaceholderAPI变量
 
-从1.13.4.0开始, Craftorithm提供了一些PlaceholderAPI变量
+Craftorithm提供了一些PlaceholderAPI变量
 
 `%craftorithm_discovered%` 返回当前玩家发现的配方数量
 

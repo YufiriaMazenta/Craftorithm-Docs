@@ -33,13 +33,13 @@ title: config.yml
 | 键                             | 类型 | 默认值 | 说明                                               |
 |--------------------------------|------|--------|----------------------------------------------------|
 | `item_plugin_hook_priority`    | list | (有序列表) | 外部物品插件检测优先级                             |
-| `cannot_craft_items`           | list | `[]` | 禁止合成的物品 ID 列表(在1.13.4.0版本移除)         |
-| `blocked_crafting_lore_rules`  | list | `[]` | 阻止包含指定lore的物品被用于合成(1.13.5.0版本移除) |
-| `ingredient_restriction_rules` | list | [] | 通过设置不同规则来阻止物品被用于合成(1.13.5.0版本添加,替代上面两个功能 |
+| `cannot_craft_items`           | list | `[]` | 禁止合成的物品 ID 列表，已移除 <Badge type="danger" text="1.13.4.0" />         |
+| `blocked_crafting_lore_rules`  | list | `[]` | 阻止包含指定lore的物品被用于合成，已移除 <Badge type="danger" text="1.13.5.0" /> |
+| `ingredient_restriction_rules` | list | [] | 通过设置不同规则来阻止物品被用于合成，替代上面两个功能 |
 
-`ingredient_restriction_rules`是1.13.5.0新增的功能, 可以设定符合物品不能被用作指定配方的材料, 可以作用于所有配方类型
+`ingredient_restriction_rules`可以设定符合物品不能被用作指定配方的材料, 可以作用于所有配方类型
 
-在1.13.5.0版本的插件启动时, 会对原`cannot_craft_items`和`blocked_crafting_lore_rules`进行自动转换, 无需手动更新
+插件启动时会自动转换原有的 `cannot_craft_items` 和 `blocked_crafting_lore_rules`，无需手动更新
 
 配置格式:
 

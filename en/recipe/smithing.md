@@ -59,7 +59,7 @@ template: 'minecraft:coast_armor_trim_smithing_template'
 
 ## Copy Components Rules
 
-**Note**: Starting from version 1.13.0.0, it is recommended to use the new `result_processors` configuration option, which provides more powerful features. The old `copy_components_rules` syntax is still compatible. See [Result Processors](/en/recipe/index.md#result-processors-result_processors).
+**Note**: It is recommended to use the new `result_processors` configuration option, which provides more powerful features. The old `copy_components_rules` syntax is still compatible. See [Result Processors](/en/recipe/index.md#result-processors-result_processors).
 
 Specifies which components to copy from the base item to the output item:
 

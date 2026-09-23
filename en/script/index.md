@@ -18,9 +18,9 @@ Craftorithm includes a compiled script engine used for trigger condition evaluat
 
 ## Syntax
 
-### Global Variables (1.13.3.0+)
+### Global Variables
 
-Starting from version 1.13.3.0, the script system has global variables that can be used anywhere scripts are used, such as triggers and UI.
+The script system has global variables that can be used anywhere scripts are used, such as triggers and UI.
 
 There are currently three global variables: `server`, `recipe_manager`, and `item_manager`.
 

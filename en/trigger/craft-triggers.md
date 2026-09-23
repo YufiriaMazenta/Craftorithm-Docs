@@ -22,7 +22,7 @@ Craft triggers support a **prepare + execute** two-phase mechanism:
 
 This means craft triggers can actually **block** crafting, not just respond after the fact.
 
-## Context (1.11.2.0+)
+## Context
 
 Craft triggers add crafting material information and the batch crafting quantity to the trigger context.
 

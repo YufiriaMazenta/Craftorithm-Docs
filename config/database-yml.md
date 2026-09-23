@@ -2,11 +2,11 @@
 title: database.yml
 ---
 
-从1.14.0.0版本开始, 插件引入了数据库支持, 相关的配置在`database.yml`中进行设置
+Craftorithm 支持数据库, 相关的配置在 `database.yml` 中进行设置
 
 默认支持Sqlite、Mysql和PostgreSQL类型数据库, 其他插件也可以为Craftorithm添加额外的数据库类型支持
 
-PostgreSQL支持自1.14.2.0版本起提供
+PostgreSQL 的 JDBC 驱动由 Paper 在运行时自动下载, 无需手动安装
 
 要添加额外数据库类型支持, 需要实现`pers.yufiria.craftorithm.database.loader.DataSourceLoader`接口, 并通过`pers.yufiria.craftorithm.database.DataSourceManager#registerDatabaseLoader`方法注册
 
@@ -37,7 +37,7 @@ mysql:
     check_connections_every_ms: 5000
     test_before_get: true
 
-# PostgreSQL专用配置 (1.14.2.0+)
+# PostgreSQL专用配置
 postgresql:
   host: "localhost"
   port: 5432

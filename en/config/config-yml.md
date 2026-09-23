@@ -33,13 +33,13 @@ The main configuration file `plugins/Craftorithm/config.yml` controls core plugi
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | `item_plugin_hook_priority` | list | (ordered list) | External item plugin detection priority |
-| `cannot_craft_items` | list | `[]` | Item IDs that cannot be used in crafting (removed in 1.13.4.0) |
-| `blocked_crafting_lore_rules` | list | `[]` | Prevent items with specified lore from being used in crafting (removed in 1.13.5.0) |
-| `ingredient_restriction_rules` | list | `[]` | Block items from being used in crafting through configurable rules (added in 1.13.5.0, replaces both features above) |
+| `cannot_craft_items` | list | `[]` | Item IDs that cannot be used in crafting — removed <Badge type="danger" text="1.13.4.0" /> |
+| `blocked_crafting_lore_rules` | list | `[]` | Prevent items with specified lore from being used in crafting — removed <Badge type="danger" text="1.13.5.0" /> |
+| `ingredient_restriction_rules` | list | `[]` | Block items from being used in crafting through configurable rules, replaces both features above |
 
-`ingredient_restriction_rules` is a new feature in 1.13.5.0. It allows you to set rules that prevent matching items from being used as materials for specified recipes. This applies to all recipe types.
+`ingredient_restriction_rules` allows you to set rules that prevent matching items from being used as materials for specified recipes. This applies to all recipe types.
 
-When upgrading to 1.13.5.0, the plugin will automatically convert the existing `cannot_craft_items` and `blocked_crafting_lore_rules` settings — no manual migration needed.
+The plugin automatically converts existing `cannot_craft_items` and `blocked_crafting_lore_rules` settings — no manual migration needed.
 
 Configuration format:
 
