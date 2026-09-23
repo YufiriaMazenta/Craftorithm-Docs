@@ -63,21 +63,7 @@ CraftorithmAPI.INSTANCE.registerItemPluginHook(new MyPluginHook());
 
 ## Existing Hook Reference
 
-| Module | Description |
-|--------|-------------|
-| `hook/itemsadder` | ItemsAdder integration (with reload listener) |
-| `hook/oraxen` | Oraxen integration (with reload listener) |
-| `hook/mythicmobs` | MythicMobs items |
-| `hook/mmoitems` | MMOItems items |
-| `hook/ecoitems` | EcoItems items |
-| `hook/neigeitems` | NeigeItems items |
-| `hook/nexo` | Nexo items |
-| `hook/azureflow` | AzureFlow items |
-| `hook/craftengine` | CraftEngine items |
-| `hook/executableitems` | ExecutableItems items |
-| `hook/sx-item` | SX-Item items |
-| `hook/protocollib` | ProtocolLib fake result preview |
-| `hook/packetevents` | PacketEvents fake result preview |
+All of Craftorithm's hook implementations live in the `hook` module; refer to them when writing your own hook.
 
 ## Notes
 

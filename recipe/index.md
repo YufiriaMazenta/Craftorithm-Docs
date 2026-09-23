@@ -52,7 +52,7 @@ result_processors:           # 结果处理器（可选）
 | 原版物品 | `minecraft:diamond` | Minecraft 原版物品 ID |
 | 物品组 | `item_pack:ores` | 引用 `item_packs.yml` 中定义的物品组 |
 | 自定义物品 | `craftorithm:my_item` | 引用 `items/` 目录中的自定义物品 |
-| 外部插件物品 | `itemsadder:my_item` | 引用外部物品插件的物品 |
+| 外部插件物品 | `items_adder:my_item` | 引用外部物品插件的物品 |
 
 ## 创建方式
 

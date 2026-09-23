@@ -52,7 +52,7 @@ When specifying items in recipes, the following formats are supported:
 | Vanilla item | `minecraft:diamond` | Minecraft vanilla item ID |
 | Item pack | `item_pack:ores` | References an item pack defined in `item_packs.yml` |
 | Custom item | `craftorithm:my_item` | References a custom item from the `items/` directory |
-| External plugin item | `itemsadder:my_item` | References an item from an external item plugin |
+| External plugin item | `items_adder:my_item` | References an item from an external item plugin |
 
 ## Creation Methods
 

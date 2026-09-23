@@ -20,8 +20,9 @@ Craftorithm integrates with 10+ external item plugins through its hook system, a
 | ExecutableItems | `executableitems` | `executableitems:<id>` | — |
 | MMOItems | `mmoitems` | `mmoitems:<type>:<id>` | — |
 | MythicMobs | `mythic_mobs` | `mythic_mobs:<id>` | — |
-| SX-Item | `sx_item` | `sx_item:<id>` | — |
+| SX-Item | `sx_items` | `sx_items:<id>` | — |
 | CustomFishing | `custom_fishing` | `custom_fishing:<id>` | — |
+| EmakiItem | `emaikiitem` | `emaikiitem:<id>` | — |
 
 ## Usage Examples
 
@@ -39,7 +40,7 @@ ingredients:
 
 # Using MMOItems item
 type: 'vanilla_shapeless'
-result: 'mmoitems:SWORD/custom_blade'
+result: 'mmoitems:SWORD:custom_blade'
 ingredients:
   - 'minecraft:diamond'
   - 'minecraft:netherite_ingot'

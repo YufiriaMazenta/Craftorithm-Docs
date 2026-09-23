@@ -63,21 +63,7 @@ CraftorithmAPI.INSTANCE.registerItemPluginHook(new MyPluginHook());
 
 ## 现有 Hook 参考
 
-| 模块 | 说明 |
-|------|------|
-| `hook/itemsadder` | ItemsAdder 集成（含重载监听） |
-| `hook/oraxen` | Oraxen 集成（含重载监听） |
-| `hook/mythicmobs` | MythicMobs 物品 |
-| `hook/mmoitems` | MMOItems 物品 |
-| `hook/ecoitems` | EcoItems 物品 |
-| `hook/neigeitems` | NeigeItems 物品 |
-| `hook/nexo` | Nexo 物品 |
-| `hook/azureflow` | AzureFlow 物品 |
-| `hook/craftengine` | CraftEngine 物品 |
-| `hook/executableitems` | ExecutableItems 物品 |
-| `hook/sx-item` | SX-Item 物品 |
-| `hook/protocollib` | ProtocolLib 假结果预览 |
-| `hook/packetevents` | PacketEvents 假结果预览 |
+Craftorithm 的所有 Hook 实现都位于 `hook` 模块中，可参考其中的实现来编写自己的 Hook。
 
 ## 注意事项
 

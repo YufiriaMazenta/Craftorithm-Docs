@@ -42,17 +42,19 @@ Craftorithm supports integrating with the following item plugins, allowing you t
 
 | Plugin | Namespace | Item ID Format         |
 |--------|-----------|------------------------|
-| CraftEngine | `craftengine` | `craftengine:<id>`     |
+| CraftEngine | `craft_engine` | `craft_engine:<id>`    |
 | Nexo | `nexo` | `nexo:<id>`            |
 | AzureFlow | `azureflow` | `azureflow:<id>`       |
-| NeigeItems | `neigeitems` | `neigeitems:<id>`      |
-| ItemsAdder | `itemsadder` | `itemsadder:<id>`      |
+| NeigeItems | `neige_items` | `neige_items:<id>`     |
+| ItemsAdder | `items_adder` | `items_adder:<id>`     |
 | Oraxen | `oraxen` | `oraxen:<id>`          |
 | EcoItems | `ecoitems` | `ecoitems:<id>`        |
 | ExecutableItems | `executableitems` | `executableitems:<id>` |
 | MMOItems | `mmoitems` | `mmoitems:<type>:<id>` |
-| MythicMobs | `mythicmobs` | `mythicmobs:<id>`      |
-| SX-Item | `sx-item` | `sx-item:<id>`         |
+| MythicMobs | `mythic_mobs` | `mythic_mobs:<id>`     |
+| SX-Item | `sx_items` | `sx_items:<id>`        |
+| CustomFishing | `custom_fishing` | `custom_fishing:<id>`  |
+| EmakiItem | `emaikiitem` | `emaikiitem:<id>`      |
 
 Hook priority can be configured in `config.yml` under `item_plugin_hook_priority`.
 

@@ -42,17 +42,19 @@ Craftorithm 支持对接以下物品插件，在配方中直接使用它们的�
 
 | 插件 | 命名空间 | 物品 ID 格式               |
 |------|---------|------------------------|
-| CraftEngine | `craftengine` | `craftengine:<id>`     |
+| CraftEngine | `craft_engine` | `craft_engine:<id>`    |
 | Nexo | `nexo` | `nexo:<id>`            |
 | AzureFlow | `azureflow` | `azureflow:<id>`       |
-| NeigeItems | `neigeitems` | `neigeitems:<id>`      |
-| ItemsAdder | `itemsadder` | `itemsadder:<id>`      |
+| NeigeItems | `neige_items` | `neige_items:<id>`     |
+| ItemsAdder | `items_adder` | `items_adder:<id>`     |
 | Oraxen | `oraxen` | `oraxen:<id>`          |
 | EcoItems | `ecoitems` | `ecoitems:<id>`        |
 | ExecutableItems | `executableitems` | `executableitems:<id>` |
 | MMOItems | `mmoitems` | `mmoitems:<type>:<id>` |
-| MythicMobs | `mythicmobs` | `mythicmobs:<id>`      |
-| SX-Item | `sx-item` | `sx-item:<id>`         |
+| MythicMobs | `mythic_mobs` | `mythic_mobs:<id>`     |
+| SX-Item | `sx_items` | `sx_items:<id>`        |
+| CustomFishing | `custom_fishing` | `custom_fishing:<id>`  |
+| EmakiItem | `emaikiitem` | `emaikiitem:<id>`      |
 
 物品插件的优先级可在 `config.yml` 的 `item_plugin_hook_priority` 中配置。
 

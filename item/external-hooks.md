@@ -20,8 +20,9 @@ Craftorithm 通过 Hook 系统对接 10+ 外部物品插件，在配方中直接
 | ExecutableItems | `executableitems` | `executableitems:<id>` | -        |
 | MMOItems | `mmoitems`        | `mmoitems:<type>:<id>` | -        |
 | MythicMobs | `mythic_mobs`     | `mythic_mobs:<id>`     | -        |
-| SX-Item | `sx_item`         | `sx_item:<id>`         | -        |
-| CustonFishing | `custom_fishing`  | `custom_fishing:<id>`  | -        |
+| SX-Item | `sx_items`        | `sx_items:<id>`        | -        |
+| CustomFishing | `custom_fishing`  | `custom_fishing:<id>`  | -        |
+| EmakiItem | `emaikiitem`      | `emaikiitem:<id>`      | -        |
 
 ## 使用示例
 
@@ -39,7 +40,7 @@ ingredients:
 
 # 使用 MMOItems 物品
 type: 'vanilla_shapeless'
-result: 'mmoitems:SWORD/custom_blade'
+result: 'mmoitems:SWORD:custom_blade'
 ingredients:
   - 'minecraft:diamond'
   - 'minecraft:netherite_ingot'
