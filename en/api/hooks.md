@@ -72,3 +72,4 @@ All of Craftorithm's hook implementations live in the `hook` module; refer to th
 - `matchItemId()` should return `null` if the item does not belong to that plugin
 - `matchItemId()` only returns the item ID; item amounts are handled by Craftorithm
 - Avoid performing expensive operations in hooks
+- `matchItem()` and `matchItemId()` must support being called asynchronously, otherwise an error will occur during recipe loading

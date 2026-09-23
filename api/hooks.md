@@ -72,3 +72,4 @@ Craftorithm 的所有 Hook 实现都位于 `hook` 模块中，可参考其中的
 - `matchItemId()` 应返回 `null` 表示不是该插件的物品
 - `matchItemId()` 只负责返回物品 ID，物品数量由 Craftorithm 统一处理
 - 避免在 Hook 中执行耗时操作
+- `matchItem()`和`matchItemId()`应当支持异步调用，否则将会在配方加载时报错
