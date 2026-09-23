@@ -2,27 +2,27 @@
 title: database.yml
 ---
 
-从1.14.0.0版本开始, 插件引入了数据库支持, 相关的配置在`database.yml`中进行设置
+Since version 1.14.0.0, the plugin supports databases, configured through `database.yml`.
 
-默认支持Sqlite、Mysql和PostgreSQL类型数据库, 其他插件也可以为Craftorithm添加额外的数据库类型支持
+Sqlite, Mysql and PostgreSQL are supported out of the box. Other plugins can also add extra database type support to Craftorithm.
 
-PostgreSQL支持自1.14.2.0版本起提供
+PostgreSQL support was added in 1.14.2.0
 
-要添加额外数据库类型支持, 需要实现`pers.yufiria.craftorithm.database.loader.DataSourceLoader`接口, 并通过`pers.yufiria.craftorithm.database.DataSourceManager#registerDatabaseLoader`方法注册
+To add extra database type support, implement the `pers.yufiria.craftorithm.database.loader.DataSourceLoader` interface and register it through `pers.yufiria.craftorithm.database.DataSourceManager#registerDatabaseLoader`.
 
-默认配置:
+Default configuration:
 
 ```yaml
-# 使用什么类型的数据库, 支持sqlite、mysql和postgresql
+# Which database type to use, supports sqlite, mysql and postgresql
 type: sqlite
 
-# SQLite专用配置
+# SQLite-specific configuration
 sqlite:
-  # 数据库文件路径（相对或绝对）
+  # Database file path (relative or absolute)
   file: "plugins/Craftorithm/data.db"
   parameters: "foreign_keys=on&journal_mode=WAL"
 
-# MySQL专用配置
+# MySQL-specific configuration
 mysql:
   host: "localhost"
   port: 3306
@@ -37,7 +37,7 @@ mysql:
     check_connections_every_ms: 5000
     test_before_get: true
 
-# PostgreSQL专用配置 (1.14.2.0+)
+# PostgreSQL-specific configuration (1.14.2.0+)
 postgresql:
   host: "localhost"
   port: 5432

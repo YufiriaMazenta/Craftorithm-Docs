@@ -102,6 +102,16 @@ Both functions are used for recipe book management and each accepts only one par
 
 `undiscover_recipe` locks the specified recipe.
 
+Since 1.14.2.0, the parameter can be either an exact recipe key or a regular expression. All matching recipes will be unlocked or locked.
+
+For example, `discover_recipe("minecraft:.*")` unlocks all vanilla recipes.
+
+## `recipe_discovered`(1.14.2.0+)
+
+This function checks whether a player has discovered a recipe. It accepts one parameter (the recipe key).
+
+For example, `recipe_discovered("minecraft:diamond_sword")` returns `true` if the player has discovered that recipe, otherwise `false`.
+
 ## `sound`
 
 This function plays a sound for the player. It accepts up to three parameters.

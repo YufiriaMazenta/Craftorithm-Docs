@@ -102,6 +102,16 @@ title: 函数
 
 `undiscover_recipe`则是取消解锁指定配方
 
+自1.14.2.0版本起, 传入的参数既可以是精确的配方key, 也可以是正则表达式, 匹配到的所有配方都会被解锁或取消解锁
+
+例如`discover_recipe("minecraft:.*")`会解锁所有原版配方
+
+### `recipe_discovered`(1.14.2.0+)
+
+这个函数用于判断玩家是否已解锁某个配方，接受一个参数（配方key）
+
+例如`recipe_discovered("minecraft:diamond_sword")`，如果玩家已解锁该配方则返回`true`，否则返回`false`
+
 ### `sound`
 
 这个函数是用于给玩家播放音频的，它最多接受三个参数
