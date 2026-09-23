@@ -51,7 +51,7 @@ CraftorithmAPI api = Craftorithm.api();
 | [Recipe API](/en/api/recipes) | Recipe management, type registration |
 | [Trigger API](/en/api/triggers) | Trigger management, event firing |
 | [Script API](/en/api/scripts) | Script execution, custom function registration |
-| [Hook Development](/en/api/hooks) | External item plugin integration |
+| [Integrating Your Own Item Plugin](/en/api/hooks) | External item plugin integration |
 
 ## Thread Safety
 

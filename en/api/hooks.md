@@ -1,8 +1,8 @@
 ---
-title: Hook Development
+title: Integrating Your Own Item Plugin
 ---
 
-# Hook Development Guide
+# Integrating Your Own Item Plugin
 
 ## ItemPluginHook Interface
 

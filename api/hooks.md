@@ -1,8 +1,8 @@
 ---
-title: Hook 开发
+title: 接入自己的物品插件
 ---
 
-# Hook 开发指南
+# 接入自己的物品插件
 
 ## ItemPluginHook 接口
 

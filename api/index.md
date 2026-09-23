@@ -51,7 +51,7 @@ CraftorithmAPI api = Craftorithm.api();
 | [Recipe API](/api/recipes) | 配方管理、类型注册 |
 | [Trigger API](/api/triggers) | 触发器管理、事件触发 |
 | [Script API](/api/scripts) | 脚本执行、自定义函数注册 |
-| [Hook 开发](/api/hooks) | 外部物品插件集成 |
+| [接入自己的物品插件](/api/hooks) | 外部物品插件集成 |
 
 ## 线程安全
 

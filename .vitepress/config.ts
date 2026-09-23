@@ -96,7 +96,7 @@ const zhSidebar = {
         { text: 'Recipe API', link: '/api/recipes' },
         { text: 'Trigger API', link: '/api/triggers' },
         { text: 'Script API', link: '/api/scripts' },
-        { text: 'Hook 开发', link: '/api/hooks' },
+        { text: '接入自己的物品插件', link: '/api/hooks' },
       ]
     }
   ],
@@ -197,7 +197,7 @@ const enSidebar = {
         { text: 'Recipe API', link: '/en/api/recipes' },
         { text: 'Trigger API', link: '/en/api/triggers' },
         { text: 'Script API', link: '/en/api/scripts' },
-        { text: 'Hook Development', link: '/en/api/hooks' },
+        { text: 'Integrating Your Own Item Plugin', link: '/en/api/hooks' },
       ]
     }
   ],
