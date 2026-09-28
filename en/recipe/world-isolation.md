@@ -10,7 +10,7 @@ Recipes can be configured to be enabled in specific worlds. All recipe types are
 
 ### Crafting table recipes (shaped, shapeless), smelting recipes (furnace, blast furnace, smoker, campfire), smithing recipes (transform, trim), and anvil recipes
 
-When world isolation is enabled, the recipe effectively does not exist in worlds where it is disabled. Therefore it will not interfere with other recipes using the same crafting method, allowing the same materials to produce different results in different worlds.
+When world isolation is enabled, the recipe effectively does not exist in worlds where it is disabled. Therefore it will not interfere with other recipes using the same crafting method, allowing the same ingredients to produce different results in different worlds.
 
 ### Brewing recipes
 

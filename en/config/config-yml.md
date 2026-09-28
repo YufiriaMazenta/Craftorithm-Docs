@@ -37,7 +37,7 @@ The main configuration file `plugins/Craftorithm/config.yml` controls core plugi
 | `blocked_crafting_lore_rules` | list | `[]` | Prevent items with specified lore from being used in crafting — removed <Badge type="danger" text="1.13.5.0" /> |
 | `ingredient_restriction_rules` | list | `[]` | Block items from being used in crafting through configurable rules, replaces both features above |
 
-`ingredient_restriction_rules` allows you to set rules that prevent matching items from being used as materials for specified recipes. This applies to all recipe types.
+`ingredient_restriction_rules` allows you to set rules that prevent matching items from being used as ingredients for specified recipes. This applies to all recipe types.
 
 The plugin automatically converts existing `cannot_craft_items` and `blocked_crafting_lore_rules` settings — no manual migration needed.
 
@@ -93,7 +93,7 @@ debug: true
 # Max recipes registered per tick, lower values reduce server lag
 max_reg_recipe_per_tick: 100
 # Enable experimental recipe ingredients
-# When enabled, recipe material identification is not affected by NBT/component changes (except 1.21.3+ stonecutter recipes), but may cause issues in recipe book
+# When enabled, recipe ingredient identification is not affected by NBT/component changes (except 1.21.3+ stonecutter recipes), but may cause issues in recipe book
 use_experimental_recipe_ingredients: true
 # Threshold for using HashSet instead of ArrayList for ingredient matching when multiple item types are allowed
 ingredient_use_set_threshold: 8

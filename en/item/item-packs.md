@@ -57,9 +57,9 @@ ingredients:
 
 ## Use Cases
 
-- **Multi-material compatibility**: One recipe accepts multiple variants of the same material (e.g., all wool colors, all wood types)
-- **Simplified configuration**: Avoids creating separate recipes for each material variant
-- **Easy maintenance**: Adding a new material only requires one line in the item pack
+- **Multi-ingredient compatibility**: One recipe accepts multiple ingredients of the same type (e.g., all wool colors, all wood types)
+- **Simplified configuration**: Avoids creating separate recipes for each ingredient variant
+- **Easy maintenance**: Adding a new ingredient only requires one line in the item pack
 
 ## Notes
 

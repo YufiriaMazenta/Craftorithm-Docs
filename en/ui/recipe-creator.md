@@ -35,21 +35,21 @@ title: Recipe Creator
 
 ### Shaped Recipe
 
-1. Open GUI with a 3x3 material grid and result slot
-2. Place materials in the grid in the desired shape
+1. Open GUI with a 3x3 ingredient grid and result slot
+2. Place ingredients in the grid in the desired shape
 3. Place the output item in the result slot
 4. Optionally select a recipe book category (misc/building/redstone/equipment)
 5. Click the confirm button to save
 
 ### Shapeless Recipe
 
-1. Place materials in any material slots
+1. Place ingredients in any ingredient slot
 2. Place the output item in the result slot
 3. Click confirm
 
 ### Smelting Recipe
 
-1. Place the input material
+1. Place the input ingredient
 2. Place the output item
 3. Set smelting time and experience (via chat input)
 4. Click confirm
@@ -57,7 +57,7 @@ title: Recipe Creator
 ### Smithing Recipe
 
 1. Place the base item
-2. Place the addition material
+2. Place the addition ingredient
 3. Place the template
 4. Place the output item
 5. Click confirm

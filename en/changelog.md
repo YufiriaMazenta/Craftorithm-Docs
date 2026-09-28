@@ -15,7 +15,7 @@ This page lists changes since 1.11.1.0. For older versions, see [GitHub Releases
 3. Added the ability to make recipes only take effect in specified worlds.
 4. Subcommands under the `/craftorithm item` command no longer require separate permissions.
 5. Fixed an issue where plugin could not correctly block brewing when the ingredients could not be used for crafting.
-6. Fixed an issue where the material count of anvil recipes was displayed incorrectly in the menu.
+6. Fixed an issue where the ingredient count of anvil recipes was displayed incorrectly in the menu.
 7. Optimized code structure and performance.
 
 ## 1.14.2.0 <Badge type="info" text="2026-09-24" />
@@ -216,7 +216,7 @@ This page lists changes since 1.11.1.0. For older versions, see [GitHub Releases
 3. Added compatibility for EmakiItem plugin item sources.
 4. Fixed an issue where anvil recipes did not correctly display the result when renaming items.
 5. Fixed an issue where the enchantment copying rule did not use the higher base enchantment level.
-6. Fixed a parsing error with tagged materials that have quantities in anvil recipes.
+6. Fixed a parsing error with tagged ingredients that have quantities in anvil recipes.
 7. Fixed a NullPointerException (NPE) issue with anvils on versions below 1.21 when the recipe no longer matches.
 8. Fixed an issue where custom actions were executed twice when clicking to edit the recipe display icon.
 9. Fixed an issue where Spigot 1.21.11 could not register recipes because the recipe registry implementation for 1.21.11 was not packaged.
@@ -250,9 +250,9 @@ This page lists changes since 1.11.1.0. For older versions, see [GitHub Releases
 
 1. Except for stonecutter recipes on versions above 1.21.3, all recipe ingredients checks are performed by item ID. This means that adding enchantments or renaming items will no longer prevent crafting.
 2. Fixed an issue where SmithingTrimRecipe could not be used correctly. For versions above 1.21.5, the trim_pattern must now be specified for smithing trim recipes
-3. Added new APIs for recipe registration and material identification
+3. Added new APIs for recipe registration and ingredient identification
 4. Optimized plugin reload performance, and fixed network lag and client-side stuttering that occurred during reload
-5. Fixed an issue where shapeless recipe creation pages could create null item materials
+5. Fixed an issue where shapeless recipe creation pages could create ingredients with null items
 6. Improved UI text display
 7. The `script` command can now be executed from the console
 8. Added compatibility with VaultUnlocked

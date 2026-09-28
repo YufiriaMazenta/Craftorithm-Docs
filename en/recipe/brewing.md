@@ -25,4 +25,4 @@ ingredient: 'minecraft:glistering_melon_slice'
 | `type` | string | Yes | Must be `vanilla_brewing` |
 | `result` | string | Yes | Output item ID |
 | `input` | string | Yes | Input item in the brewing stand (typically a potion bottle) |
-| `ingredient` | string | Yes | Brewing material added to the top slot |
+| `ingredient` | string | Yes | Brewing ingredient added to the top slot |

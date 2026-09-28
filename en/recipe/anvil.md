@@ -27,7 +27,7 @@ copy_components_rules:
 | `type` | string | Yes | Must be `anvil` |
 | `result` | string | Yes | Output item ID |
 | `base` | string | Yes | Left anvil slot item (base item) |
-| `addition` | string | Yes | Right anvil slot item (addition material) |
+| `addition` | string | Yes | Right anvil slot item (addition ingredient) |
 | `cost_level` | integer | No | Experience levels consumed, default `0` |
 | `copy_components_rules` | list | No | Component copy rules (see Smithing Recipes) |
 | `fake_result_preview` | string | No | Fake preview item shown during crafting |

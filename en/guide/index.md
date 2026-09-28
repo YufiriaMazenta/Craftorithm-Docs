@@ -29,7 +29,7 @@ After logging into the server, run the following command to open the recipe crea
 /cra create shaped
 ```
 
-1. Place crafting materials in the GUI (arranged as a shaped recipe)
+1. Place crafting ingredients in the GUI (arranged as a shaped recipe)
 2. Place the output item in the result slot
 3. Click the confirm button to save
 
@@ -37,7 +37,7 @@ The recipe will be automatically saved to the `plugins/Craftorithm/recipes/` dir
 
 ## Verification
 
-Place the corresponding materials in a crafting table and confirm the recipe appears in the crafting result.
+Place the corresponding ingredients in a crafting table and confirm the recipe appears in the crafting result.
 
 ## PlaceholderAPI Variables
 

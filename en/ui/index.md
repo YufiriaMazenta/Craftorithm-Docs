@@ -19,7 +19,7 @@ Craftorithm provides a graphical interface system with recipe creation, editing,
 
 10 recipe types have corresponding GUI interfaces:
 
-- Shaped / Shapeless: drag-and-drop material slots
+- Shaped / Shapeless: drag-and-drop ingredient slots
 - Smelting: single input + time/exp settings
 - Smithing: base + addition + template
 - Brewing: input + ingredient

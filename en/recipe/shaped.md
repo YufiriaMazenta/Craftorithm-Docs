@@ -4,7 +4,7 @@ title: Shaped Recipes
 
 # Shaped Recipes
 
-Shaped recipes require materials to be arranged in a specific pattern in the crafting table.
+Shaped recipes require ingredients to be arranged in a specific pattern in the crafting table.
 
 ## YAML Example
 
@@ -40,7 +40,7 @@ recipe_book_category: equipment
 - Minimum 1×1, maximum 3×3
 - Each character in a shape row maps to a key in `ingredients`
 - A space (` `) means that slot is empty
-- Characters are case-sensitive (`a` and `A` are different materials)
+- Characters are case-sensitive (`a` and `A` are different ingredients)
 
 ### Different Size Examples
 
@@ -65,7 +65,7 @@ ingredients:
 
 ## Item Packs
 
-Use the `item_pack:` prefix to reference item packs defined in `item_packs.yml`, allowing a recipe to accept multiple material variants:
+Use the `item_pack:` prefix to reference item packs defined in `item_packs.yml`, allowing a recipe to accept multiple ingredient variants:
 
 ```yaml
 ingredients:

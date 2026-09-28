@@ -26,7 +26,7 @@ group: 'stonecutting'
 
 ## Multiple Outputs
 
-To allow one material to produce multiple outputs, create separate recipe files:
+To allow one ingredient to produce multiple outputs, create separate recipe files:
 
 ```yaml
 # stone_to_bricks.yml

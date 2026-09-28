@@ -27,7 +27,7 @@ template: 'minecraft:netherite_upgrade_smithing_template'
 | `type` | string | Yes | Must be `vanilla_smithing_transform` |
 | `result` | string | Yes | Output item ID |
 | `base` | string | Yes | Base item (the item being upgraded) |
-| `addition` | string | Yes | Addition material |
+| `addition` | string | Yes | Addition ingredient |
 | `template` | string | Yes | Smithing template (1.20+) |
 | `copy_components_rules` | list | No | Component copy rules |
 | `fake_result_preview` | string | No | Fake preview item shown during crafting |

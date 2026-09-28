@@ -18,8 +18,8 @@ title: Recipe Editor
 
 ## Editing
 
-1. Open GUI displaying the current recipe's materials and result
-2. Modify materials or result
+1. Open GUI displaying the current recipe's ingredients and result
+2. Modify ingredients or result
 3. Click the save button to overwrite the original file
 
 ## Notes

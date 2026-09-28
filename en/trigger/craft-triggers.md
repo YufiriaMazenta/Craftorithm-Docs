@@ -24,13 +24,13 @@ This means craft triggers can actually **block** crafting, not just respond afte
 
 ## Context
 
-Craft triggers add crafting material information and the batch crafting quantity to the trigger context.
+Craft triggers add information about the crafting ingredients and the batch crafting quantity to the trigger context.
 
 The batch crafting quantity key is `craft_num`, which can only be accessed in actions. For normal click crafting, it returns 1.
 
 ### crafting
 
-In `crafting` type triggers, you can use `ingredient_<row-1>_<col-1>` to get the raw material ID at the corresponding position, and `ingredient_<row-1>_<col-1>_amount` to get the quantity.
+In `crafting` type triggers, you can use `ingredient_<row-1>_<col-1>` to get the ingredient ID at the corresponding position, and `ingredient_<row-1>_<col-1>_amount` to get the quantity.
 
 The row and column numbers are not affected by placement position. For example, in a 2x2 recipe, regardless of where you place it, `ingredient_0_0` always gets the item in the first row, first column.
 
@@ -45,15 +45,15 @@ craft_example:
     - 'ingredient_0_0 != "items:example_item:1"'
 ```
 
-In this example, it gets the quantity and item ID of the first row, first column material, and only allows crafting when the quantity is >= 2 and the item is not `items:example_item:1`.
+In this example, it gets the quantity and item ID of the first row, first column ingredient, and only allows crafting when the quantity is >= 2 and the item is not `items:example_item:1`.
 
 ### smithing
 
-In `smithing` type triggers, you can use `template`, `base`, `addition` to get the raw materials of the three slots, and `template_amount`, `base_amount`, `addition_amount` to get the corresponding quantities.
+In `smithing` type triggers, you can use `template`, `base`, `addition` to get the ingredients in the three slots, and `template_amount`, `base_amount`, `addition_amount` to get the corresponding quantities.
 
 ### anvil
 
-Similar to `smithing` type triggers, `anvil` type triggers can use `base`, `addition` to get the raw materials of the two slots, and the same way to get quantities.
+Similar to `smithing` type triggers, `anvil` type triggers can use `base`, `addition` to get the ingredients in the two slots, and the same way to get quantities.
 
 ## YAML Examples
 

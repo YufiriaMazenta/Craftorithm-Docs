@@ -4,7 +4,7 @@ title: Shapeless Recipes
 
 # Shapeless Recipes
 
-Shapeless recipes do not require materials to be placed in a specific pattern. Players can put materials in any slot of the crafting table.
+Shapeless recipes do not require ingredients to be placed in a specific pattern. Players can put ingredients in any slot of the crafting table.
 
 ## YAML Example
 
@@ -33,15 +33,15 @@ recipe_book_category: misc
 
 - No `shape` field
 - `ingredients` is a list instead of a map
-- Materials can be placed in any crafting table slot
+- Ingredients can be placed in any crafting table slot
 
-## Material Limits
+## Ingredient Limits
 
-- Minimum 1, maximum 9 materials
-- The number of items in the list equals the number of required materials
+- Minimum 1, maximum 9 ingredients
+- The number of items in the list equals the number of required ingredients
 
 ```yaml
-# Requires 3 different materials
+# Requires 3 different ingredients
 ingredients:
   - 'minecraft:iron_ingot'
   - 'minecraft:gold_ingot'
