@@ -6,6 +6,18 @@ title: Changelog
 
 This page lists changes since 1.11.1.0. For older versions, see [GitHub Releases](https://github.com/YufiriaMazenta/Craftorithm/releases).
 
+## 1.15.0.0 <Badge type="info" text="2026-09-28" />
+
+### Update Contents
+
+1. Spigot 26.3 servers now also support creating brewing recipes.
+2. Added the command `/craftorithm item getgroupitem <tag>/<item_pack>`, used to obtain the placeholder item for an item tag or item pack used in recipe menus.
+3. Added the ability to make recipes only take effect in specified worlds.
+4. Subcommands under the `/craftorithm item` command no longer require separate permissions.
+5. Fixed an issue where plugin could not correctly block brewing when the ingredients could not be used for crafting.
+6. Fixed an issue where the material count of anvil recipes was displayed incorrectly in the menu.
+7. Optimized code structure and performance.
+
 ## 1.14.2.0 <Badge type="info" text="2026-09-24" />
 
 ### Update Contents

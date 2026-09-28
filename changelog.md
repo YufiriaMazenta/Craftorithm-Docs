@@ -6,6 +6,18 @@ title: 更新日志
 
 本页记录自 1.11.1.0 起的版本更新内容，更早版本请见 [GitHub Releases](https://github.com/YufiriaMazenta/Craftorithm/releases)。
 
+## 1.15.0.0 <Badge type="info" text="2026-09-28" />
+
+### 更新内容
+
+1. spigot 26.3服务端现在也支持创建酿造配方
+2. 新增命令`/craftorithm item getgroupitem <tag>/<item_pack>`命令, 用于获取在配方相关菜单中使用的物品标签或物品包占位物品
+3. 新增设置配方在指定世界才能生效的功能
+4. `/craftorithm item`命令下的子命令不再需要单独权限
+5. 修复酿造配方如果材料不能用于合成的情况下，不能正确拦截酿造的问题
+6. 修复铁砧配方的材料数量在菜单里表现异常的问题
+7. 优化代码结构和性能
+
 ## 1.14.2.0 <Badge type="info" text="2026-09-24" />
 
 ### 更新内容
