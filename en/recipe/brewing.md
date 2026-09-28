@@ -6,6 +6,7 @@ title: Brewing Recipes
 
 ::: warning Prerequisite
 On Minecraft versions below 26.2, brewing recipes are **Paper only**.
+
 On Minecraft 26.3 and above, Spigot servers can also use brewing recipes.
 :::
 
