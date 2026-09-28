@@ -5,7 +5,8 @@ title: Brewing Recipes
 # Brewing Recipes
 
 ::: warning Prerequisite
-Brewing recipes are **Paper only**, it cannot work on Spigot servers.
+On Minecraft versions below 26.2, brewing recipes are **Paper only**.
+On Minecraft 26.3 and above, Spigot servers can also use brewing recipes.
 :::
 
 ## YAML Example
@@ -25,9 +26,3 @@ ingredient: 'minecraft:glistering_melon_slice'
 | `result` | string | Yes | Output item ID |
 | `input` | string | Yes | Input item in the brewing stand (typically a potion bottle) |
 | `ingredient` | string | Yes | Brewing material added to the top slot |
-
-## Notes
-
-- Input items are typically potion types: `minecraft:potion`, `minecraft:splash_potion`, `minecraft:lingering_potion`
-- Potion effects must be specified through the item's NBT/Component data
-- Use `/cra create vanilla_brewing` to create brewing recipes via GUI, avoiding manual NBT editing

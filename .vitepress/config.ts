@@ -24,6 +24,7 @@ const zhSidebar = {
         { text: '切石配方 Stonecutting', link: '/recipe/stonecutting' },
         { text: '酿造配方 Brewing', link: '/recipe/brewing' },
         { text: '铁砧配方 Anvil', link: '/recipe/anvil' },
+        { text: '世界隔离', link: '/recipe/world-isolation' },
         { text: '结果处理器', link: '/recipe/result-processor' },
         { text: '禁用配方', link: '/recipe/disable' },
         { text: '配方书', link: '/recipe/recipe-book' },
@@ -57,9 +58,10 @@ const zhSidebar = {
       items: [
         { text: '概述', link: '/item/' },
         { text: '自定义物品', link: '/item/custom-items' },
-        { text: '物品Tag', link: '/item/tag' },
-        { text: '物品组', link: '/item/item-packs' },
+        { text: '物品标签', link: '/item/tag' },
+        { text: '物品包', link: '/item/item-packs' },
         { text: '外部插件物品', link: '/item/external-hooks' },
+        { text: '占位符物品', link: '/item/placeholder-item' },
       ]
     }
   ],
@@ -126,6 +128,7 @@ const enSidebar = {
         { text: 'Stonecutting Recipes', link: '/en/recipe/stonecutting' },
         { text: 'Brewing Recipes', link: '/en/recipe/brewing' },
         { text: 'Anvil Recipes', link: '/en/recipe/anvil' },
+        { text: 'World Isolation', link: '/en/recipe/world-isolation' },
         { text: 'Result Processors', link: '/en/recipe/result-processor' },
         { text: 'Disabling Recipes', link: '/en/recipe/disable' },
         { text: 'Recipe Book', link: '/en/recipe/recipe-book' },
@@ -159,8 +162,10 @@ const enSidebar = {
       items: [
         { text: 'Overview', link: '/en/item/' },
         { text: 'Custom Items', link: '/en/item/custom-items' },
+        { text: 'Item Tags', link: '/en/item/tag' },
         { text: 'Item Packs', link: '/en/item/item-packs' },
         { text: 'External Plugin Items', link: '/en/item/external-hooks' },
+        { text: 'Placeholder Items', link: '/en/item/placeholder-item' },
       ]
     }
   ],

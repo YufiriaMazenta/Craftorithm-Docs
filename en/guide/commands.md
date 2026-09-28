@@ -36,6 +36,7 @@ Aliases: `/cra`, `/craft`, `/crafto`
 | `item give` | `<item> [player]` | Give a custom item |
 | `item fuel add` | `<burn_time>` | Add held item as fuel |
 | `item fuel remove` | `<fuel_id>` | Remove a custom fuel |
+| `item getgroupitem` | `tag/itempack <id>` | Get a [placeholder item](../item/placeholder-item) |
 
 ### System Commands
 

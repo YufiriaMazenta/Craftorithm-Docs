@@ -30,12 +30,13 @@ title: 命令参考
 
 ### 物品管理
 
-| 命令 | 参数 | 说明 |
-|------|------|------|
-| `item save` | — | 保存手持物品为自定义物品 |
-| `item give` | `<item> [player]` | 给予自定义物品 |
-| `item fuel add` | `<burn_time>` | 将手持物品添加为燃料 |
-| `item fuel remove` | `<fuel_id>` | 移除自定义燃料 |
+| 命令                | 参数                | 说明                                          |
+|---------------------|---------------------|-----------------------------------------------|
+| `item save`         | —                   | 保存手持物品为自定义物品                      |
+| `item give`         | `<item> [player]`   | 给予自定义物品                                |
+| `item fuel add`     | `<burn_time>`       | 将手持物品添加为燃料                          |
+| `item fuel remove`  | `<fuel_id>`         | 移除自定义燃料                                |
+| `item getgroupitem` | `tag/itempack <id>` | 获取[占位符物品](../item/placeholder-item.md) |
 
 ### 系统命令
 
