@@ -27,3 +27,7 @@ ingredient: 'minecraft:glistering_melon_slice'
 | `result` | string | 是 | 产出物品 ID |
 | `input` | string | 是 | 酿造台中的输入物品（药水瓶） |
 | `ingredient` | string | 是 | 添加的酿造材料 |
+
+## 查看页面
+
+从 1.15.1.0 起，酿造配方的查看页面除了 Craftorithm 注册的配方外，也会显示服务器本身（原版或数据包提供）的酿造配方（仅 26.3 以上版本的 Paper 端）。

@@ -29,7 +29,7 @@ Craftorithm 提供图形化界面系统，包含配方创建、编辑、浏览�
 
 | 功能 | 权限节点 |
 |------|---------|
-| 创建配方 | `craftorithm.command.create` |
-| 编辑配方 | `craftorithm.edit_recipe` |
+| 创建配方 | `craftorithm.recipe.create` |
+| 编辑配方 | `craftorithm.recipe.edit` |
 | 配方书 | `craftorithm.command.recipebook` |
 | 自定义菜单 | `craftorithm.command.openmenu` |

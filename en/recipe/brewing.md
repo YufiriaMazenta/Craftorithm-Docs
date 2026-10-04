@@ -27,3 +27,7 @@ ingredient: 'minecraft:glistering_melon_slice'
 | `result` | string | Yes | Output item ID |
 | `input` | string | Yes | Input item in the brewing stand (typically a potion bottle) |
 | `ingredient` | string | Yes | Brewing ingredient added to the top slot |
+
+## Display Menu
+
+Since 1.15.1.0, the brewing recipe display menu shows not only recipes registered by Craftorithm but also the server's builtin brewing recipes (provided by vanilla or datapacks; Paper on 26.3 and above only).

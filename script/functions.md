@@ -106,6 +106,18 @@ title: 函数
 
 例如`discover_recipe("minecraft:.*")`会解锁所有原版配方
 
+### `discover_recipe_all`/`undiscover_recipe_all`
+
+这两个函数用于给在线的全体玩家解锁或取消解锁配方，它们都只接受一个参数
+
+`discover_recipe_all`是为所有在线玩家在配方书解锁配方
+
+`undiscover_recipe_all`则是为所有在线玩家取消解锁配方
+
+与`discover_recipe`/`undiscover_recipe`一样, 传入的参数既可以是精确的配方key, 也可以是正则表达式
+
+例如`discover_recipe_all("craftorithm:.*")`会为所有在线玩家解锁本插件注册的全部配方
+
 ### `recipe_discovered`
 
 这个函数用于判断玩家是否已解锁某个配方，接受一个参数（配方key）

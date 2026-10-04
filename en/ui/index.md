@@ -30,7 +30,7 @@ Craftorithm provides a graphical interface system with recipe creation, editing,
 
 | Feature | Permission |
 |---------|-----------|
-| Create recipe | `craftorithm.command.create` |
-| Edit recipe | `craftorithm.edit_recipe` |
+| Create recipe | `craftorithm.recipe.create` |
+| Edit recipe | `craftorithm.recipe.edit` |
 | Recipe book | `craftorithm.command.recipebook` |
 | Custom menu | `craftorithm.command.openmenu` |

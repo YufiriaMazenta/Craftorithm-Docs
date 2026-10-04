@@ -91,11 +91,26 @@ my_trigger:
 | `block_break` | Break block | `block_type` |
 | `block_place` | Place block | `block_type` |
 
+### Recipe Events
+
+| Event | Description | Context Variables |
+|-------|-------------|-------------------|
+| `recipe_load` | Fires when Craftorithm loads a recipe | `recipe_key` |
+
+In a `recipe_load` trigger, `recipe_key` holds the key of the recipe being loaded (for example `craftorithm:my_recipe`). This event fires asynchronously while loading recipes, and there is no player in the context.
+
+```yaml
+on_recipe_load:
+  type: 'recipe_load'
+  actions:
+    - 'log("Loading recipe: " + recipe_key)'
+```
+
 ## Context Variables
 
-Each event type automatically injects relevant variables into the script context. Access them via `context("variable_name")`.
+Each event type automatically injects relevant variables into the script context.
 
-### event Object
+### Event Object
 
 All triggers have an `event` object in their context that allows direct access to the Bukkit event object.
 

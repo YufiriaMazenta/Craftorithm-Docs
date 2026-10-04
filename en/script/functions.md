@@ -106,6 +106,18 @@ The parameter can be either an exact recipe key or a regular expression. All mat
 
 For example, `discover_recipe("minecraft:.*")` unlocks all vanilla recipes.
 
+## `discover_recipe_all`/`undiscover_recipe_all`
+
+These two functions unlock or lock recipes for all online players, and each accepts only one parameter.
+
+`discover_recipe_all` unlocks a recipe in the recipe book for all online players.
+
+`undiscover_recipe_all` locks a recipe for all online players.
+
+Like `discover_recipe`/`undiscover_recipe`, the parameter can be either an exact recipe key or a regular expression.
+
+For example, `discover_recipe_all("craftorithm:.*")` unlocks all recipes registered by this plugin for every online player.
+
 ## `recipe_discovered`
 
 This function checks whether a player has discovered a recipe. It accepts one parameter (the recipe key).

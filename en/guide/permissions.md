@@ -4,22 +4,29 @@ title: Permissions
 
 # Permissions
 
+::: tip Permission Structure
+Since 1.15.1.0, permissions use a capability-oriented naming scheme in the format `craftorithm.<domain>.<capability>`, and commands share the same permissions with menus. If you previously configured the old nodes (such as `craftorithm.command.create` or `craftorithm.edit_recipe`) in a permission plugin, you need to migrate to the new nodes.
+:::
+
 ## Default Permissions
 
 | Permission Node | Description | Default |
 |----------------|-------------|---------|
-| `craftorithm.command` | All basic commands | OP |
+| `craftorithm.command` | All basic commands (root command) | OP |
 | `craftorithm.command.reload` | Reload plugin | OP |
 | `craftorithm.command.version` | View version | OP |
-| `craftorithm.command.create` | Create recipes | OP |
-| `craftorithm.command.disable` | Disable recipes | OP |
-| `craftorithm.command.display` | Display recipes | OP |
-| `craftorithm.command.recipebook` | Open recipe book | OP |
-| `craftorithm.command.openmenu` | Open custom menus | OP |
 | `craftorithm.command.script` | Execute scripts | OP |
-| `craftorithm.command.item` | Item management | OP |
-| `craftorithm.edit_recipe` | Edit recipes | OP |
+| `craftorithm.command.openmenu` | Open custom menus | OP |
+| `craftorithm.command.recipebook` | Open recipe book | OP |
+| `craftorithm.recipe.create` | Create recipes | OP |
 | `craftorithm.recipe.remove` | Delete recipes | OP |
+| `craftorithm.recipe.edit` | Edit recipes | OP |
+| `craftorithm.recipe.display` | Display recipes | OP |
+| `craftorithm.recipe.disable` | Disable recipes | OP |
+| `craftorithm.recipe.restore` | Restore disabled recipes | OP |
+| `craftorithm.recipe.discover` | Unlock recipes for players | OP |
+| `craftorithm.recipe.undiscover` | Lock recipes for players | OP |
+| `craftorithm.item` | Item management | OP |
 
 ## Trigger Permissions
 

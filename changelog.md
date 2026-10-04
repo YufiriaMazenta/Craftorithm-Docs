@@ -6,6 +6,22 @@ title: 更新日志
 
 本页记录自 1.11.1.0 起的版本更新内容，更早版本请见 [GitHub Releases](https://github.com/YufiriaMazenta/Craftorithm/releases)。
 
+## 1.15.1.0 <Badge type="info" text="2026-10-05" />
+
+### 破坏性更新
+
+1. 重构插件权限结构，命令与菜单现在复用同一套权限。配方相关的权限节点由 `craftorithm.command.<动作>`、`craftorithm.edit_recipe` 统一调整为 `craftorithm.recipe.<动作>`，物品相关权限调整为 `craftorithm.item`，具体请查看[权限节点](/guide/permissions)
+
+### 更新内容
+
+1. 配方编辑器菜单新增删除配方按钮，点击后会删除当前正在编辑的配方（需要 `craftorithm.recipe.remove` 权限）
+2. 酿造配方的查看页面现在也兼容服务器本身的酿造配方（26.3以上版本的Paper端）
+3. 新增`recipe_load`类型触发器，在Craftorithm加载配方时触发，上下文中包含`recipe_key`字段，表示本次加载的配方key
+4. 新增脚本函数`discover_recipe_all`和`undiscover_recipe_all`，用于给在线的全体玩家解锁或取消解锁配方
+5. 修复26.2及以上版本在禁用了原版工作台转换配方后，插件无法正常重载配方的问题
+6. 内置UI的默认配置文件不再随插件jar打包，改为在运行时自动生成
+7. 优化代码结构和性能
+
 ## 1.15.0.0 <Badge type="info" text="2026-09-28" />
 
 ### 更新内容

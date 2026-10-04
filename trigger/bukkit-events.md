@@ -91,9 +91,24 @@ my_trigger:
 | `block_break` | 破坏方块 | `block_type` |
 | `block_place` | 放置方块 | `block_type` |
 
+### 配方事件
+
+| 事件名 | 说明 | 上下文变量 |
+|--------|------|-----------|
+| `recipe_load` | Craftorithm 加载某个配方时触发 | `recipe_key` |
+
+`recipe_load` 触发器中可通过 `recipe_key` 获取本次加载的配方 key（例如 `craftorithm:my_recipe`）。该事件在加载配方时异步触发，上下文中没有玩家。
+
+```yaml
+on_recipe_load:
+  type: 'recipe_load'
+  actions:
+    - 'log("正在加载配方: " + recipe_key)'
+```
+
 ## 上下文变量
 
-每个事件类型会自动注入相关变量到脚本上下文中，可通过 `context("变量名")` 函数访问。
+每个事件类型会自动注入相关变量到脚本上下文中，可以直接使用
 
 ### event 对象
 

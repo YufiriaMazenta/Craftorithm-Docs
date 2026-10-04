@@ -6,6 +6,22 @@ title: Changelog
 
 This page lists changes since 1.11.1.0. For older versions, see [GitHub Releases](https://github.com/YufiriaMazenta/Craftorithm/releases).
 
+## 1.15.1.0 <Badge type="info" text="2026-10-05" />
+
+### Breaking Changes
+
+1. Refactored the plugin's permission structure. Commands and menus now share the same permissions. Recipe-related permission nodes have been unified from `craftorithm.command.<action>` and `craftorithm.edit_recipe` to `craftorithm.recipe.<action>`, and item-related permissions have been changed to `craftorithm.item`. See [Permissions](/en/guide/permissions) for details.
+
+### Update Contents
+
+1. Added a delete recipe icon to the recipe editor menu. Clicking it deletes the recipe currently being edited (requires the `craftorithm.recipe.remove` permission).
+2. The brewing recipe display menu now also supports the server's builtin brewing recipes (Paper on 26.3 and above).
+3. Added a `recipe_load` trigger type that fires when Craftorithm loads recipes, with a `recipe_key` field indicating the key of the recipe being loaded.
+4. Added `discover_recipe_all` and `undiscover_recipe_all` script functions to unlock or lock recipes for all online players.
+5. Fixed an issue where, on versions 26.2 and above, disabling vanilla crafting table transmute recipes would prevent the plugin from reloading recipes properly.
+6. The default configuration files of the built-in UIs are no longer packaged in the plugin jar and are now generated automatically at runtime.
+7. Optimized code structure and performance.
+
 ## 1.15.0.0 <Badge type="info" text="2026-09-28" />
 
 ### Update Contents
