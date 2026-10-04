@@ -97,7 +97,7 @@ my_trigger:
 |--------|------|-----------|
 | `recipe_load` | Craftorithm 加载某个配方时触发 | `recipe_key` |
 
-`recipe_load` 触发器中可通过 `recipe_key` 获取本次加载的配方 key（例如 `craftorithm:my_recipe`）。该事件在加载配方时异步触发，上下文中没有玩家。
+`recipe_load` 触发器中可通过 `recipe_key` 获取本次加载的配方 key（例如 `craftorithm:my_recipe`）。该事件在加载配方时触发，上下文中没有玩家。
 
 ```yaml
 on_recipe_load:

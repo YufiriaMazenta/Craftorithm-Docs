@@ -97,7 +97,7 @@ my_trigger:
 |-------|-------------|-------------------|
 | `recipe_load` | Fires when Craftorithm loads a recipe | `recipe_key` |
 
-In a `recipe_load` trigger, `recipe_key` holds the key of the recipe being loaded (for example `craftorithm:my_recipe`). This event fires asynchronously while loading recipes, and there is no player in the context.
+In a `recipe_load` trigger, `recipe_key` holds the key of the recipe being loaded (for example `craftorithm:my_recipe`). This event fires while loading recipes, and there is no player in the context.
 
 ```yaml
 on_recipe_load:
