@@ -6,6 +6,20 @@ title: Changelog
 
 This page lists changes since 1.11.1.0. For older versions, see [GitHub Releases](https://github.com/YufiriaMazenta/Craftorithm/releases).
 
+## 1.15.2.0 <Badge type="info" text="2026-10-14" />
+
+### Breaking Changes
+
+1. The developer API entry point `CraftorithmAPI` has been refactored into `CraftorithmApi` and split by domain into four sub-APIs: `ItemApi`, `RecipeApi`, `TriggerApi` and `MenuApi`. Use `item()` / `recipe()` / `trigger()` / `menu()` on the entry point `Craftorithm.api()` (or `CraftorithmApi.INSTANCE`) to obtain the corresponding sub-API; see the [Developer Docs](/en/api/) for details. The item, recipe and trigger methods have been moved to their respective sub-APIs, and the old `getPlugin()` and `isReloading()` methods have been removed.
+2. The `debug` configuration key has been removed in favor of `log_level`, whose value can be `debug` / `verbose` / `info` / `warn` / `error` / `off`. On startup the plugin automatically migrates the old `debug: true` to `log_level: debug` and `debug: false` to `log_level: info`.
+
+### Update Contents
+
+1. Added a menu API (`MenuApi`), allowing other plugins to open, register or unregister the recipe creator, editor and display menus. See [Menu API](/en/api/menus) for details.
+2. Renamed the recipe editor base class `RecipeEditorMenu` to `RecipeEditor`.
+3. Adopted CrypticLib's new logging API and refined log output, demoting many messages (such as other-plugin listener conversion) to the `verbose` level.
+4. Optimized code structure.
+
 ## 1.15.1.0 <Badge type="info" text="2026-10-05" />
 
 ### Breaking Changes

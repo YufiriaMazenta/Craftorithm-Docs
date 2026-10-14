@@ -13,7 +13,9 @@ title: config.yml
 | 键 | 类型 | 默认值 | 说明 |
 |----|------|--------|------|
 | `check_update` | boolean | `true` | 启动时检查更新 |
-| `debug` | boolean | `false` | 调试模式 |
+| `log_level` | string | `info` | 插件日志级别，可选 `debug` / `verbose` / `info` / `warn` / `error` / `off` |
+
+> `debug` 配置项自 1.15.2.0 起由 `log_level` 替代，插件启动时会自动将旧值迁移（`debug: true` → `log_level: debug`），无需手动修改
 
 ### 配方设置
 
@@ -90,7 +92,8 @@ remove_all_vanilla_recipe: false
 bstats: true
 # 是否启用铁砧配方
 enable_anvil_recipe: true
-debug: true
+# 插件日志级别，可选 debug / verbose / info / warn / error / off
+log_level: info
 # 每tick注册的配方数量，调低此数值可以减少服务器卡顿
 max_reg_recipe_per_tick: 100
 # 是否启用实验性配方材料功能

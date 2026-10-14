@@ -9,63 +9,72 @@ title: Recipe API
 ```java
 // 通过 NamespacedKey 获取配方
 NamespacedKey key = new NamespacedKey("craftorithm", "my_recipe");
-Recipe recipe = api.getRecipe(key);
+Recipe recipe = api.recipe().getRecipe(key);
 
 // 检查配方是否存在
-boolean exists = api.containsRecipe("craftorithm:my_recipe");
+boolean exists = api.recipe().containsRecipe("craftorithm:my_recipe");
 ```
 
 ## 获取配方集合
 
 ```java
 // 获取所有 Craftorithm 注册的配方
-Map<NamespacedKey, Recipe> recipes = api.getCraftorithmRecipes();
+Map<NamespacedKey, Recipe> recipes = api.recipe().getCraftorithmRecipes();
 
 // 获取所有服务器配方（含原版）
-Set<NamespacedKey> allRecipes = api.getServerRecipeKeys();
+Set<NamespacedKey> allRecipes = api.recipe().getServerRecipeKeys();
 ```
 
 ## 按类型获取配方
 
 ```java
-// 获取指定类型的所有配方
-List<Recipe> shapedRecipes = api.getRecipesByType("vanilla_shaped");
-
-// 获取所有配方类型（按 typeId 排序）
-List<RecipeType> types = api.getAllRecipeTypes();
+// 遍历所有 Craftorithm 配方，通过 RecipeType 筛选出指定类型的配方
+List<Recipe> shapedRecipes = api.recipe().getCraftorithmRecipes().values().stream()
+    .filter(recipe -> api.recipe().getRecipeType(recipe).typeKey().equals("vanilla_shaped"))
+    .toList();
 ```
 
 ## 获取配方类型
 
 ```java
 // 从 Recipe 检测类型
-RecipeType type = api.getRecipeType(recipe);
+RecipeType type = api.recipe().getRecipeType(recipe);
 
-// 从 typeId 获取类型
-RecipeType type = RecipeTypeMap.getTypeById(typeId);
+// 从类型 key 获取类型
+RecipeType type = api.recipe().getRecipeType("vanilla_shaped");
 ```
 
 ## 注册配方类型
 
 ```java
-api.registerRecipeType(new MyCustomRecipeType());
+api.recipe().registerRecipeType(new MyCustomRecipeType());
+```
+
+## 配方组
+
+```java
+// 获取所有配方组 ID
+Collection<String> groups = api.recipe().getRecipeGroups();
+
+// 获取指定配方组
+RecipeGroup group = api.recipe().getRecipeGroup("my_group");
 ```
 
 ## 禁用/移除配方
 
 ```java
 // 禁用配方
-api.disableRecipe(key, true);
+api.recipe().disableRecipe(key, true);
 
-// 移除 Craftorithm 配方
-api.removeCraftorithmRecipe(key, true);
+// 移除 Craftorithm 配方（recipeId 为配方 id，而非 NamespacedKey）
+api.recipe().removeCraftorithmRecipe("my_recipe", true);
 ```
 
 ## 文件名/Key 映射
 
 ```java
-String fileName = api.getRecipeFileNameByKey(key);
-NamespacedKey key = api.getRecipeKeyByFileName("my_recipe");
+String fileName = api.recipe().getRecipeFileNameByKey(key);
+NamespacedKey key = api.recipe().getRecipeKeyByFileName("my_recipe");
 ```
 
 ## 结果处理器
@@ -118,7 +127,8 @@ LoreProcessorFactory.INSTANCE.handlers().put("random_lore", configurationSection
 
 | 类 | 说明 |
 |----|------|
-| `CraftorithmAPI` | API 入口 |
+| `CraftorithmApi` | API 总入口 |
+| `RecipeApi` | Recipe API |
 | `RecipeType` | 配方类型接口 |
 | `RecipeTypeMap` | 类型 ID ↔ 类型映射 |
 | `RecipeManager` | 配方管理器 |

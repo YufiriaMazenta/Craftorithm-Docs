@@ -7,15 +7,16 @@ title: Trigger API
 ## 获取触发器管理器
 
 ```java
-TriggerManager manager = api.getTriggerManager();
+TriggerManager manager = api.trigger().getTriggerManager();
 ```
 
 ## 触发事件
 
 ```java
-// 以指定类型和上下文触发
+// 以指定类型与上下文触发
+TriggerType triggerType = manager.getTriggerType("my_trigger_type");
 TriggerContext context = new TriggerContext(player, variables);
-manager.fire("my_trigger_type", context);
+api.trigger().fireTrigger(triggerType, context);
 ```
 
 ## TriggerContext
@@ -96,6 +97,8 @@ public void onRecipeLoad(RecipeLoadFromConfigEvent event) {
 
 | 类 | 说明 |
 |----|------|
+| `CraftorithmApi` | API 总入口 |
+| `TriggerApi` | Trigger API |
 | `TriggerManager` | 触发器管理器 |
 | `Trigger` | 触发器数据模型 |
 | `TriggerContext` | 触发器上下文 |

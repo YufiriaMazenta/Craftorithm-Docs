@@ -8,41 +8,42 @@ title: Item API
 
 ```java
 // Get Craftorithm custom item by name
-ItemStack item = api.getCraftorithmItem("my_item");
+ItemStack item = api.item().getCraftorithmItem("my_item");
 
 // Get via NamespacedItemIdStack
 NamespacedItemIdStack idStack = new NamespacedItemIdStack(NamespacedItemId.of("craftorithm", "my_item"), 1);
-ItemStack item = api.getItem(idStack);
+Optional<ItemStack> item = api.item().getItem(idStack);
 
 // Get with player context (supports PAPI variables)
-ItemStack item = api.getItem(idStack, player);
+Optional<ItemStack> item = api.item().getItem(idStack, player);
 ```
 
 ## Matching Item ID
 
 ```java
 // Reverse-lookup item ID from ItemStack
-Optional<NamespacedItemIdStack> idStack = api.matchItemId(itemStack, false);
+Optional<NamespacedItemIdStack> idStack = api.item().matchItemId(itemStack, false);
 // Returns an ID like "craftorithm:my_item" or "minecraft:diamond"
 ```
 
 ## Getting All Custom Items
 
 ```java
-Map<String, ItemStack> items = api.getCraftorithmItems();
+Map<String, ItemStack> items = api.item().getCraftorithmItems();
 ```
 
 ## Registering Item Plugin Hook
 
 ```java
-api.registerItemPluginHook(new MyItemPluginHook());
+api.item().registerItemPluginHook(new MyItemPluginHook());
 ```
 
 ## Related Classes
 
 | Class | Description |
 |-------|-------------|
-| `CraftorithmAPI` | API entry point |
+| `CraftorithmApi` | API entry point |
+| `ItemApi` | Item API |
 | `NamespacedItemId` | Namespaced item ID (namespace + itemId) |
 | `NamespacedItemIdStack` | ID + amount |
 | `ItemPack` | Item pack |

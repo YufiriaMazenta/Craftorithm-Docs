@@ -6,6 +6,20 @@ title: 更新日志
 
 本页记录自 1.11.1.0 起的版本更新内容，更早版本请见 [GitHub Releases](https://github.com/YufiriaMazenta/Craftorithm/releases)。
 
+## 1.15.2.0 <Badge type="info" text="2026-10-14" />
+
+### 破坏性更新
+
+1. 开发者 API 入口 `CraftorithmAPI` 重构为 `CraftorithmApi`，并按领域拆分为 `ItemApi`、`RecipeApi`、`TriggerApi`、`MenuApi` 四个子 API。请通过总入口 `Craftorithm.api()`（或 `CraftorithmApi.INSTANCE`）的 `item()` / `recipe()` / `trigger()` / `menu()` 获取对应子 API，详见[开发者文档](/api/)；原有的物品、配方、触发器方法已迁移到对应子 API，`getPlugin()` 与 `isReloading()` 方法已移除
+2. `debug` 配置项已被移除，改用 `log_level` 配置项，可选值为 `debug` / `verbose` / `info` / `warn` / `error` / `off`。插件启动时会自动将旧的 `debug: true` 迁移为 `log_level: debug`、`debug: false` 迁移为 `log_level: info`
+
+### 更新内容
+
+1. 新增界面 API（`MenuApi`），其他插件现在可以打开、注册或注销配方创建、编辑、展示三类界面，详见 [Menu API](/api/menus)
+2. 配方编辑器基类 `RecipeEditorMenu` 重命名为 `RecipeEditor`
+3. 接入 CrypticLib 新版日志 API 并优化日志输出，将其他插件监听器转换等大量日志降至 `verbose` 级别
+4. 优化代码结构
+
 ## 1.15.1.0 <Badge type="info" text="2026-10-05" />
 
 ### 破坏性更新

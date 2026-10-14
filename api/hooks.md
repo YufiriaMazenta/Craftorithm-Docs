@@ -57,7 +57,7 @@ public class MyPluginItemProvider implements ItemProvider {
 在插件启动时注册：
 
 ```java
-CraftorithmAPI.INSTANCE.registerItemPluginHook(new MyPluginHook());
+Craftorithm.api().item().registerItemPluginHook(new MyPluginHook());
 ```
 
 

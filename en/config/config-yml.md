@@ -13,7 +13,9 @@ The main configuration file `plugins/Craftorithm/config.yml` controls core plugi
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | `check_update` | boolean | `true` | Check for updates on startup |
-| `debug` | boolean | `false` | Debug mode |
+| `log_level` | string | `info` | Plugin log level, one of `debug` / `verbose` / `info` / `warn` / `error` / `off` |
+
+> Since 1.15.2.0, the `debug` option has been replaced by `log_level`. The plugin migrates the old value automatically on startup (`debug: true` → `log_level: debug`), so no manual change is needed.
 
 ### Recipe Settings
 
@@ -89,7 +91,8 @@ remove_all_vanilla_recipe: false
 bstats: true
 # Whether to enable anvil recipes
 enable_anvil_recipe: true
-debug: true
+# Plugin log level, one of debug / verbose / info / warn / error / off
+log_level: info
 # Max recipes registered per tick, lower values reduce server lag
 max_reg_recipe_per_tick: 100
 # Enable experimental recipe ingredients

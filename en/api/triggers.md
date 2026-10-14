@@ -4,18 +4,19 @@ title: Trigger API
 
 # Trigger API
 
-## Getting Trigger Manager
+## Getting the Trigger Manager
 
 ```java
-TriggerManager manager = api.getTriggerManager();
+TriggerManager manager = api.trigger().getTriggerManager();
 ```
 
 ## Firing Triggers
 
 ```java
-// Fire with specified type and context
+// Fire with the specified type and context
+TriggerType triggerType = manager.getTriggerType("my_trigger_type");
 TriggerContext context = new TriggerContext(player, variables);
-manager.fire("my_trigger_type", context);
+api.trigger().fireTrigger(triggerType, context);
 ```
 
 ## TriggerContext
@@ -96,6 +97,8 @@ public void onRecipeLoad(RecipeLoadFromConfigEvent event) {
 
 | Class | Description |
 |-------|-------------|
+| `CraftorithmApi` | API entry point |
+| `TriggerApi` | Trigger API |
 | `TriggerManager` | Trigger manager |
 | `Trigger` | Trigger data model |
 | `TriggerContext` | Trigger context |

@@ -57,7 +57,7 @@ public class MyPluginItemProvider implements ItemProvider {
 Register during plugin startup:
 
 ```java
-CraftorithmAPI.INSTANCE.registerItemPluginHook(new MyPluginHook());
+Craftorithm.api().item().registerItemPluginHook(new MyPluginHook());
 ```
 
 

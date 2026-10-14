@@ -9,63 +9,72 @@ title: Recipe API
 ```java
 // Get recipe by NamespacedKey
 NamespacedKey key = new NamespacedKey("craftorithm", "my_recipe");
-Recipe recipe = api.getRecipe(key);
+Recipe recipe = api.recipe().getRecipe(key);
 
 // Check if recipe exists
-boolean exists = api.containsRecipe("craftorithm:my_recipe");
+boolean exists = api.recipe().containsRecipe("craftorithm:my_recipe");
 ```
 
 ## Getting Recipe Collections
 
 ```java
 // Get all Craftorithm-registered recipes
-Map<NamespacedKey, Recipe> recipes = api.getCraftorithmRecipes();
+Map<NamespacedKey, Recipe> recipes = api.recipe().getCraftorithmRecipes();
 
 // Get all server recipe keys (including vanilla)
-Set<NamespacedKey> allRecipes = api.getServerRecipeKeys();
+Set<NamespacedKey> allRecipes = api.recipe().getServerRecipeKeys();
 ```
 
 ## Getting Recipes by Type
 
 ```java
-// Get all recipes of a specific type
-List<Recipe> shapedRecipes = api.getRecipesByType("vanilla_shaped");
-
-// Get all recipe types (sorted by typeId)
-List<RecipeType> types = api.getAllRecipeTypes();
+// Iterate all Craftorithm recipes and filter by RecipeType
+List<Recipe> shapedRecipes = api.recipe().getCraftorithmRecipes().values().stream()
+    .filter(recipe -> api.recipe().getRecipeType(recipe).typeKey().equals("vanilla_shaped"))
+    .toList();
 ```
 
 ## Getting Recipe Type
 
 ```java
 // Detect type from Recipe
-RecipeType type = api.getRecipeType(recipe);
+RecipeType type = api.recipe().getRecipeType(recipe);
 
 // Get type from typeKey
-RecipeType type = api.getRecipeType("vanilla_shaped");
+RecipeType type = api.recipe().getRecipeType("vanilla_shaped");
 ```
 
 ## Registering Recipe Type
 
 ```java
-api.registerRecipeType(new MyCustomRecipeType());
+api.recipe().registerRecipeType(new MyCustomRecipeType());
+```
+
+## Recipe Groups
+
+```java
+// Get all recipe group IDs
+Collection<String> groups = api.recipe().getRecipeGroups();
+
+// Get a specific recipe group
+RecipeGroup group = api.recipe().getRecipeGroup("my_group");
 ```
 
 ## Disabling / Removing Recipes
 
 ```java
 // Disable a recipe
-api.disableRecipe(key, true);  // true = save to config
+api.recipe().disableRecipe(key, true);  // true = save to config
 
-// Remove a Craftorithm recipe
-api.removeCraftorithmRecipe(key, true);  // true = delete file
+// Remove a Craftorithm recipe (recipeId is the recipe id, not a NamespacedKey)
+api.recipe().removeCraftorithmRecipe("my_recipe", true);  // true = delete file
 ```
 
 ## Filename / Key Mapping
 
 ```java
-String fileName = api.getRecipeFileNameByKey(key);
-NamespacedKey key = api.getRecipeKeyByFileName("my_recipe");
+String fileName = api.recipe().getRecipeFileNameByKey(key);
+NamespacedKey key = api.recipe().getRecipeKeyByFileName("my_recipe");
 ```
 
 ## Result Processors
@@ -118,7 +127,8 @@ LoreProcessorFactory.INSTANCE.handlers().put("random_lore", configurationSection
 
 | Class | Description |
 |-------|-------------|
-| `CraftorithmAPI` | API entry point |
+| `CraftorithmApi` | API entry point |
+| `RecipeApi` | Recipe API |
 | `RecipeType` | Recipe type interface |
 | `RecipeTypeMap` | typeId ↔ type mapping |
 | `RecipeManager` | Recipe manager |
