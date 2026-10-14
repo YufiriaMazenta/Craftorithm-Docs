@@ -17,7 +17,7 @@ title: 更新日志
 
 1. 新增界面 API（`MenuApi`），其他插件现在可以打开、注册或注销配方创建、编辑、展示三类界面，详见 [Menu API](/api/menus)
 2. 配方编辑器基类 `RecipeEditorMenu` 重命名为 `RecipeEditor`
-3. 接入 CrypticLib 新版日志 API 并优化日志输出，将其他插件监听器转换等大量日志降至 `verbose` 级别
+3. 优化日志输出，将其他插件监听器转换等大量日志降至 `verbose` 级别
 4. 优化代码结构
 
 ## 1.15.1.0 <Badge type="info" text="2026-10-05" />
