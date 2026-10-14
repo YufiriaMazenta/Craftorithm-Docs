@@ -17,7 +17,7 @@ This page lists changes since 1.11.1.0. For older versions, see [GitHub Releases
 
 1. Added a menu API (`MenuApi`), allowing other plugins to open, register or unregister the recipe creator, editor and display menus. See [Menu API](/en/api/menus) for details.
 2. Renamed the recipe editor base class `RecipeEditorMenu` to `RecipeEditor`.
-3. Adopted CrypticLib's new logging API and refined log output, demoting many messages (such as other-plugin listener conversion) to the `verbose` level.
+3. Refined log output, demoting many messages (such as other-plugin listener conversion) to the `verbose` level.
 4. Optimized code structure.
 
 ## 1.15.1.0 <Badge type="info" text="2026-10-05" />
