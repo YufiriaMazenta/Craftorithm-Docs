@@ -4,7 +4,7 @@ title: Menu API
 
 # Menu API
 
-自 1.15.2.0 起，Craftorithm 开放了界面（Menu）相关的 API。其他插件可以通过 `MenuApi` 打开、注册或注销配方**创建（creator）**、**编辑（editor）**、**展示（display）**三类界面。
+自 1.15.2.0 起，Craftorithm 开放了界面（Menu）相关的 API。其他插件可以通过 `MenuApi` 打开、注册或注销配方**创建（creator）**、**编辑（editor）**、**展示（display）** 三类界面。
 
 ```java
 import pers.yufiria.craftorithm.Craftorithm;
