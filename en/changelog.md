@@ -6,6 +6,12 @@ title: Changelog
 
 This page lists changes since 1.11.1.0. For older versions, see [GitHub Releases](https://github.com/YufiriaMazenta/Craftorithm/releases).
 
+## 1.15.2.1 <Badge type="info" text="2026-10-16" />
+
+### Update Contents
+
+1. Fixed #148
+
 ## 1.15.2.0 <Badge type="info" text="2026-10-14" />
 
 ### Breaking Changes

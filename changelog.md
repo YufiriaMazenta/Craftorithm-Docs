@@ -6,6 +6,12 @@ title: 更新日志
 
 本页记录自 1.11.1.0 起的版本更新内容，更早版本请见 [GitHub Releases](https://github.com/YufiriaMazenta/Craftorithm/releases)。
 
+## 1.15.2.1 <Badge type="info" text="2026-10-16" />
+
+### 更新内容
+
+1. 修复 #148
+
 ## 1.15.2.0 <Badge type="info" text="2026-10-14" />
 
 ### 破坏性更新
