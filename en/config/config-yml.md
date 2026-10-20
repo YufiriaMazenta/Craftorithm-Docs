@@ -23,7 +23,7 @@ The main configuration file `plugins/Craftorithm/config.yml` controls core plugi
 |-----|------|---------|-------------|
 | `remove_all_vanilla_recipe` | boolean | `false` | Remove all vanilla recipes |
 | `enable_anvil_recipe` | boolean | `true` | Enable custom anvil recipes |
-| `use_experimental_recipe_ingredients` | boolean | `true` | Enable experimental recipe ingredients (1.21.3+ stonecutter recipes unaffected by NBT/component changes) |
+| `ingredient_match_mode` | string | `first` | Recipe ingredient matching mode, either `first` (match using the first recognized item id) or `all` (collect all possible item ids of an item and try them one by one, at higher performance cost) |
 | `max_reg_recipe_per_tick` | integer | `100` | Max recipes registered per tick (anti-lag) |
 | `ingredient_use_set_threshold` | integer | `8` | Threshold for using HashSet instead of ArrayList for ingredient matching when multiple item types are allowed, improves performance with many ingredient types |
 | `save_discovered_recipes.enable` | boolean | `true` | Enable storing players' discovered recipes in the database. When enabled, players' discovered recipes are saved to the database and restored on player join, plugin reload and server startup |
@@ -78,7 +78,7 @@ ingredient_restriction_rules:
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| `not_convert_listener_classes` | list | (17 listener classes) | Listener classes that are not isolated, can detect Craftorithm recipes |
+| `not_convert_listener_classes` | list | (24 listener classes) | Listener classes that are not isolated and can detect Craftorithm recipes; entries ending with `*` match by class-name prefix, others match the exact class name |
 
 ## Example
 
@@ -95,9 +95,10 @@ enable_anvil_recipe: true
 log_level: info
 # Max recipes registered per tick, lower values reduce server lag
 max_reg_recipe_per_tick: 100
-# Enable experimental recipe ingredients
-# When enabled, recipe ingredient identification is not affected by NBT/component changes (except 1.21.3+ stonecutter recipes), but may cause issues in recipe book
-use_experimental_recipe_ingredients: true
+# Recipe ingredient matching mode, one of first / all
+# first: match using the first recognized item id (default)
+# all: collect all possible item ids of an item and try them one by one, at higher performance cost
+ingredient_match_mode: first
 # Threshold for using HashSet instead of ArrayList for ingredient matching when multiple item types are allowed
 ingredient_use_set_threshold: 8
 # Hook item plugins in the order listed above for item detection priority
@@ -141,6 +142,14 @@ not_convert_listener_classes:
   - com.badbones69.crazycrates.paper.listeners.crates.types.WarCrateListener
   - com.ryderbelserion.fusion.paper.api.builders.gui.listeners.GuiListener
   - club.kid7.bannermaker.pluginutilities.gui.CustomGUIInventoryListener
+  - com.leonardobishop.quests.bukkit.tasktype.type.*
+  - org.betonquest.betonquest.lib.bukkit.event.*
+  - com.notquests.paper.events.*
+  - fr.skytasul.quests.QuestsListener
+  - fr.skytasul.quests.stages.StageCraft
+  - fr.skytasul.quests.stages.StageMelt
+  - com.ordwen.odailyquests.events.listeners.item.*
+  - com.typewritermc.engine.paper.entry.*
 ingredient_restriction_rules:
   - type: item_id
     item_id: minecraft:diamond

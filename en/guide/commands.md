@@ -42,7 +42,7 @@ Aliases: `/cra`, `/craft`, `/crafto`
 
 | Command | Arguments | Description |
 |---------|-----------|-------------|
-| `reload` | — | Reload plugin configuration |
+| `reload` | — | Reload plugin configuration; requests made while a reload is running are queued and executed in order |
 | `version` | — | Display plugin version |
 | `openmenu` | `<name> [player]` | Open a custom menu |
 | `script` | `<expression>` | Execute a script expression |

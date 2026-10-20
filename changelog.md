@@ -6,6 +6,23 @@ title: 更新日志
 
 本页记录自 1.11.1.0 起的版本更新内容，更早版本请见 [GitHub Releases](https://github.com/YufiriaMazenta/Craftorithm/releases)。
 
+## 1.15.3.0 <Badge type="info" text="2026-10-21" />
+
+### 破坏性更新
+
+1. 移除配置项 `use_experimental_recipe_ingredients`，新增配置项 `ingredient_match_mode`，用于选择配方材料的匹配方式：`first`（默认，使用第一个识别到的物品 id 匹配）或 `all`（收集物品所有可能的物品 id 后逐个尝试匹配，性能开销更高）
+
+### 更新内容
+
+1. `not_convert_listener_classes` 支持以 `*` 结尾的条目按类名前缀匹配
+2. 连续发起的插件重载请求现在会进入队列依次执行，不再被直接丢弃
+3. 优化插件启动加载流程
+4. 优化26.3版本下禁用较多酿造配方时，重载过程占用较多网络带宽的问题
+5. 其他插件监听器转换成功的日志级别由 `verbose` 调整为 `info`
+6. 修复通过 `/craftorithm restore` 恢复的配方无法出现在命令补全列表中的问题
+7. 修复 `ingredient_restriction_rules` 中的物品 id 无法解析时导致整份限制规则重载中断的问题
+8. 修复迁移整型配置项时输出无意义警告的问题
+
 ## 1.15.2.1 <Badge type="info" text="2026-10-16" />
 
 ### 更新内容

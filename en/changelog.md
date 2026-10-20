@@ -6,6 +6,23 @@ title: Changelog
 
 This page lists changes since 1.11.1.0. For older versions, see [GitHub Releases](https://github.com/YufiriaMazenta/Craftorithm/releases).
 
+## 1.15.3.0 <Badge type="info" text="2026-10-21" />
+
+### Breaking Changes
+
+1. Removed the `use_experimental_recipe_ingredients` option and added the `ingredient_match_mode` option to choose how recipe ingredients are matched: `first` (default, matches using the first recognized item id) or `all` (collects all possible item ids of an item and tries them one by one, which costs more performance).
+
+### Update Contents
+
+1. `not_convert_listener_classes` now supports entries ending with `*` for class-name prefix matching.
+2. Consecutive plugin reload requests are now queued and executed in order instead of being dropped.
+3. Optimized the plugin's startup loading flow.
+4. Reduced excessive network bandwidth usage during reload on 26.3 when a large number of brewing recipes are disabled.
+5. The log level for successfully converted third-party listeners has been changed from `verbose` to `info`.
+6. Fixed recipes restored via `/craftorithm restore` not showing up in command tab completion.
+7. Fixed an issue where an unparseable item id in `ingredient_restriction_rules` aborted reloading of the entire rule list.
+8. Fixed meaningless warnings when migrating integer config options.
+
 ## 1.15.2.1 <Badge type="info" text="2026-10-16" />
 
 ### Update Contents

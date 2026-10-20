@@ -24,7 +24,7 @@ title: config.yml
 | `remove_all_vanilla_recipe`                   | boolean  | `false` | 移除所有原版配方                                                                                           |
 | `enable_anvil_recipe`                         | boolean  | `true`  | 启用自定义铁砧配方                                                                                         |
 | `max_reg_recipe_per_tick`                     | integer  | `100`   | 每 tick 最大配方注册数（防卡顿）                                                                           |
-| `use_experimental_recipe_ingredients`         | boolean  | `true`  | 是否启用实验性配方材料功能，会改变配方材料匹配模式                                                         |
+| `ingredient_match_mode`                       | string   | `first` | 配方材料匹配模式，可选 `first`（使用第一个识别到的物品 id 匹配）或 `all`（收集物品所有可能的物品 id 后逐个尝试匹配，性能开销更高） |
 | `ingredient_use_set_threshold`                | interger | `8`     | 在一个材料允许多少种物品的情况下，使用HashSet替代ArrayList进行材料匹配，在材料种类较多的情况下可以提升性能 |
 | `save_discovered_recipes.enable`                | boolean  | `true`  | 是否将玩家已解锁配方存储到数据库，开启后玩家的已解锁配方会写入数据库，并在玩家加入服务器、插件重载与服务器启动后从数据库恢复 |
 | `save_discovered_recipes.join_discover_delay_ticks` | integer | `20` | 玩家加入服务器后，等待多少tick再从数据库读取已解锁配方                                          |
@@ -79,7 +79,7 @@ ingredient_restriction_rules:
 
 | 键 | 类型 | 默认值 | 说明 |
 |----|------|--------|------|
-| `not_convert_listener_classes` | list | (17个监听器类) | 不进行隔离的监听器类，在此列表里的监听器类可以检测到Craftorithm的配方 |
+| `not_convert_listener_classes` | list | (24个监听器类) | 不进行隔离的监听器类，在此列表里的监听器类可以检测到Craftorithm的配方；以 `*` 结尾的条目按类名前缀匹配，其余按完整类名精确匹配 |
 
 ## 示例
 
@@ -96,9 +96,10 @@ enable_anvil_recipe: true
 log_level: info
 # 每tick注册的配方数量，调低此数值可以减少服务器卡顿
 max_reg_recipe_per_tick: 100
-# 是否启用实验性配方材料功能
-# 启用后，除1.21.3及以上的切石机配方外，合成材料的识别将不会受到NBT/组件变更的影响，但可能在配方书等场景下出现一些问题
-use_experimental_recipe_ingredients: true
+# 配方材料匹配模式，可选 first / all
+# first: 使用第一个识别到的物品 id 匹配（默认方式）
+# all: 收集物品所有可能的物品 id 后逐个尝试匹配，性能开销更高
+ingredient_match_mode: first
 # 配方材料数量超过此阈值时使用 Set 替代 List 进行匹配，提升大量材料时的查找性能
 ingredient_use_set_threshold: 8
 # 依照上面的挂钩顺序挂钩插件可以挂钩的物品插件,插件自动识别物品ID时将会从上到下依次判断
@@ -142,6 +143,14 @@ not_convert_listener_classes:
   - com.badbones69.crazycrates.paper.listeners.crates.types.WarCrateListener
   - com.ryderbelserion.fusion.paper.api.builders.gui.listeners.GuiListener
   - club.kid7.bannermaker.pluginutilities.gui.CustomGUIInventoryListener
+  - com.leonardobishop.quests.bukkit.tasktype.type.*
+  - org.betonquest.betonquest.lib.bukkit.event.*
+  - com.notquests.paper.events.*
+  - fr.skytasul.quests.QuestsListener
+  - fr.skytasul.quests.stages.StageCraft
+  - fr.skytasul.quests.stages.StageMelt
+  - com.ordwen.odailyquests.events.listeners.item.*
+  - com.typewritermc.engine.paper.entry.*
 ingredient_restriction_rules:
   - type: item_id
     item_id: minecraft:diamond
