@@ -73,3 +73,9 @@ result_processors:           # 结果处理器（可选）
 结果处理器用于在合成时为配方结果添加额外效果。结果处理器可以复制、添加或移除物品的组件。
 
 详细用法参见 [结果处理器](/recipe/result-processor.md)。
+
+## 合成剩余材料 (remainders)
+
+`remainders` 用于控制工作台配方中每个输入槽在合成后留下什么物品，支持扣除工具耐久、替换为指定物品或原样保留。
+
+详细用法参见 [合成剩余材料](/recipe/remainder.md)。

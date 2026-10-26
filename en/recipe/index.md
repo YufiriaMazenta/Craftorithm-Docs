@@ -73,3 +73,9 @@ Create YAML files directly in the `recipes/` directory. Best for batch creation 
 The result processor feature adds additional effects to recipe results during crafting. Result processors can copy, add, or remove item components.
 
 For detailed usage, see [Result Processors](/en/recipe/result-processor.md).
+
+## Crafting Remainders (remainders)
+
+`remainders` controls what each crafting input slot leaves behind after a craft in crafting table recipes, including durability damage, item replacement and keeping the original item.
+
+For detailed usage, see [Crafting Remainders](/en/recipe/remainder.md).

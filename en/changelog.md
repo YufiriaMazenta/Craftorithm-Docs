@@ -6,6 +6,15 @@ title: Changelog
 
 This page lists changes since 1.11.1.0. For older versions, see [GitHub Releases](https://github.com/YufiriaMazenta/Craftorithm/releases).
 
+## 1.16.0.0 <Badge type="info" text="2026-10-26" />
+
+### Update Contents
+
+1. Added a `remainders` section for shaped and shapeless recipes, controlling what each input slot leaves behind after a craft. The available actions are `damage` (consume durability), `replace` (replace with the given item) and `keep` (keep the original item). See [Crafting Remainders](/en/recipe/remainder) for details.
+2. Ingredient-related config options have been consolidated into the `ingredient` section: `ingredient_restriction_rules` is now `ingredient.restriction_rules`, `ingredient_use_set_threshold` is now `ingredient.use_set_threshold`, and `ingredient_match_mode` is now `ingredient.try_all_possible_item_id` (the old `all` maps to `true` and the old `first` maps to `false`).
+3. Fixed an issue where the built-in item provider resolved an unstable item ID when the same item was saved under different IDs, which could cause the item to be matched incorrectly in crafting.
+4. Adjusted the output timing of some load and reload messages.
+
 ## 1.15.3.0 <Badge type="info" text="2026-10-21" />
 
 ### Breaking Changes

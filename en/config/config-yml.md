@@ -23,9 +23,9 @@ The main configuration file `plugins/Craftorithm/config.yml` controls core plugi
 |-----|------|---------|-------------|
 | `remove_all_vanilla_recipe` | boolean | `false` | Remove all vanilla recipes |
 | `enable_anvil_recipe` | boolean | `true` | Enable custom anvil recipes |
-| `ingredient_match_mode` | string | `first` | Recipe ingredient matching mode, either `first` (match using the first recognized item id) or `all` (collect all possible item ids of an item and try them one by one, at higher performance cost) |
+| `ingredient.try_all_possible_item_id` | boolean | `false` | Whether to try every possible item id of an item when matching ingredients, at a higher performance cost. The old `ingredient_match_mode: all` is equivalent to `true` |
 | `max_reg_recipe_per_tick` | integer | `100` | Max recipes registered per tick (anti-lag) |
-| `ingredient_use_set_threshold` | integer | `8` | Threshold for using HashSet instead of ArrayList for ingredient matching when multiple item types are allowed, improves performance with many ingredient types |
+| `ingredient.use_set_threshold` | integer | `8` | Threshold for using a Set instead of a List for ingredient matching, improves performance with many ingredient types |
 | `save_discovered_recipes.enable` | boolean | `true` | Enable storing players' discovered recipes in the database. When enabled, players' discovered recipes are saved to the database and restored on player join, plugin reload and server startup |
 | `save_discovered_recipes.join_discover_delay_ticks` | integer | `20` | Delay in ticks after a player joins before loading discovered recipes from the database |
 | `save_discovered_recipes.interval_ticks` | integer | `6000` | Interval in ticks for periodically saving online players' discovered recipes to database (default 300 seconds / 5 minutes) |
@@ -37,29 +37,30 @@ The main configuration file `plugins/Craftorithm/config.yml` controls core plugi
 | `item_plugin_hook_priority` | list | (ordered list) | External item plugin detection priority |
 | `cannot_craft_items` | list | `[]` | Item IDs that cannot be used in crafting — removed <Badge type="danger" text="1.13.4.0" /> |
 | `blocked_crafting_lore_rules` | list | `[]` | Prevent items with specified lore from being used in crafting — removed <Badge type="danger" text="1.13.5.0" /> |
-| `ingredient_restriction_rules` | list | `[]` | Block items from being used in crafting through configurable rules, replaces both features above |
+| `ingredient.restriction_rules` | list | `[]` | Block items from being used in crafting through configurable rules, replaces both features above |
 
-`ingredient_restriction_rules` allows you to set rules that prevent matching items from being used as ingredients for specified recipes. This applies to all recipe types.
+`ingredient.restriction_rules` allows you to set rules that prevent matching items from being used as ingredients for specified recipes. This applies to all recipe types.
 
 The plugin automatically converts existing `cannot_craft_items` and `blocked_crafting_lore_rules` settings — no manual migration needed.
 
 Configuration format:
 
 ```yaml
-ingredient_restriction_rules:
-  - type: item_id # Block by item ID
-    item_id: minecraft:diamond
-    recipes:
-      - .* # Match all recipes
-  - type: lore # Block by lore (color codes are ignored during matching)
-    lore: Cannot be used for crafting
-    recipes:
-      - .*
-  - type: lore
-    lore: Cannot be used for vanilla recipes
-    recipes:
-      - minecraft:.* # Match all vanilla recipes
-      - craftorithm:vanilla_shaped # Exact match
+ingredient:
+  restriction_rules:
+    - type: item_id # Block by item ID
+      item_id: minecraft:diamond
+      recipes:
+        - .* # Match all recipes
+    - type: lore # Block by lore (color codes are ignored during matching)
+      lore: Cannot be used for crafting
+      recipes:
+        - .*
+    - type: lore
+      lore: Cannot be used for vanilla recipes
+      recipes:
+        - minecraft:.* # Match all vanilla recipes
+        - craftorithm:vanilla_shaped # Exact match
 ```
 
 ### Command Settings
@@ -95,12 +96,30 @@ enable_anvil_recipe: true
 log_level: info
 # Max recipes registered per tick, lower values reduce server lag
 max_reg_recipe_per_tick: 100
-# Recipe ingredient matching mode, one of first / all
-# first: match using the first recognized item id (default)
-# all: collect all possible item ids of an item and try them one by one, at higher performance cost
-ingredient_match_mode: first
-# Threshold for using HashSet instead of ArrayList for ingredient matching when multiple item types are allowed
-ingredient_use_set_threshold: 8
+# Ingredient related settings
+ingredient:
+  # Whether to try every possible item id of an item when matching ingredients
+  # Enabling this costs more performance
+  try_all_possible_item_id: false
+  # Threshold for using a Set instead of a List for ingredient matching, improves performance with many ingredient types
+  use_set_threshold: 8
+  # Rules that restrict which items may be used as ingredients
+  # Supported rule types: lore (matched by lore), item_id (matched by item id)
+  # Third-party plugins may register custom rule types
+  restriction_rules:
+    - type: item_id
+      item_id: minecraft:diamond
+      recipes:
+        - .*
+    - type: lore
+      lore: Cannot be used for crafting
+      recipes:
+        - .*
+    - type: lore
+      lore: Cannot be used for vanilla recipes
+      recipes:
+        - minecraft:.*
+        - craftorithm:vanilla_shaped
 # Hook item plugins in the order listed above for item detection priority
 # Item plugins not in this list will not be hooked unless they actively hook into Craftorithm
 item_plugin_hook_priority:
@@ -150,18 +169,4 @@ not_convert_listener_classes:
   - fr.skytasul.quests.stages.StageMelt
   - com.ordwen.odailyquests.events.listeners.item.*
   - com.typewritermc.engine.paper.entry.*
-ingredient_restriction_rules:
-  - type: item_id
-    item_id: minecraft:diamond
-    recipes:
-      - .*
-  - type: lore
-    lore: Cannot be used for crafting
-    recipes:
-      - .*
-  - type: lore
-    lore: Cannot be used for vanilla recipes
-    recipes:
-      - minecraft:.*
-      - craftorithm:vanilla_shaped
 ```

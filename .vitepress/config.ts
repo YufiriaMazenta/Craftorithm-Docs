@@ -26,6 +26,7 @@ const zhSidebar = {
         { text: '铁砧配方 Anvil', link: '/recipe/anvil' },
         { text: '世界隔离', link: '/recipe/world-isolation' },
         { text: '结果处理器', link: '/recipe/result-processor' },
+        { text: '合成剩余材料', link: '/recipe/remainder' },
         { text: '禁用配方', link: '/recipe/disable' },
         { text: '配方书', link: '/recipe/recipe-book' },
       ]
@@ -131,6 +132,7 @@ const enSidebar = {
         { text: 'Anvil Recipes', link: '/en/recipe/anvil' },
         { text: 'World Isolation', link: '/en/recipe/world-isolation' },
         { text: 'Result Processors', link: '/en/recipe/result-processor' },
+        { text: 'Crafting Remainders', link: '/en/recipe/remainder' },
         { text: 'Disabling Recipes', link: '/en/recipe/disable' },
         { text: 'Recipe Book', link: '/en/recipe/recipe-book' },
       ]
