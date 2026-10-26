@@ -56,10 +56,8 @@ remainders:
 |-------|----------|-------------|
 | `damage` | Yes | Durability to consume. Must be a positive integer |
 
-- The value is added to the **current** damage of the item, so a partially used tool keeps its existing wear instead of being reset.
 - When the accumulated damage reaches the item's maximum durability, the item is destroyed and the slot is left empty.
 - On items without durability, `damage` behaves like `keep` and returns the item unchanged.
-- On 1.20.5 and above the `max_damage` component is used as the limit when present, otherwise the item's default maximum durability is used.
 
 ### replace
 
@@ -77,7 +75,6 @@ remainders:
 | `item` | Yes | The replacement item in the format `<item ID> [amount]`. The amount defaults to 1 when omitted |
 
 - The amount must not exceed the item's max stack size, otherwise the rule is treated as invalid.
-- The item is resolved from the item sources **on every craft** instead of caching a snapshot, so items that change dynamically in other plugins are reflected correctly.
 - If the item can no longer be resolved at craft time (for example the item provider plugin was removed), the slot is left empty, which is the same as the ingredient being consumed normally.
 
 ### keep
@@ -97,7 +94,6 @@ Returns one copy of the consumed item with all of its data intact, including dur
 - **Handled per slot**: every non-empty slot in the crafting grid matches the rules on its own, rather than matching by ingredient type. The same ingredient placed in two slots is processed in both slots.
 - **One rule per slot**: rules are matched top to bottom, the first rule whose `ingredient` matches wins, and later rules are not tried for that slot.
 - **Unmatched slots keep vanilla behaviour**: slots without a matching rule keep their vanilla remainder (for example a bucket leaves an empty bucket).
-- **Rules always work on a single item**: a rule always receives one item with amount 1, regardless of the stack size in the grid; `damage` and `keep` also return items with amount 1.
 - **Invalid rules are skipped**: if `ingredient` cannot be parsed, `action` is not registered, or the action arguments are missing or invalid, that rule is ignored and a warning is logged on load. Other rules in the same recipe are unaffected.
 
 ## Difference from Result Processors
