@@ -11,7 +11,7 @@ title: 更新日志
 ### 更新内容
 
 1. 有序配方与无序配方新增 `remainders` 字段，用于控制每个输入槽在合成后留下的物品，支持 `damage`（扣除耐久）、`replace`（替换为指定物品）、`keep`（原样保留）三种动作，详见[合成剩余材料](/recipe/remainder)
-2. 材料相关配置项统一收至 `ingredient` 节点：`ingredient_restriction_rules` 迁移为 `ingredient.restriction_rules`，`ingredient_use_set_threshold` 迁移为 `ingredient.use_set_threshold`，`ingredient_match_mode` 迁移为 `ingredient.try_all_possible_item_id`（原 `all` 对应 `true`，原 `first` 对应 `false`）
+2. （配置会自动迁移）材料相关配置项统一收至 `ingredient` 节点：`ingredient_restriction_rules` 迁移为 `ingredient.restriction_rules`，`ingredient_use_set_threshold` 迁移为 `ingredient.use_set_threshold`，`ingredient_match_mode` 迁移为 `ingredient.try_all_possible_item_id`（原 `all` 对应 `true`，原 `first` 对应 `false`）
 3. 修复内置物品源在同一个物品被保存为不同ID时，解析出的物品ID不稳定导致物品可能不能正确用于合成的问题
 4. 调整部分加载与重载提示信息的输出时间
 
