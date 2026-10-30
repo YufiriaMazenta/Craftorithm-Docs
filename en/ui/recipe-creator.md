@@ -62,6 +62,17 @@ title: Recipe Creator
 4. Place the output item
 5. Click confirm
 
+## Saving All Components of the Result Item
+
+A book icon in the menu toggles "Save all components of the result item". The toggle is off by default.
+
+- **Off**: if another item plugin (ItemsAdder, Nexo, Oraxen, ...) recognizes the result item, that plugin's item ID is reused; otherwise the item is saved to the built-in item provider.
+- **On**: item IDs from other item plugins are not reused. Every component of the result item is written to the built-in item provider, so the crafted item is identical to the one placed in the menu.
+
+Vanilla items without component data are unaffected and always use the vanilla item ID.
+
+The toggle is not persisted and starts off every time the menu opens.
+
 ## Save Location
 
 Recipes are automatically saved to `plugins/Craftorithm/recipes/<filename>.yml`.

@@ -39,7 +39,18 @@ title: config.yml
 | `blocked_crafting_lore_rules`  | list | `[]` | 阻止包含指定lore的物品被用于合成，已移除 <Badge type="danger" text="1.13.5.0" /> |
 | `ingredient.restriction_rules` | list | [] | 通过设置不同规则来阻止物品被用于合成，替代上面两个功能 |
 
-`ingredient.restriction_rules`可以设定符合物品不能被用作指定配方的材料, 可以作用于所有配方类型
+`ingredient.restriction_rules` 可以设定符合物品不能被用作指定配方的材料，作用于所有配方类型，包括原版配方和其他插件注册的配方。
+
+`recipes` 用于匹配合成时使用的配方 key，支持正则表达式：
+
+- 写正则时只拦截 key 匹配的配方，例如 `minecraft:.*` 只拦截原版配方，`craftorithm:.*` 只拦截 Craftorithm 注册的配方
+- 写 `*`（或 `.*`）时匹配所有配方
+
+原版配方和其他插件注册的配方在合成时拿不到配方 key，**只有 `*` 这类"匹配所有配方"的写法能拦截它们**；写 `minecraft:.*` 拦不到原版配方。
+
+::: warning 合成器
+合成器（Crafter）内暂时只能拦截 Craftorithm 自己注册的配方，原版配方与其他插件配方的材料限制在合成器中不生效。其它合成方式（工作台、熔炉、高炉、烟熏炉、营火、酿造、铁砧、锻造、切石）均已覆盖。
+:::
 
 插件启动时会自动转换原有的 `cannot_craft_items` 和 `blocked_crafting_lore_rules`，无需手动更新
 
@@ -48,19 +59,21 @@ title: config.yml
 ```yaml
 ingredient:
   restriction_rules:
+    # 钻石不能用于任何配方（包括原版配方）
     - type: item_id
       item_id: minecraft:diamond
       recipes:
-        - .*
+        - '*'
+    # 带指定 lore 的物品不能用于任何配方
     - type: lore
       lore: 无法用于合成
       recipes:
-        - .*
+        - '*'
+    # 只在本插件的某个配方里禁用
     - type: lore
-      lore: 无法用于原版配方
+      lore: 无法用于本配方
       recipes:
-        - minecraft:.*
-        - craftorithm:vanilla_shaped
+        - craftorithm:my_recipe
 ```
 
 
@@ -106,21 +119,21 @@ ingredient:
   use_set_threshold: 8
   # 设定材料的合成限制规则
   # 支持的规则类型: lore(基于lore判断), item_id(基于物品id判断)
+  # recipes 写 * 表示所有配方(含原版与其他插件的配方), 也可写正则只匹配部分配方
   # 第三方插件可注册自定义规则类型
   restriction_rules:
     - type: item_id
       item_id: minecraft:diamond
       recipes:
-        - .*
+        - '*'
     - type: lore
       lore: 无法用于合成
       recipes:
-        - .*
+        - '*'
     - type: lore
-      lore: 无法用于原版配方
+      lore: 无法用于本配方
       recipes:
-        - minecraft:.*
-        - craftorithm:vanilla_shaped
+        - craftorithm:my_recipe
 # 依照上面的挂钩顺序挂钩插件可以挂钩的物品插件,插件自动识别物品ID时将会从上到下依次判断
 # 不包含在此列表里的物品插件将不会尝试挂钩,除非该插件主动挂钩
 item_plugin_hook_priority:

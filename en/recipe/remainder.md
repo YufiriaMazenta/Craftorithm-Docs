@@ -102,7 +102,7 @@ Returns one copy of the consumed item with all of its data intact, including dur
 |---|---|---|
 | Target | Input items in the crafting grid | The crafted result item |
 | Timing | After the result is taken, written back slot by slot | While the result is produced |
-| Typical use | Tool durability, bucket replacement, catalysts | Copy / add / remove result components |
+| Typical use | Tool durability, bucket replacement, catalysts | Copy / write / merge / remove result components |
 
 They are independent and can be used in the same recipe. See [Result Processors](/en/recipe/result-processor.md) for details on result processors.
 

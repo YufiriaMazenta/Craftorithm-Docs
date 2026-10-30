@@ -70,7 +70,7 @@ Create YAML files directly in the `recipes/` directory. Best for batch creation 
 
 ## Result Processors (result_processors)
 
-The result processor feature adds additional effects to recipe results during crafting. Result processors can copy, add, or remove item components.
+Result processors rewrite the components of a recipe's result item during crafting: copying from the source item, writing fixed values, merging with the source, or removing components.
 
 For detailed usage, see [Result Processors](/en/recipe/result-processor.md).
 

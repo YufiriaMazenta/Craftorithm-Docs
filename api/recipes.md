@@ -107,6 +107,8 @@ ResultProcessorManager.INSTANCE.registerFactory(new ComponentProcessorFactory() 
 });
 ```
 
+`set` 不是所有组件都有的动作, 需要整体替换语义的组件在 `createProcessor` 里自行处理即可。内置组件中 `lore`、`enchantments`、`attributes`、`item_flag`、`custom_persistent_data` 提供了该动作。
+
 对于已有的结果处理器, 也可以添加额外的操作类型, 例如:
 
 ```java

@@ -6,6 +6,27 @@ title: Changelog
 
 This page lists changes since 1.11.1.0. For older versions, see [GitHub Releases](https://github.com/YufiriaMazenta/Craftorithm/releases).
 
+## 1.16.1.0 <Badge type="info" text="2026-10-31" />
+
+### Breaking Changes
+
+1. The `add` strategy of `lore` now appends to the result item's existing lore instead of overwriting it. Recipes that need to replace the whole lore should change `type: add` to `type: set`.
+
+### Update Contents
+
+1. Added a `set` strategy to result processors for full replacement. It is available on the components that can hold multiple entries: lore, enchantments, attributes, item flags and persistent data. See [Result Processors](/en/recipe/result-processor) for details.
+2. Result processors now support new component types: `damage`, `max_damage`, `base_color`, `skull_profile`, `enchantment_glint_override`, `potion`, `glider`, `enchantable`, `tooltip_style`, `use_cooldown` and `damage_resistant`, and `trim` now supports the `add` strategy.
+3. `remove` of `custom_persistent_data` now accepts `value` to list the keys to remove, matching the syntax of other components (the old `keys` and `key` forms still work).
+4. Added a "Save all components of the result item" toggle to the recipe creator and recipe editor. When enabled, saving a recipe writes every component of the result item into the built-in item provider.
+5. Fixed an issue since 1.15.0.0 where ingredient restriction rules did not apply to vanilla recipes or recipes registered by other plugins. The `recipes` list now accepts `*` to match every recipe, which is the only form that matches recipes whose key is unavailable.
+6. Fixed an issue where a recipe could be crafted in every world when world isolation listed a single world that does not exist.
+7. Fixed an issue where an anvil recipe with restricted ingredients blocked other anvil recipes using the same ingredients.
+8. Fixed an issue where a recipe was removed from the disabled list even though restoring it failed, causing the recipe to be lost.
+9. Fixed an issue where reloading processed already disabled recipes again.
+10. Fixed an error when shift-clicking an empty backpack slot while the furnace menu is open.
+11. Fixed an issue where shaped recipes on 1.21+ did not handle ingredient restrictions correctly.
+12. Fixed the stonecutter editor reading the wrong result item.
+
 ## 1.16.0.0 <Badge type="info" text="2026-10-26" />
 
 ### Update Contents

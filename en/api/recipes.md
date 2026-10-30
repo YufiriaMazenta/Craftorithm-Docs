@@ -107,6 +107,8 @@ ResultProcessorManager.INSTANCE.registerFactory(new ComponentProcessorFactory() 
 });
 ```
 
+`set` is not available on every component; a component that needs full-replacement semantics handles it in `createProcessor`. Among the built-in components, `lore`, `enchantments`, `attributes`, `item_flag` and `custom_persistent_data` provide it.
+
 For existing result processors, you can also add additional handler types:
 
 ```java

@@ -39,7 +39,18 @@ The main configuration file `plugins/Craftorithm/config.yml` controls core plugi
 | `blocked_crafting_lore_rules` | list | `[]` | Prevent items with specified lore from being used in crafting — removed <Badge type="danger" text="1.13.5.0" /> |
 | `ingredient.restriction_rules` | list | `[]` | Block items from being used in crafting through configurable rules, replaces both features above |
 
-`ingredient.restriction_rules` allows you to set rules that prevent matching items from being used as ingredients for specified recipes. This applies to all recipe types.
+`ingredient.restriction_rules` allows you to set rules that prevent matching items from being used as ingredients for specified recipes. This applies to all recipe types, including vanilla recipes and recipes registered by other plugins.
+
+`recipes` matches the recipe key used when crafting, and accepts regular expressions:
+
+- A regex only blocks recipes whose key matches, for example `minecraft:.*` blocks vanilla recipes only and `craftorithm:.*` blocks Craftorithm recipes only.
+- `*` (or `.*`) matches every recipe.
+
+Vanilla recipes and recipes from other plugins have no recipe key available during crafting, so **only a rule written with `*` can block them**; `minecraft:.*` does not match vanilla recipes.
+
+::: warning Crafter
+Inside the crafter (Crafter block), only recipes registered by Craftorithm can be blocked. Ingredient restrictions do not apply to vanilla or third-party recipes there. Every other crafting method (crafting table, furnace, blast furnace, smoker, campfire, brewing, anvil, smithing, stonecutter) is covered.
+:::
 
 The plugin automatically converts existing `cannot_craft_items` and `blocked_crafting_lore_rules` settings — no manual migration needed.
 
@@ -48,19 +59,21 @@ Configuration format:
 ```yaml
 ingredient:
   restriction_rules:
+    # diamond cannot be used in any recipe (including vanilla recipes)
     - type: item_id # Block by item ID
       item_id: minecraft:diamond
       recipes:
-        - .* # Match all recipes
+        - '*'
+    # items with this lore cannot be used in any recipe
     - type: lore # Block by lore (color codes are ignored during matching)
       lore: Cannot be used for crafting
       recipes:
-        - .*
+        - '*'
+    # block only in one Craftorithm recipe
     - type: lore
-      lore: Cannot be used for vanilla recipes
+      lore: Cannot be used in this recipe
       recipes:
-        - minecraft:.* # Match all vanilla recipes
-        - craftorithm:vanilla_shaped # Exact match
+        - craftorithm:my_recipe
 ```
 
 ### Command Settings
@@ -110,16 +123,15 @@ ingredient:
     - type: item_id
       item_id: minecraft:diamond
       recipes:
-        - .*
+        - '*'
     - type: lore
       lore: Cannot be used for crafting
       recipes:
-        - .*
+        - '*'
     - type: lore
-      lore: Cannot be used for vanilla recipes
+      lore: Cannot be used in this recipe
       recipes:
-        - minecraft:.*
-        - craftorithm:vanilla_shaped
+        - craftorithm:my_recipe
 # Hook item plugins in the order listed above for item detection priority
 # Item plugins not in this list will not be hooked unless they actively hook into Craftorithm
 item_plugin_hook_priority:
