@@ -10,7 +10,7 @@ This page lists changes since 1.11.1.0. For older versions, see [GitHub Releases
 
 ### Breaking Changes
 
-1. The `add` strategy of `lore` now appends to the result item's existing lore instead of overwriting it. Recipes that need to replace the whole lore should change `type: add` to `type: set`.
+1. For the `lore` (item lore) component of result processors, the `add` strategy now appends to the result item's existing lore instead of overwriting it. Recipes that need to replace the whole lore should change `type: add` to `type: set`.
 
 ### Update Contents
 
