@@ -11,15 +11,28 @@ title: Custom Fuels
 ## Format
 
 ```yaml
-minecraft:command_block:
-  burn_time: 100
-minecraft:bedrock:
-  burn_time: 200
+fuels:
+  - item: "minecraft:command_block"
+    burn_time: 100
+  - item: "minecraft:bedrock"
+    burn_time: 200
 ```
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `burn_time` | integer | Burn time in ticks (20 ticks = 1 second) |
+| `item` | string | Item id. Namespaced ids are supported; defaults to vanilla (the id is the Material name) |
+| `burn_time` | integer | Burn time in ticks (20 ticks = 1 second). Must be greater than 0 |
+
+::: tip Old Format
+Versions before 1.16.2.0 used top-level keys as item ids:
+
+```yaml
+minecraft:command_block:
+  burn_time: 100
+```
+
+The old format is migrated automatically to the new `fuels` list format on load; no manual changes are needed.
+:::
 
 ## Add Command
 

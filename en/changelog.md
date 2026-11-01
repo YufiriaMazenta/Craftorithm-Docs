@@ -6,6 +6,28 @@ title: Changelog
 
 This page lists changes since 1.11.1.0. For older versions, see [GitHub Releases](https://github.com/YufiriaMazenta/Craftorithm/releases).
 
+## 1.16.2.0 <Badge type="info" text="2026-11-01" />
+
+### Update Contents
+
+1. Fixed item pack entries failing to resolve forward references, nested references and shared dependencies, and added detection for circular and invalid references.
+2. Further fixed unstable/duplicate ids in the built-in item provider when the same item is saved under multiple ids; overwriting an item definition no longer matches other items by mistake.
+3. Fixed campfire recipes behaving incorrectly under some circumstances on Spigot.
+4. Fixed brewing recipe templates and per-slot result items not being isolated, so result processor changes leaked across slots and batches.
+5. Fixed the lectern book take trigger key not matching the event it is bound to; the key has been renamed from `player_take_campfire` to `player_take_lectern_book`.
+6. Fixed the player object being incorrect for the `player_death`, `block_break` and `block_place` triggers under some circumstances.
+7. Fixed crafting, smithing and anvil triggers still running actions after the craft was cancelled by another plugin.
+8. Fixed recipes whose key cannot be obtained not going through ingredient restriction rules.
+9. Fixed the Vault, VaultUnlocked and PlayerPoints economy script functions not returning the actual transaction result.
+10. Fixed the AdvancedEnchantments result processor not being registered at all.
+11. Fixed the recipe editor potentially losing the original recipe or reporting a false success when saving failed to parse or register.
+12. A single failing result processor component no longer affects the remaining components of the same recipe. Component parameters are validated at load time and invalid ones are skipped with a warning.
+13. Fixed several anvil recipe issues with Ctrl+Q dropping, batch craft counting and level cost display.
+14. Fixed the `/craftorithm disable` command erroring on an invalid recipe id and tab completion going out of bounds with no arguments.
+15. Fixed reloads potentially deleting players' unlocked recipes.
+16. Fixed a possible closed connection being returned while the database connection was being rebuilt.
+17. Fixed `log_level` being set to an invalid value causing plugin load/reload to fail.
+
 ## 1.16.1.0 <Badge type="info" text="2026-10-31" />
 
 ### Breaking Changes

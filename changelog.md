@@ -6,6 +6,28 @@ title: 更新日志
 
 本页记录自 1.11.1.0 起的版本更新内容，更早版本请见 [GitHub Releases](https://github.com/YufiriaMazenta/Craftorithm/releases)。
 
+## 1.16.2.0 <Badge type="info" text="2026-11-01" />
+
+### 更新内容
+
+1. 修复物品组中前向引用、多层嵌套引用与共享依赖引用无法解析的问题，并增加检测循环引用与无效引用
+2. 进一步修复内置物品源在同一物品保存为多个 id 时 id 重复、不稳定的问题；覆盖物品定义时不会再误匹配到其它物品
+3. 修复Spigot端下营火配方在一些情况下出现异常的问题
+4. 修复酿造配方的模板与结果物品未隔离，导致结果处理器的修改在多个槽位、多个批次间互相污染的问题
+5. 修复讲台取书触发器键名与实际事件不符的问题，键名由 `player_take_campfire` 修正为 `player_take_lectern_book`
+6. 修复一定情况下 `player_death` `block_break` `block_place` 触发器的玩家对象不正确的问题
+7. 修复合成、锻造与铁砧触发器在合成被其他插件取消后仍会执行动作的问题
+8. 修复无法获取配方 key 的配方不经过材料限制规则的问题
+9. 修复 Vault、VaultUnlocked 与 PlayerPoints 经济脚本函数未返回实际交易结果的问题
+10. 修复 AdvancedEnchantments 的结果处理器实际没有注册的问题
+11. 修复配方编辑器保存配方时，解析或注册失败可能导致原配方丢失或误报保存成功的问题
+12. 结果处理器的单条组件出错不再影响同配方的其余组件；组件参数在加载期校验，非法参数会告警并跳过该条
+13. 修复铁砧配方在 Ctrl+Q 丢弃、批量合成计数与等级花费显示上的若干问题
+14. 修复 `/craftorithm disable` 命令传入非法配方 ID 时会报错、无参数时补全越界的问题
+15. 修复重载期间可能误删玩家已解锁配方的问题
+16. 修复数据库连接重建期间可能返回已关闭连接的问题
+17. 修复 `log_level` 配置为非法值时会导致插件加载/重载失败的问题
+
 ## 1.16.1.0 <Badge type="info" text="2026-10-31" />
 
 ### 破坏性更新
@@ -221,7 +243,7 @@ title: 更新日志
 
 ### 更新内容
 
-1.  `blocked_crafting_lore_rules`配置项由`ingredient_restriction_rules`替代，用于配置规则拦截物品用于合成
+1. `blocked_crafting_lore_rules`配置项由`ingredient_restriction_rules`替代，用于配置规则拦截物品用于合成
 2. 修复[#142](https://github.com/YufiriaMazenta/Craftorithm/issues/142)
 
 ## 1.13.4.0 <Badge type="info" text="2026-08-17" />
@@ -232,7 +254,7 @@ title: 更新日志
 
 ### 更新内容
 
-1.  新增`blocked_crafting_lore_rules`配置项, 用于配置包含指定lore的物品不能用于合成
+1. 新增`blocked_crafting_lore_rules`配置项, 用于配置包含指定lore的物品不能用于合成
 2. 删除`cannot_craft_items`配置项，功能由`blocked_crafting_lore_rules`替代
 3. 新增PlaceholderAPI变量`%craftorithm_discovered_<recipe_key>%`和`%craftorithm_discovered%`, 返回玩家是否发现(配方书解锁)了该配方和玩家总共已发现配方的数量
 4. 修复 #140
@@ -265,7 +287,7 @@ title: 更新日志
 ### 更新内容
 
 1. 现在物品组可以导入tag或其他物品组的物品
-2. 修复https://github.com/YufiriaMazenta/Craftorithm/issues/135
+2. 修复<https://github.com/YufiriaMazenta/Craftorithm/issues/135>
 3. 将配方书UI的配置文件目录从`menus/internal/recipeBook`修改为`menus/internal/recipe_book`
 
 ## 1.13.0.0 <Badge type="info" text="2026-08-03" />
@@ -302,7 +324,8 @@ title: 更新日志
 7. 修复1.21以下版本铁砧在配方不再匹配时NPE的问题
 8. 修复配方展示图标编辑点击时自定义动作执行两次的问题
 9. 修复因为未将1.21.11的配方注册器实现打包导致的1.21.11的spigot端无法注册配方的问题
-11. 优化代码结构和性能表现
+10. 优化代码结构和性能表现
+
 
 ## 1.12.0.3 <Badge type="info" text="2026-07-24" />
 

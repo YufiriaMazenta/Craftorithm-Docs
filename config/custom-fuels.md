@@ -11,15 +11,28 @@ title: 自定义燃料
 ## 格式
 
 ```yaml
-minecraft:command_block:
-  burn_time: 100
-minecraft:bedrock:
-  burn_time: 200
+fuels:
+  - item: "minecraft:command_block"
+    burn_time: 100
+  - item: "minecraft:bedrock"
+    burn_time: 200
 ```
 
 | 字段 | 类型 | 说明 |
 |------|------|------|
-| `burn_time` | integer | 燃烧时间（ticks），20 ticks = 1 秒 |
+| `item` | string | 物品 id，支持命名空间，默认原版（id 即 Material 名） |
+| `burn_time` | integer | 燃烧时间（ticks），20 ticks = 1 秒，必须大于 0 |
+
+::: tip 旧版格式
+1.16.2.0 之前的版本使用以物品 id 为顶层键的写法：
+
+```yaml
+minecraft:command_block:
+  burn_time: 100
+```
+
+旧格式会在加载时自动迁移为新版 `fuels` 列表格式，无需手动修改。
+:::
 
 ## 添加命令
 
