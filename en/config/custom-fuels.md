@@ -21,7 +21,7 @@ fuels:
 | Field | Type | Description |
 |-------|------|-------------|
 | `item` | string | Item id. Namespaced ids are supported; defaults to vanilla (the id is the Material name) |
-| `burn_time` | integer | Burn time in ticks (20 ticks = 1 second). Must be greater than 0 |
+| `burn_time` | integer | Burn time in ticks (20 ticks = 1 second). Optional, defaults to 200 |
 
 ::: tip Old Format
 Versions before 1.16.2.0 used top-level keys as item ids:

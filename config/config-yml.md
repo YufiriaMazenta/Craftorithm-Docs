@@ -24,6 +24,7 @@ title: config.yml
 | `remove_all_vanilla_recipe`                   | boolean  | `false` | 移除所有原版配方                                                                                           |
 | `enable_anvil_recipe`                         | boolean  | `true`  | 启用自定义铁砧配方                                                                                         |
 | `max_reg_recipe_per_tick`                     | integer  | `100`   | 每 tick 最大配方注册数（防卡顿）                                                                           |
+| `lazy_recipe_sync`                            | boolean  | `false` | 配方同步方式：`false` 配方变更后立即同步给所有在线玩家；`true` 先标记，玩家打开工作台、熔炉、配方书等界面时再同步，避免瞬间带宽占用 |
 | `ingredient.try_all_possible_item_id`         | boolean  | `false` | 材料匹配时是否尝试物品的所有可能物品 id，开启后性能开销更高。旧版本中的 `ingredient_match_mode: all` 等价于 `true` |
 | `ingredient.use_set_threshold`                | integer  | `8`     | 配方材料数量超过此阈值时使用 Set 替代 List 进行匹配，提升大量材料时的查找性能 |
 | `save_discovered_recipes.enable`                | boolean  | `true`  | 是否将玩家已解锁配方存储到数据库，开启后玩家的已解锁配方会写入数据库，并在玩家加入服务器、插件重载与服务器启动后从数据库恢复 |

@@ -25,6 +25,7 @@ The main configuration file `plugins/Craftorithm/config.yml` controls core plugi
 | `enable_anvil_recipe` | boolean | `true` | Enable custom anvil recipes |
 | `ingredient.try_all_possible_item_id` | boolean | `false` | Whether to try every possible item id of an item when matching ingredients, at a higher performance cost. The old `ingredient_match_mode: all` is equivalent to `true` |
 | `max_reg_recipe_per_tick` | integer | `100` | Max recipes registered per tick (anti-lag) |
+| `lazy_recipe_sync` | boolean | `false` | How recipes are synced: `false` syncs to all online players right after a change; `true` marks the change first and syncs when the player opens a workbench, furnace, recipe book or similar, avoiding a bandwidth spike |
 | `ingredient.use_set_threshold` | integer | `8` | Threshold for using a Set instead of a List for ingredient matching, improves performance with many ingredient types |
 | `save_discovered_recipes.enable` | boolean | `true` | Enable storing players' discovered recipes in the database. When enabled, players' discovered recipes are saved to the database and restored on player join, plugin reload and server startup |
 | `save_discovered_recipes.join_discover_delay_ticks` | integer | `20` | Delay in ticks after a player joins before loading discovered recipes from the database |

@@ -6,6 +6,15 @@ title: Changelog
 
 This page lists changes since 1.11.1.0. For older versions, see [GitHub Releases](https://github.com/YufiriaMazenta/Craftorithm/releases).
 
+## 1.16.3.0 <Badge type="info" text="2026-11-07" />
+
+### Update Contents
+
+1. Added a `lazy_recipe_sync` option to choose how recipes are synced. `false` (default) syncs to all online players right after a recipe change; `true` marks the change first and syncs when the player opens a workbench, furnace, recipe book or similar, avoiding the bandwidth spike of pushing recipes to every player at once.
+2. Optimized packet usage when registering and unregistering recipes; players no longer receive redundant full advancement and tag packets during reloads or single recipe registration.
+3. Fixed an issue where, with multiple allowed worlds configured, a world that did not exist when recipes were loaded could not use the corresponding recipes even after a world with the same name was created.
+4. Fixed a recurring error on 26.1-26.1.2 and early 26.2 when the furnace was burning with an empty fuel slot.
+
 ## 1.16.2.0 <Badge type="info" text="2026-11-01" />
 
 ### Update Contents
