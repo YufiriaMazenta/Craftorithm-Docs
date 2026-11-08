@@ -6,6 +6,15 @@ title: Changelog
 
 This page lists changes since 1.11.1.0. For older versions, see [GitHub Releases](https://github.com/YufiriaMazenta/Craftorithm/releases).
 
+## 1.16.3.2 <Badge type="info" text="2026-11-08" />
+
+### Update Contents
+
+1. Optimized ingredient matching performance.
+2. Optimized lore-based ingredient restriction rules.
+3. Optimized reload performance when disabling all vanilla recipes is enabled.
+4. Optimized tab completion for recipe-related commands.
+
 ## 1.16.3.1 <Badge type="info" text="2026-11-07" />
 
 ### Update Contents

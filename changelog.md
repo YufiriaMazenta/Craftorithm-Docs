@@ -6,6 +6,15 @@ title: 更新日志
 
 本页记录自 1.11.1.0 起的版本更新内容，更早版本请见 [GitHub Releases](https://github.com/YufiriaMazenta/Craftorithm/releases)。
 
+## 1.16.3.2 <Badge type="info" text="2026-11-08" />
+
+### 更新内容
+
+1. 优化配方材料匹配性能
+2. 优化基于 lore 的材料限制规则的性能
+3. 优化在开启禁用全部原版配方的情况下的重载性能表现
+4. 优化配方相关命令的补全性能
+
 ## 1.16.3.1 <Badge type="info" text="2026-11-07" />
 
 ### 更新内容
