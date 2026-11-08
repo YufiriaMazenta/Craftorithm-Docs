@@ -318,7 +318,7 @@ export default defineConfig({
       text: '编辑此页',
     },
     footer: {
-      message: '基于 GPL-3.0 许可证发布',
+      message: '基于 MIT 许可证发布',
       copyright: 'Copyright © YufiriaMazenta',
     },
   },
