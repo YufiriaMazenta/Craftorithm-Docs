@@ -85,9 +85,72 @@ result_processors:
 
 `set` 用于整体替换，目前由说明文本、附魔、属性、物品标志、持久数据这几个可以容纳多项的组件提供。单值组件（名称、稀有度、耐久这类）的 `add` 本身就是替换，没有 `set`。下面每个组件都会列出它实际支持哪些策略，未列出的策略会在加载时被跳过。
 
+## 用脚本计算数值与文本
+
+数值、布尔和部分文本字段可以写成 **`<表达式>`** 交给脚本计算：按玩家等级决定附魔等级、用 PlaceholderAPI 算属性、或者让产物的头颅显示制作者。
+
+```yaml
+result_processors:
+  enchantments:
+    type: add
+    data:
+      minecraft:sharpness: '<max(1, level() / 10)>'
+  skull_profile:
+    type: add
+    data:
+      name: '<player.get("name")>'
+  lore:
+    type: add
+    data:
+      value:
+        - '<"&7由 " + player.get("name") + " 打造">'
+```
+
+支持脚本的字段：
+
+| 组件 | 字段 |
+|------|------|
+| `enchantments` | 每个附魔的等级 |
+| `attributes` | `amount` |
+| `custom_model_data` | `value` |
+| `damage` | `value` / `damage` |
+| `max_stack_size` | `value` |
+| `max_damage` | `value` |
+| `enchantable` | `value` |
+| `use_cooldown` | `seconds` |
+| `unbreakable`、`hide_tooltip`、`fire_resistance`、`enchantment_glint_override`、`glider` | `value` |
+| `skull_profile` | `name`、`uuid` |
+| `display_name`、`item_name` | `value` |
+| `lore` | `value` 的每一行 |
+
+`lore` 的 `add` / `set` 支持脚本，`remove` 按行字面匹配。文本字段会先算出脚本结果，再处理颜色代码与 PlaceholderAPI 变量。
+
+### 可用变量
+
+| 变量 | 说明 |
+|------|------|
+| `player` | 触发合成的玩家；没有玩家的场景（如发射器合成）不存在此变量 |
+| `source_item` | 源物品；工作台配方没有源物品，此时不存在此变量 |
+| `result_item` | 当前结果物品 |
+
+对象取值写 `get("属性名")`，例如 `player.get("level")`、`source_item.get("amount")`。脚本语法、运算符、可用函数见[脚本引擎](/script/index.md)与[内置函数](/script/functions.md)。
+
+### 写错时
+
+- **语法错误**：控制台输出一条警告，这个字段改用默认值，配方仍会正常加载
+- **求值失败**（除零、类型不对、变量不存在）：输出一条警告并跳过这次取值；附魔、属性、lore 这类列表只跳过出错的那一条
+- **数值越界**：按组件自身的规则截断（堆叠上限 1~99、最大耐久至少 1、冷却时间不为负）
+
+### 注意事项
+
+- 单行脚本建议加引号，避免脚本里的 ` #` 被 YAML 当成注释
+- 尖括号里是脚本，不是占位符；`<...>` 必须包住整个字段，文本中间的 `<...>` 不会单独求值
+- `player` 是脚本变量，写法见上面的 `get("...")`
+- 脚本算出小数但字段要整数时会直接截断，需要四舍五入请写 `round(...)`
+
 ## 通用组件
 
-以下组件在插件支持的所有服务端版本都可用（`trim` 需要 1.19.4+，`skull_profile` 需要 1.20.2+）。
+以下组件在插件支持的所有服务端版本（1.20+）都可用。
 
 ### all
 
@@ -378,9 +441,28 @@ result_processors:
 | 策略 | 说明 |
 |------|------|
 | `copy_from_source` | 复制源物品的皮肤 |
+| `add` | 用 `name` / `uuid` 指定主人 |
 | `remove` | 清除皮肤 |
 
-皮肤数据无法用一段文本构造，所以没有 `add` / `set`；需要固定皮肤时，把带头颅皮肤的玩家头颅作为源物品（铁砧、锻造台的 base）再用 `copy_from_source` 复制。
+`add` 的字段：
+
+| 字段 | 必填 | 说明 |
+|------|------|------|
+| `name` | 二者至少一个 | 玩家名 |
+| `uuid` | 二者至少一个 | 玩家 UUID |
+
+```yaml
+result_processors:
+  skull_profile:
+    type: add
+    data:
+      name: 'Notch'
+      uuid: '069a79f4-44e9-4726-a5be-fca90e38aaf5'   # 可省略
+```
+
+`name` 与 `uuid` 都写时按两者一起创建；只写 `name` 也可以，服务端会按名字去查 UUID 与皮肤。只写 `uuid` 时资料里没有皮肤纹理，通常显示默认皮肤（部分服务端会直接拒绝这种资料并告警跳过），建议和 `name` 一起写。两个字段都可以写脚本，例如 `name: '<player.get("name")>'` 会得到制作者的头颅。
+
+`add` 只写入主人信息，皮肤纹理由服务端自行解析：在线服会按名字取正版皮肤，离线服、名字无效或刚改名的玩家可能显示默认皮肤。想要确定的皮肤，把带头颅皮肤的玩家头颅作为源物品（铁砧、锻造台的 base）再用 `copy_from_source` 复制。
 
 ```yaml
 result_processors:

@@ -204,3 +204,17 @@ math:round(3.5)
 // 无参函数
 level()
 ```
+
+#### 7. 对象的属性与方法
+
+对象（玩家、物品、事件等）用 `get("属性名")` 读属性，用 `invoke("方法名", 参数...)` 调方法：
+
+```text
+player.get("level")
+player.get("name")
+player.get("world").get("name")
+source_item.get("amount")
+player.invoke("hasPermission", "craftorithm.use")
+```
+
+属性按 `getXxx()` / `isXxx()` 解析，读不到时返回 `nil`，参与算术会报错。不能写成 `player.level`（语法不通过）或 `player.getLevel()`（没有这个函数）。

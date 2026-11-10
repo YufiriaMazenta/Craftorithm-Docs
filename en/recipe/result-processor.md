@@ -85,9 +85,72 @@ Crafting table recipes have no source item. `copy_from_source` and `merge_source
 
 `set` performs a full replacement and is provided by the components that can hold multiple entries: lore, enchantments, attributes, item flags and persistent data. For single-value components (name, rarity, durability and so on) `add` already replaces the value, so there is no `set`. Each component below lists the strategies it actually supports; anything else is skipped at load time.
 
+## Scripted Values
+
+Numeric, boolean and some text fields can be computed by a script instead of being hard-coded: scale an enchantment with the player's level, use a PlaceholderAPI value, or make the result's skull show its crafter.
+
+```yaml
+result_processors:
+  enchantments:
+    type: add
+    data:
+      minecraft:sharpness: '<max(1, level() / 10)>'
+  skull_profile:
+    type: add
+    data:
+      name: '<player.get("name")>'
+  lore:
+    type: add
+    data:
+      value:
+        - '<"&7Forged by " + player.get("name")>'
+```
+
+Fields that accept scripts:
+
+| Component | Field |
+|-----------|-------|
+| `enchantments` | level of each enchantment |
+| `attributes` | `amount` |
+| `custom_model_data` | `value` |
+| `damage` | `value` / `damage` |
+| `max_stack_size` | `value` |
+| `max_damage` | `value` |
+| `enchantable` | `value` |
+| `use_cooldown` | `seconds` |
+| `unbreakable`, `hide_tooltip`, `fire_resistance`, `enchantment_glint_override`, `glider` | `value` |
+| `skull_profile` | `name`, `uuid` |
+| `display_name`, `item_name` | `value` |
+| `lore` | each line of `value` |
+
+`lore` supports scripts in `add` / `set`; `remove` still matches lines literally. Text fields evaluate the script first, then apply colour codes and PlaceholderAPI variables.
+
+### Available Variables
+
+| Variable | Description |
+|----------|-------------|
+| `player` | The player who triggered the craft; absent in player-less contexts (such as dispenser crafting) |
+| `source_item` | The source item; absent for crafting table recipes |
+| `result_item` | The current result item |
+
+Read object properties with `get("property")`, for example `player.get("level")` or `source_item.get("amount")`. See [Script Engine](/en/script/index.md) and [Built-in Functions](/en/script/functions.md) for syntax, operators and available functions.
+
+### When Something Is Wrong
+
+- **Syntax error**: one warning in the console, the field falls back to its default value, and the recipe still loads
+- **Evaluation failure** (division by zero, wrong type, missing variable): one warning and that value is skipped; for lists such as enchantments, attributes and lore only the failing entry is skipped
+- **Out-of-range value**: clamped by the component's own rules (stack size 1..99, max damage at least 1, non-negative cooldown)
+
+### Notes
+
+- Quote single-line scripts so a ` #` inside the script is not treated as a YAML comment
+- Angle brackets mean "script", not a placeholder; `<...>` must wrap the whole field, an inline `<...>` in the middle of a text is not evaluated
+- `player` is a script variable, see `get("...")` above
+- Decimals are truncated when the field expects an integer; use `round(...)` if you need rounding
+
 ## Common Components
 
-The following components work on every server version the plugin supports (`trim` requires 1.19.4+, `skull_profile` requires 1.20.2+).
+The following components work on every server version the plugin supports (1.20+).
 
 ### all
 
@@ -378,9 +441,28 @@ The skin of a skull item, only effective on skulls.
 | Strategy | Description |
 |----------|-------------|
 | `copy_from_source` | Copy the source's skin |
+| `add` | Set the owner with `name` / `uuid` |
 | `remove` | Clear the skin |
 
-Skin data cannot be built from a plain string, so there is no `add` / `set`. To use a fixed skin, put a player head with that skin in the source slot (the base of an anvil or smithing recipe) and copy it.
+`add` fields:
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| `name` | at least one of the two | Player name |
+| `uuid` | at least one of the two | Player UUID |
+
+```yaml
+result_processors:
+  skull_profile:
+    type: add
+    data:
+      name: 'Notch'
+      uuid: '069a79f4-44e9-4726-a5be-fca90e38aaf5'   # optional
+```
+
+When both are given the profile is created with both; `name` alone also works, and the server looks up the UUID and skin by name. With `uuid` alone the profile carries no skin texture, so the head usually shows the default skin (some servers reject such a profile and the value is skipped with a warning); pair it with `name`. Both fields accept scripts: `name: '<player.get("name")>'` produces the crafter's head.
+
+`add` only stores the owner information — the skin texture is resolved by the server: online-mode servers look it up by name, while offline-mode servers, invalid names or players who just renamed may show the default skin. For a guaranteed skin, put a player head with that skin in the source slot (the base of an anvil or smithing recipe) and copy it.
 
 ```yaml
 result_processors:

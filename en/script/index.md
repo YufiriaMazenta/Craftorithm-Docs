@@ -203,3 +203,17 @@ math:round(3.5)
 // Parameterless functions
 level()
 ```
+
+#### 7. Object Properties and Methods
+
+Read a property with `get("property")` and call a method with `invoke("method", args...)`:
+
+```text
+player.get("level")
+player.get("name")
+player.get("world").get("name")
+source_item.get("amount")
+player.invoke("hasPermission", "craftorithm.use")
+```
+
+Properties are resolved through `getXxx()` / `isXxx()`; a missing property returns `nil`, and using `nil` in arithmetic raises an error. Writing `player.level` (syntax error) or `player.getLevel()` (no such function) does not work.
