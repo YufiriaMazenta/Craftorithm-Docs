@@ -460,9 +460,9 @@ result_processors:
       uuid: '069a79f4-44e9-4726-a5be-fca90e38aaf5'   # optional
 ```
 
-When both are given the profile is created with both; `name` alone also works, and the server looks up the UUID and skin by name. With `uuid` alone the profile carries no skin texture, so the head usually shows the default skin (some servers reject such a profile and the value is skipped with a warning); pair it with `name`. Both fields accept scripts: `name: '<player.get("name")>'` produces the crafter's head.
+Write at least one of `name` and `uuid`; both are fine. When the player is online their current profile is reused and the skin shows immediately; when they are offline `name` wins, and with `uuid` alone the skin is looked up by UUID. Both fields accept scripts: `name: '<invoker_name()>'` produces the crafter's head.
 
-`add` only stores the owner information — the skin texture is resolved by the server: online-mode servers look it up by name, while offline-mode servers, invalid names or players who just renamed may show the default skin. For a guaranteed skin, put a player head with that skin in the source slot (the base of an anvil or smithing recipe) and copy it.
+`add` carries no skin data itself — the server resolves the texture: online players show it immediately; offline players need one lookup and may show the default skin, especially on offline-mode servers or with invalid or recently changed names. For a guaranteed skin, put a player head with that skin in the source slot (the base of an anvil or smithing recipe) and copy it with `copy_from_source`.
 
 ```yaml
 result_processors:
