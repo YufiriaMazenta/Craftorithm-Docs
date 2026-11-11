@@ -44,13 +44,14 @@ import pers.yufiria.craftorithm.api.CraftorithmApi;
 CraftorithmApi api = Craftorithm.api();
 ```
 
-自 1.15.2.0 起，API 入口由单一类拆分为「总入口 + 领域子 API」。总入口 `CraftorithmApi` 通过 `item()` / `recipe()` / `menu()` / `trigger()` 返回对应领域的子 API，原先集中在入口类里的方法已迁移到各子 API 中：
+自 1.15.2.0 起，API 入口由单一类拆分为「总入口 + 领域子 API」。总入口 `CraftorithmApi` 通过 `item()` / `recipe()` / `menu()` / `trigger()` / `resultProcessor()` 返回对应领域的子 API，原先集中在入口类里的方法已迁移到各子 API 中：
 
 ```java
 ItemApi itemApi = api.item();
 RecipeApi recipeApi = api.recipe();
 MenuApi menuApi = api.menu();
 TriggerApi triggerApi = api.trigger();
+ResultProcessorApi resultProcessorApi = api.resultProcessor();
 
 // 也可以直接引用各子 API 的枚举实例
 ItemApi itemApi = ItemApi.INSTANCE;

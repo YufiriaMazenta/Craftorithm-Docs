@@ -79,51 +79,75 @@ NamespacedKey key = api.recipe().getRecipeKeyByFileName("my_recipe");
 
 ## Result Processors
 
-Result processors support registering custom component types. Simply implement the `pers.yufiria.craftorithm.resultprocessor.ComponentProcessorFactory` interface and register it.
+The extension entry point for `result_processors` is `api.resultProcessor()`. There are two kinds of extension, and both are written the same way: **get a registrar, then declare behaviors with `behavior(key, impl)`**.
 
-Example:
+### Adding a component
+
+Implement `ComponentProcessorFactory` and declare the fields and the behaviors it supports in `declareBehaviors`:
 
 ```java
-ResultProcessorManager.INSTANCE.registerFactory(new ComponentProcessorFactory() {
+api.resultProcessor().registerComponent(new ComponentProcessorFactory() {
+
     @Override
     public String componentName() {
-        return "custom_component";
+        return "my_component";
     }
 
     @Override
-    public ResultProcessor createProcessor(String type, @Nullable ConfigurationSection data) {
-        return new ResultProcessor() {
-            @Override
-            public String processorName() {
-                return componentName();
-            }
-
-            @Override
-            public void processItem(@Nullable ItemStack sourceItem, @NotNull ItemStack resultItem, @Nullable Player player) {
-                // Perform custom processing
-            }
-        };
+    public void declareBehaviors(ComponentRegistrar registrar) {
+        registrar.valueType(String.class)
+            .getter(meta -> meta.hasDisplayName() ? meta.getDisplayName() : null)
+            .setter((meta, value) -> meta.setDisplayName(value))
+            .valueReader(data -> ValueProviders.text(data, "value", "", "my_component/value"))
+            .behavior(Behaviors.COPY_FROM_SOURCE, ScalarBehaviors.copyFromSource())
+            .behavior(Behaviors.ADD, ScalarBehaviors.add())
+            .behavior(Behaviors.REMOVE, ScalarBehaviors.remove());
     }
 });
 ```
 
-`set` is not available on every component; a component that needs full-replacement semantics handles it in `createProcessor`. Among the built-in components, `lore`, `enchantments`, `attributes`, `item_flag` and `custom_persistent_data` provide it.
+`valueType` declares the type of value the component handles; the methods that follow all describe that field. `getter` and `setter` declare how the field is read and written, `valueReader` declares where the configured value comes from (it can be omitted for fields that only copy from the source item), and `accepts` restricts which items the field can be written to (omitted means no restriction). With `getter` and `setter` in place, the standard behaviors `copy_from_source`, `add` and `remove` no longer need to be implemented by hand. They must come before the behaviors — leaving either out is reported as an error while loading.
 
-For existing result processors, you can also add additional handler types:
+Components that are not built around a single field (`lore`, `enchantments`, `attributes` and the like) skip `valueType(...)` and declare behaviors directly:
 
 ```java
-LoreProcessorFactory.INSTANCE.handlers().put("random_lore", configurationSection -> new ResultProcessor() {
-    @Override
-    public String processorName() {
-        return LoreProcessorFactory.INSTANCE.componentName();
-    }
-
-    @Override
-    public void processItem(@Nullable ItemStack sourceItem, @NotNull ItemStack resultItem, @Nullable Player player) {
-        // Perform custom processing
-    }
-});
+registrar.behavior(Behaviors.ADD, (context, data) ->
+    context.processor((sourceItem, resultItem, player) -> {
+        // Read and write resultItem yourself
+    })
+);
 ```
+
+### Adding behaviors to an existing component
+
+```java
+api.resultProcessor()
+    .component("lore")
+    .behavior("shuffle", (context, data) -> context.requireSource((sourceItem, resultItem, player) -> {
+        // Your implementation
+    }));
+```
+
+This returns a `BehaviorRegistrar`, which has no `valueType(...)` to call at compile time. When the key matches a behavior the component declared itself, the externally registered one wins.
+
+### Processor arguments
+
+Both `context.processor(...)` and `context.requireSource(...)` receive `(sourceItem, resultItem, player)`, and both items are `ItemWrapper`:
+
+| Argument | Description |
+|----------|-------------|
+| `sourceItem` | Source item, **read-only**; `null` for crafting table recipes |
+| `resultItem` | Result item, writable |
+| `player` | The player who triggered the craft, may be `null` |
+
+- The only difference between `requireSource(...)` and `processor(...)` is that the former skips when the source item is `null`, so you do not have to null-check
+- Calling `edit` / `setMeta` / `apply` on the source item throws, because the source item is never written back
+- Changes to the result item are written back once at the end of the processing chain — do **not** call `setItemMeta` yourself inside a processor
+- For third-party APIs that need a real `ItemStack`, use `resultItem.snapshot()` to get a copy carrying the changes made so far
+
+### Registration timing
+
+Processors are instantiated while recipes load, so any extension has to be registered before that. Put the registration in `onLoad()` and declare `softdepend: [Craftorithm]` in `plugin.yml`.
 
 ## Related Classes
 
@@ -131,6 +155,12 @@ LoreProcessorFactory.INSTANCE.handlers().put("random_lore", configurationSection
 |-------|-------------|
 | `CraftorithmApi` | API entry point |
 | `RecipeApi` | Recipe API |
+| `ResultProcessorApi` | Result processor extension entry |
 | `RecipeType` | Recipe type interface |
 | `RecipeTypeMap` | typeId ↔ type mapping |
 | `RecipeManager` | Recipe manager |
+| `ComponentProcessorFactory` | Result processor component |
+| `ComponentRegistrar` / `BehaviorRegistrar` | Behavior registrars |
+| `FieldDeclaration` | Chained declaration of a field |
+| `FieldBinding` | Runtime read/write access to a field |
+| `ItemWrapper` | Item wrapper within a processing chain |

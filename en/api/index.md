@@ -44,13 +44,14 @@ import pers.yufiria.craftorithm.api.CraftorithmApi;
 CraftorithmApi api = Craftorithm.api();
 ```
 
-Since 1.15.2.0, the API entry point has been split from a single class into a top-level entry plus domain sub-APIs. The entry point `CraftorithmApi` exposes the sub-APIs via `item()` / `recipe()` / `menu()` / `trigger()`, and the methods previously gathered on the entry class have been moved into the corresponding sub-API:
+Since 1.15.2.0, the API entry point has been split from a single class into a top-level entry plus domain sub-APIs. The entry point `CraftorithmApi` exposes the sub-APIs via `item()` / `recipe()` / `menu()` / `trigger()` / `resultProcessor()`, and the methods previously gathered on the entry class have been moved into the corresponding sub-API:
 
 ```java
 ItemApi itemApi = api.item();
 RecipeApi recipeApi = api.recipe();
 MenuApi menuApi = api.menu();
 TriggerApi triggerApi = api.trigger();
+ResultProcessorApi resultProcessorApi = api.resultProcessor();
 
 // You can also reference each sub-API's enum instance directly
 ItemApi itemApi = ItemApi.INSTANCE;

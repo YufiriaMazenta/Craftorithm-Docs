@@ -79,51 +79,75 @@ NamespacedKey key = api.recipe().getRecipeKeyByFileName("my_recipe");
 
 ## 结果处理器
 
-结果处理器支持用户注册自定义的组件类型, 只需要实现`pers.yufiria.craftorithm.resultprocessor.ComponentProcessorFactory`接口, 并将其注册即可
+`result_processors` 的扩展入口是 `api.resultProcessor()`。两种扩展方式，写法是一样的：**拿到注册器，用 `behavior(key, 实现)` 声明行为**。
 
-例如:
+### 新增一个组件
+
+实现 `ComponentProcessorFactory`，在 `declareBehaviors` 里声明字段和它支持的行为：
 
 ```java
-ResultProcessorManager.INSTANCE.registerFactory(new ComponentProcessorFactory() {
+api.resultProcessor().registerComponent(new ComponentProcessorFactory() {
+
     @Override
     public String componentName() {
-        return "custom_component";
+        return "my_component";
     }
 
     @Override
-    public ResultProcessor createProcessor(String type, @Nullable ConfigurationSection data) {
-        return new ResultProcessor() {
-            @Override
-            public String processorName() {
-                return componentName();
-            }
-
-            @Override
-            public void processItem(@Nullable ItemStack sourceItem, @NotNull ItemStack resultItem, @Nullable Player player) {
-                //进行一些操作
-            }
-        };
+    public void declareBehaviors(ComponentRegistrar registrar) {
+        registrar.valueType(String.class)
+            .getter(meta -> meta.hasDisplayName() ? meta.getDisplayName() : null)
+            .setter((meta, value) -> meta.setDisplayName(value))
+            .valueReader(data -> ValueProviders.text(data, "value", "", "my_component/value"))
+            .behavior(Behaviors.COPY_FROM_SOURCE, ScalarBehaviors.copyFromSource())
+            .behavior(Behaviors.ADD, ScalarBehaviors.add())
+            .behavior(Behaviors.REMOVE, ScalarBehaviors.remove());
     }
 });
 ```
 
-`set` 不是所有组件都有的动作, 需要整体替换语义的组件在 `createProcessor` 里自行处理即可。内置组件中 `lore`、`enchantments`、`attributes`、`item_flag`、`custom_persistent_data` 提供了该动作。
+`valueType` 声明组件处理的值类型，后面几个方法都在描述这个字段。`getter` 与 `setter` 分别声明怎么读、怎么写，`valueReader` 声明配置里的值从哪来（只从源物品复制的字段可以省略），`accepts` 限定字段能写在哪些物品上（不写就是不限）。`getter` 与 `setter` 就位后，`copy_from_source`、`add`、`remove` 这些标准行为不用自己实现；它们必须在声明行为之前给出，缺一个就会在加载时报错。
 
-对于已有的结果处理器, 也可以添加额外的操作类型, 例如:
+不是单一字段的组件（`lore`、`enchantments`、`attributes` 这类）跳过 `valueType(...)`，直接声明行为：
 
 ```java
-LoreProcessorFactory.INSTANCE.handlers().put("random_lore", configurationSection -> new ResultProcessor() {
-    @Override
-    public String processorName() {
-        return LoreProcessorFactory.INSTANCE.componentName();
-    }
-
-    @Override
-    public void processItem(@Nullable ItemStack sourceItem, @NotNull ItemStack resultItem, @Nullable Player player) {
-        //进行一些操作
-    }
-});
+registrar.behavior(Behaviors.ADD, (context, data) ->
+    context.processor((sourceItem, resultItem, player) -> {
+        // 自行读写 resultItem
+    })
+);
 ```
+
+### 给已有组件追加行为
+
+```java
+api.resultProcessor()
+    .component("lore")
+    .behavior("shuffle", (context, data) -> context.requireSource((sourceItem, resultItem, player) -> {
+        // 自行实现
+    }));
+```
+
+拿到的是 `BehaviorRegistrar`，编译期就没有 `valueType(...)` 可调用。与组件自身声明的行为同名时，外部注册的优先。
+
+### 处理方法的参数
+
+`context.processor(...)` 和 `context.requireSource(...)` 收到的都是 `(源物品, 结果物品, 玩家)`，两个物品都是 `ItemWrapper`：
+
+| 参数 | 说明 |
+|------|------|
+| `sourceItem` | 源物品，**只读**；工作台配方下为 `null` |
+| `resultItem` | 结果物品，可改 |
+| `player` | 触发合成的玩家，可能为 `null` |
+
+- `requireSource(...)` 与 `processor(...)` 唯一的区别是：源物品为 `null` 时直接跳过，不用自己判空
+- 源物品上调用 `edit` / `setMeta` / `apply` 会抛异常，因为源物品不参与写回
+- 结果物品的改动在处理链结束时统一写回，处理器里**不要**自己调用 `setItemMeta`
+- 需要真实 `ItemStack` 的第三方 API，用 `resultItem.snapshot()` 取带当前改动的副本
+
+### 注册时机
+
+配方在加载时就会实例化处理器，所以扩展内容必须在配方加载前注册完成。建议放在 `onLoad()` 里，并在 `plugin.yml` 声明 `softdepend: [Craftorithm]`。
 
 ## 相关类
 
@@ -131,6 +155,12 @@ LoreProcessorFactory.INSTANCE.handlers().put("random_lore", configurationSection
 |----|------|
 | `CraftorithmApi` | API 总入口 |
 | `RecipeApi` | Recipe API |
+| `ResultProcessorApi` | 结果处理器扩展入口 |
 | `RecipeType` | 配方类型接口 |
 | `RecipeTypeMap` | 类型 ID ↔ 类型映射 |
 | `RecipeManager` | 配方管理器 |
+| `ComponentProcessorFactory` | 结果处理器组件 |
+| `ComponentRegistrar` / `BehaviorRegistrar` | 行为注册器 |
+| `FieldDeclaration` | 字段的链式声明器 |
+| `FieldBinding` | 字段在运行期的读写 |
+| `ItemWrapper` | 处理链内的物品包装 |
