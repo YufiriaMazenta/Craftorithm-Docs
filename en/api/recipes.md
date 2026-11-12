@@ -83,7 +83,7 @@ The extension entry point for `result_processors` is `api.resultProcessor()`. Th
 
 ### Adding a component
 
-Implement `ComponentProcessorFactory` and declare the fields and the behaviors it supports in `declareBehaviors`:
+Implement `ComponentProcessorFactory` and declare the behaviors it supports in `declareBehaviors`; how to read and write is given by each behavior:
 
 ```java
 api.resultProcessor().registerComponent(new ComponentProcessorFactory() {
@@ -94,21 +94,20 @@ api.resultProcessor().registerComponent(new ComponentProcessorFactory() {
     }
 
     @Override
-    public void declareBehaviors(ComponentRegistrar registrar) {
-        registrar.valueType(String.class)
-            .getter(meta -> meta.hasDisplayName() ? meta.getDisplayName() : null)
-            .setter((meta, value) -> meta.setDisplayName(value))
-            .valueReader(data -> ValueProviders.text(data, "value", "", "my_component/value"))
-            .behavior(Behaviors.COPY_FROM_SOURCE, ScalarBehaviors.copyFromSource())
-            .behavior(Behaviors.ADD, ScalarBehaviors.add())
-            .behavior(Behaviors.REMOVE, ScalarBehaviors.remove());
+    public void declareBehaviors(BehaviorRegistrar registrar) {
+        BiConsumer<ItemMeta, String> setter = (meta, value) -> meta.setDisplayName(value);
+        registrar.behavior(Behaviors.COPY_FROM_SOURCE, ScalarBehaviors.copyFromSource(
+                    meta -> meta.hasDisplayName() ? meta.getDisplayName() : null, setter))
+                .behavior(Behaviors.ADD, ScalarBehaviors.add(
+                    setter, data -> ValueProviders.text(data, "value", "", "my_component/value")))
+                .behavior(Behaviors.REMOVE, ScalarBehaviors.remove(setter));
     }
 });
 ```
 
-`valueType` declares the type of value the component handles; the methods that follow all describe that field. `getter` and `setter` declare how the field is read and written, `valueReader` declares where the configured value comes from (it can be omitted for fields that only copy from the source item), and `accepts` restricts which items the field can be written to (omitted means no restriction). With `getter` and `setter` in place, the standard behaviors `copy_from_source`, `add` and `remove` no longer need to be implemented by hand. They must come before the behaviors — leaving either out is reported as an error while loading.
+`copyFromSource` takes a reader (returning `null` means the source item has no such value) and a writer, `add` takes the writer and where the configured value comes from, and `remove` only needs the writer (it receives `null`). `ScalarBehaviors` merely assembles these lambdas into a behavior — the read/write logic always stays with the component.
 
-Components that are not built around a single field (`lore`, `enchantments`, `attributes` and the like) skip `valueType(...)` and declare behaviors directly:
+When you don't need those helpers, a behavior can read and write the item directly through `context.processor(...)`:
 
 ```java
 registrar.behavior(Behaviors.ADD, (context, data) ->
@@ -128,7 +127,7 @@ api.resultProcessor()
     }));
 ```
 
-This returns a `BehaviorRegistrar`, which has no `valueType(...)` to call at compile time. When the key matches a behavior the component declared itself, the externally registered one wins.
+This returns a `BehaviorRegistrar`, the same type a component receives in `declareBehaviors`. When the key matches a behavior the component declared itself, the externally registered one wins.
 
 ### Processor arguments
 
@@ -160,7 +159,5 @@ Processors are instantiated while recipes load, so any extension has to be regis
 | `RecipeTypeMap` | typeId ↔ type mapping |
 | `RecipeManager` | Recipe manager |
 | `ComponentProcessorFactory` | Result processor component |
-| `ComponentRegistrar` / `BehaviorRegistrar` | Behavior registrars |
-| `FieldDeclaration` | Chained declaration of a field |
-| `FieldBinding` | Runtime read/write access to a field |
+| `BehaviorRegistrar` | Behavior registrar |
 | `ItemWrapper` | Item wrapper within a processing chain |

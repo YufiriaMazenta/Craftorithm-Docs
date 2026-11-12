@@ -83,7 +83,7 @@ NamespacedKey key = api.recipe().getRecipeKeyByFileName("my_recipe");
 
 ### 新增一个组件
 
-实现 `ComponentProcessorFactory`，在 `declareBehaviors` 里声明字段和它支持的行为：
+实现 `ComponentProcessorFactory`，在 `declareBehaviors` 里声明支持的行为，读写方式由行为自己给出：
 
 ```java
 api.resultProcessor().registerComponent(new ComponentProcessorFactory() {
@@ -94,21 +94,20 @@ api.resultProcessor().registerComponent(new ComponentProcessorFactory() {
     }
 
     @Override
-    public void declareBehaviors(ComponentRegistrar registrar) {
-        registrar.valueType(String.class)
-            .getter(meta -> meta.hasDisplayName() ? meta.getDisplayName() : null)
-            .setter((meta, value) -> meta.setDisplayName(value))
-            .valueReader(data -> ValueProviders.text(data, "value", "", "my_component/value"))
-            .behavior(Behaviors.COPY_FROM_SOURCE, ScalarBehaviors.copyFromSource())
-            .behavior(Behaviors.ADD, ScalarBehaviors.add())
-            .behavior(Behaviors.REMOVE, ScalarBehaviors.remove());
+    public void declareBehaviors(BehaviorRegistrar registrar) {
+        BiConsumer<ItemMeta, String> setter = (meta, value) -> meta.setDisplayName(value);
+        registrar.behavior(Behaviors.COPY_FROM_SOURCE, ScalarBehaviors.copyFromSource(
+                    meta -> meta.hasDisplayName() ? meta.getDisplayName() : null, setter))
+                .behavior(Behaviors.ADD, ScalarBehaviors.add(
+                    setter, data -> ValueProviders.text(data, "value", "", "my_component/value")))
+                .behavior(Behaviors.REMOVE, ScalarBehaviors.remove(setter));
     }
 });
 ```
 
-`valueType` 声明组件处理的值类型，后面几个方法都在描述这个字段。`getter` 与 `setter` 分别声明怎么读、怎么写，`valueReader` 声明配置里的值从哪来（只从源物品复制的字段可以省略），`accepts` 限定字段能写在哪些物品上（不写就是不限）。`getter` 与 `setter` 就位后，`copy_from_source`、`add`、`remove` 这些标准行为不用自己实现；它们必须在声明行为之前给出，缺一个就会在加载时报错。
+`copyFromSource` 要一个读法（返回 `null` 表示源物品没有这个值）和一个写法，`add` 要写法与取值方式，`remove` 只要写法（收到 `null`）。`ScalarBehaviors` 只是把这几段 lambda 组装成行为，读写逻辑始终在组件手里。
 
-不是单一字段的组件（`lore`、`enchantments`、`attributes` 这类）跳过 `valueType(...)`，直接声明行为：
+不需要这些工具时，行为可以直接用 `context.processor(...)` 自己读写物品：
 
 ```java
 registrar.behavior(Behaviors.ADD, (context, data) ->
@@ -116,6 +115,7 @@ registrar.behavior(Behaviors.ADD, (context, data) ->
         // 自行读写 resultItem
     })
 );
+```
 ```
 
 ### 给已有组件追加行为
@@ -128,7 +128,7 @@ api.resultProcessor()
     }));
 ```
 
-拿到的是 `BehaviorRegistrar`，编译期就没有 `valueType(...)` 可调用。与组件自身声明的行为同名时，外部注册的优先。
+拿到的是 `BehaviorRegistrar`，与组件在 `declareBehaviors` 里收到的是同一个类型。与组件自身声明的行为同名时，外部注册的优先。
 
 ### 处理方法的参数
 
@@ -160,7 +160,5 @@ api.resultProcessor()
 | `RecipeTypeMap` | 类型 ID ↔ 类型映射 |
 | `RecipeManager` | 配方管理器 |
 | `ComponentProcessorFactory` | 结果处理器组件 |
-| `ComponentRegistrar` / `BehaviorRegistrar` | 行为注册器 |
-| `FieldDeclaration` | 字段的链式声明器 |
-| `FieldBinding` | 字段在运行期的读写 |
+| `BehaviorRegistrar` | 行为注册器 |
 | `ItemWrapper` | 处理链内的物品包装 |
