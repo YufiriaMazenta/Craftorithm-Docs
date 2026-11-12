@@ -12,7 +12,7 @@ title: 更新日志
 
 1. 插件的开源协议由 GPL-3.0 更改为 MIT
 2. 结果处理器的取值现在支持脚本：数值、布尔与文本（`display_name`、`item_name`、`lore`、`skull_profile`）都可以写成用 `<>` 包裹的脚本，例如 `value: '<random_int(0, 100)>'`，脚本中可使用 `player`、`source_item`、`result_item` 变量，详见[结果处理器](/recipe/result-processor)
-3. `skull_profile` 类型新增 `add` 行为，可通过 `name` / `uuid` 给头颅写入玩家资料
+3. `skull_profile` 结果处理器新增 `add` 行为，可通过 `name` / `uuid` 给头颅写入玩家资料
 4. 新增结果处理器扩展 API，第三方插件可通过 `CraftorithmApi#resultProcessor()` 注册新组件，或为已有组件追加行为
 5. 新增 PlaceholderAPI 变量 `%craftorithm_discovered_craftorithm%`，返回玩家已解锁的 Craftorithm 配方数量
 6. 修复通过自定义菜单与配方列表菜单打开编辑页面后，无法正确返回上一页的问题
