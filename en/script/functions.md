@@ -206,6 +206,16 @@ It requires an ItemStack type variable, so in most cases you need to obtain it t
 
 For example, `match_item_id(event.get("item"))` - if the item has a plugin-defined ID, it returns a string; otherwise, it returns nil.
 
+## `invoker_name` / `invoker_uuid` / `invoker_type`
+
+These three functions return the current script invoker, and none of them take parameters.
+
+`invoker_name` returns the invoker's name: the player's name when a player runs the script, or the server console's name (usually `CONSOLE`) for the console.
+
+`invoker_uuid` returns the invoker's UUID, which is the nil UUID when the console runs the script.
+
+`invoker_type` returns the invoker type: `PLAYER`, `ENTITY`, `CONSOLE` or `BLOCK`.
+
 # Custom Function Registration
 
 Plugin developers can register custom functions through `ScriptFunctionRegistry`:

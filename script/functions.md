@@ -206,6 +206,16 @@ title: 函数
 
 例如`match_item_id(event.get("item"))`, 如果这个物品拥有由插件定义的id, 将会返回一个字符串, 如果没有, 将会返回nil
 
+### `invoker_name`/`invoker_uuid`/`invoker_type`
+
+这三个函数用于获取当前脚本的执行者，都不接受参数
+
+`invoker_name`返回执行者的名字，玩家执行时为玩家名，后台执行时为服务端后台的名字（一般为`CONSOLE`）
+
+`invoker_uuid`返回执行者的UUID，后台执行时为全零的UUID
+
+`invoker_type`返回执行者的类型，可能的值为`PLAYER`、`ENTITY`、`CONSOLE`、`BLOCK`
+
 # 自定义函数注册
 
 插件开发者可通过 `ScriptFunctionRegistry` 注册自定义函数：

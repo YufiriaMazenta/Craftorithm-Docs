@@ -98,7 +98,7 @@ result_processors:
   skull_profile:
     type: add
     data:
-      name: '<player.get("name")>'
+      name: '<invoker_name()>'
   lore:
     type: add
     data:
@@ -127,11 +127,11 @@ result_processors:
 
 ### 可用变量
 
-| 变量 | 说明 |
-|------|------|
-| `player` | 触发合成的玩家；没有玩家的场景（如发射器合成）不存在此变量 |
-| `source_item` | 源物品；工作台配方没有源物品，此时不存在此变量 |
-| `result_item` | 当前结果物品 |
+| 变量 | 说明                                                                               |
+|------|------------------------------------------------------------------------------------|
+| `player` | 触发合成的玩家；没有玩家的场景（如发射器合成）不存在此变量，是一个Player类型的对象 |
+| `source_item` | 源物品；工作台配方没有源物品，此时不存在此变量，是一个ItemStack类型的对象          |
+| `result_item` | 当前结果物品，是一个ItemStack类型的对象                                                   |
 
 对象取值写 `get("属性名")`，例如 `player.get("level")`、`source_item.get("amount")`。脚本语法、运算符、可用函数见[脚本引擎](/script/index.md)与[内置函数](/script/functions.md)。
 

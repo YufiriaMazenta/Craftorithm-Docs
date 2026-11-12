@@ -6,6 +6,18 @@ title: Changelog
 
 This page lists changes since 1.11.1.0. For older versions, see [GitHub Releases](https://github.com/YufiriaMazenta/Craftorithm/releases).
 
+## 1.16.4.0 <Badge type="info" text="2026-11-12" />
+
+### Update Contents
+
+1. The plugin license has changed from GPL-3.0 to MIT.
+2. Result processor values now support scripts: numbers, booleans and text (`display_name`, `item_name`, `lore`, `skull_profile`) can be written as a script wrapped in `<>`, e.g. `value: '<random_int(0, 100)>'`. Scripts can use the `player`, `source_item` and `result_item` variables. See [Result Processors](/en/recipe/result-processor) for details.
+3. Added an `add` behavior to the `skull_profile` component, writing a player profile to the skull via `name` / `uuid`.
+4. Added a result processor extension API; third-party plugins can register new components or append behaviors to existing ones via `CraftorithmApi#resultProcessor()`.
+5. Added the PlaceholderAPI placeholder `%craftorithm_discovered_craftorithm%`, returning the number of Craftorithm recipes the player has unlocked.
+6. Fixed the editor not returning to the previous page when opened from a custom menu or the recipe list menu.
+7. Fixed attribute result processors not working below 1.20.5.
+
 ## 1.16.3.2 <Badge type="info" text="2026-11-08" />
 
 ### Update Contents

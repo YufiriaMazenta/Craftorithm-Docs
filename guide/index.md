@@ -45,6 +45,8 @@ Craftorithm提供了一些PlaceholderAPI变量
 
 `%craftorithm_discovered%` 返回当前玩家发现的配方数量
 
+`%craftorithm_discovered_craftorithm%` 返回当前玩家已解锁的 Craftorithm 配方数量
+
 `%craftorithm_discovered_<recipe_key>%` 返回玩家是否发现了该配方, 例如`%craftorithm_discovered_minecraft:diamond_sword%`
 
 ## 下一步

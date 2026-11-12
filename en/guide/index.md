@@ -45,6 +45,8 @@ Craftorithm provides some PlaceholderAPI variables:
 
 `%craftorithm_discovered%` returns the number of recipes the current player has discovered.
 
+`%craftorithm_discovered_craftorithm%` returns the number of Craftorithm recipes the current player has unlocked.
+
 `%craftorithm_discovered_<recipe_key>%` returns whether the player has discovered the specified recipe, e.g., `%craftorithm_discovered_minecraft:diamond_sword%`
 
 ## Next Steps

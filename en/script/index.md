@@ -12,6 +12,8 @@ Craftorithm includes a compiled script engine used for trigger condition evaluat
 
 [Menu](/en/ui/index.md) icon actions and custom page's open_actions and close_actions.
 
+[Result processors](/en/recipe/result-processor.md) accept numeric and text fields written as `<expression>`, evaluated by the script engine, e.g. `value: '<random_int(0, 100)>'`.
+
 ## Documentation Navigation
 
 - [Built-in Functions](/en/script/functions.md)

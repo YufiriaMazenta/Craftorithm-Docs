@@ -98,7 +98,7 @@ result_processors:
   skull_profile:
     type: add
     data:
-      name: '<player.get("name")>'
+      name: '<invoker_name()>'
   lore:
     type: add
     data:
@@ -129,9 +129,9 @@ Fields that accept scripts:
 
 | Variable | Description |
 |----------|-------------|
-| `player` | The player who triggered the craft; absent in player-less contexts (such as dispenser crafting) |
-| `source_item` | The source item; absent for crafting table recipes |
-| `result_item` | The current result item |
+| `player` | The player who triggered the craft, a `Player` object; absent in player-less contexts (such as dispenser crafting) |
+| `source_item` | The source item, an `ItemStack` object; absent for crafting table recipes |
+| `result_item` | The current result item, an `ItemStack` object |
 
 Read object properties with `get("property")`, for example `player.get("level")` or `source_item.get("amount")`. See [Script Engine](/en/script/index.md) and [Built-in Functions](/en/script/functions.md) for syntax, operators and available functions.
 

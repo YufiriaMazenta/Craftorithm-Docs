@@ -13,6 +13,8 @@ Craftorithm 内置了一个编译型脚本引擎，用于触发器的条件判�
 
 [菜单](/ui/index.md)中图标的actions和自定义页面的open_actions和close_actions
 
+[结果处理器](/recipe/result-processor.md)中数值与文本字段可以写成 `<表达式>` 交给脚本计算，例如 `value: '<random_int(0, 100)>'`
+
 ## 文档导航
 
 - [内置函数](/script/functions.md)
