@@ -6,6 +6,21 @@ title: Changelog
 
 This page lists changes since 1.11.1.0. For older versions, see [GitHub Releases](https://github.com/YufiriaMazenta/Craftorithm/releases).
 
+## 1.16.4.1 <Badge type="info" text="2026-11-13" />
+
+### Breaking Changes
+
+1. The minimum supported version is now 1.20.1; 1.20 is no longer supported.
+
+### Update Contents
+
+1. Fixed furnace, blast furnace, smoker and campfire recipes returning icon items such as the furnace as their result on 1.20.3-1.21.1.
+2. Fixed all recipes failing to register on 1.21.6 because no matching NMS implementation was found.
+3. Fixed a `NoSuchMethodError` when registering smithing transform recipes (`vanilla_smithing_transform`) on Paper 1.21.5-1.21.8.
+4. Fixed smithing trim recipes (`vanilla_smithing_trim`) always using the bolt pattern on 1.21.5 and above.
+5. Fixed a `NoSuchMethodError` when rebuilding recipe data on Paper 1.21.9-1.21.11.
+6. Fixed smithing transform recipes (`vanilla_smithing_transform`) failing to register on Spigot 1.21.11.
+
 ## 1.16.4.0 <Badge type="info" text="2026-11-12" />
 
 ### Update Contents

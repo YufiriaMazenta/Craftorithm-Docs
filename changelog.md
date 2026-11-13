@@ -6,6 +6,21 @@ title: 更新日志
 
 本页记录自 1.11.1.0 起的版本更新内容，更早版本请见 [GitHub Releases](https://github.com/YufiriaMazenta/Craftorithm/releases)。
 
+## 1.16.4.1 <Badge type="info" text="2026-11-13" />
+
+### 破坏性更新
+
+1. 最低支持版本由 1.20 提升至 1.20.1，不再支持 1.20
+
+### 更新内容
+
+1. 修复 1.20.3-1.21.1 版本下获取到的熔炉、高炉、烟熏炉与营火配方结果物品变成熔炉等图标物品的问题
+2. 修复 1.21.6 版本的服务端因未匹配到正确的 NMS 实现导致所有配方都无法注册的问题
+3. 修复 1.21.5-1.21.8 的 Paper 服务端注册锻造转换配方（`vanilla_smithing_transform`）时报 `NoSuchMethodError` 的问题
+4. 修复 1.21.5 及以上版本锻造纹饰配方（`vanilla_smithing_trim`）的纹饰图案固定为 bolt 的问题
+5. 修复 1.21.9-1.21.11 的 Paper 服务端重建配方数据时报 `NoSuchMethodError` 的问题
+6. 修复 1.21.11 的 Spigot 服务端无法注册锻造转换配方（`vanilla_smithing_transform`）的问题
+
 ## 1.16.4.0 <Badge type="info" text="2026-11-12" />
 
 ### 更新内容
