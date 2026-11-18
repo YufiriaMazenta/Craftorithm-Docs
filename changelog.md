@@ -6,6 +6,18 @@ title: 更新日志
 
 本页记录自 1.11.1.0 起的版本更新内容，更早版本请见 [GitHub Releases](https://github.com/YufiriaMazenta/Craftorithm/releases)。
 
+## 1.16.5.0 <Badge type="info" text="2026-11-18" />
+
+### 破坏性更新
+
+1. API 事件 `RecipeLoadFromConfigEvent` 更名为 `RecipeRegisterEvent`，并新增 `reason()` 表示注册原因（`RELOAD`、`NEW_RECIPE`、`EDIT_RECIPE`），监听该事件的插件需要同步修改
+
+### 更新内容
+
+1. 配方新增 `auto_discover` 选项，开启后该配方会在玩家进服、插件重载完成以及配方被新建或修改时自动解锁到配方书
+2. 配方创建页与编辑页新增「自动解锁配方书」开关，用于切换当前配方的 `auto_discover`
+3. 新增 API 事件 `CraftorithmReloadDoneEvent`，在插件重载完成后异步触发
+
 ## 1.16.4.1 <Badge type="info" text="2026-11-13" />
 
 ### 破坏性更新

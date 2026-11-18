@@ -80,16 +80,29 @@ public class MyTriggerType implements TriggerType {
 
 ## 事件
 
-### RecipeLoadFromConfigEvent
+### RecipeRegisterEvent
 
-配方从配置文件加载时触发，可取消：
+配方注册时触发（插件加载、重载、新建或编辑配方都会触发），可取消，取消后该配方不会注册：
 
 ```java
 @EventHandler
-public void onRecipeLoad(RecipeLoadFromConfigEvent event) {
-    if (event.getRecipeKey().getKey().equals("my_recipe")) {
-        event.setCancelled(true); // 阻止加载
+public void onRecipeRegister(RecipeRegisterEvent event) {
+    if (event.recipeKey().getKey().equals("my_recipe")) {
+        event.setCancelled(true); // 阻止注册
     }
+}
+```
+
+`reason()` 表示本次注册的原因，可选值为 `RELOAD`（加载或重载）、`NEW_RECIPE`（新建配方）、`EDIT_RECIPE`（编辑配方）。
+
+### CraftorithmReloadDoneEvent
+
+插件重载完成后触发，**在异步线程触发**，需要操作只能在主线程调用的 API 时请自行调度回主线程：
+
+```java
+@EventHandler
+public void onReloadDone(CraftorithmReloadDoneEvent event) {
+    // 重载完成后重新读取插件数据
 }
 ```
 

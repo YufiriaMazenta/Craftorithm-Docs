@@ -38,10 +38,13 @@ type: 'vanilla_shaped'      # 配方类型（必填）
 result: 'minecraft:diamond'  # 产出物品（必填）
 group: 'example'             # 配方分组（可选）
 recipe_id: 'my_recipe'       # 自定义配方 ID（可选，默认为文件名）
+auto_discover: true          # 自动解锁配方书（可选，默认为 false）
 result_processors:           # 结果处理器（可选）
   enchantments:
     type: copy_from_source
 ```
+
+`auto_discover` 为 `true` 时，该配方会在玩家进服、插件重载完成以及配方被新建或修改时自动解锁到配方书。
 
 ## 物品指定方式
 

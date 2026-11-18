@@ -73,6 +73,14 @@ Vanilla items without component data are unaffected and always use the vanilla i
 
 The toggle is not persisted and starts off every time the menu opens.
 
+## Auto-discovering the Recipe Book
+
+A knowledge book icon in the menu toggles "Auto-discover recipe book". The toggle is off by default.
+
+When enabled, saving the recipe writes `auto_discover: true`, so the recipe is automatically discovered for players when they join, after a plugin reload completes, and when the recipe is created or edited.
+
+Unlike "Save all components of the result item", this toggle is saved with the recipe.
+
 ## Save Location
 
 Recipes are automatically saved to `plugins/Craftorithm/recipes/<filename>.yml`.

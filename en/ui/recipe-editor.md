@@ -31,6 +31,14 @@ When enabled, saving writes every component of the result item into the built-in
 
 The toggle is not persisted and starts off every time the menu opens.
 
+## Auto-discovering the Recipe Book
+
+A knowledge book icon in the menu toggles "Auto-discover recipe book". The menu reads the recipe's current `auto_discover` value when it opens.
+
+When enabled, saving writes `auto_discover: true`, so the recipe is automatically discovered for players when they join, after a plugin reload completes, and when the recipe is edited.
+
+Unlike "Save all components of the result item", this toggle is saved with the recipe.
+
 ## Notes
 
 - Only Craftorithm-registered recipes can be edited

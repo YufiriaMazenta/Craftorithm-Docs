@@ -6,6 +6,18 @@ title: Changelog
 
 This page lists changes since 1.11.1.0. For older versions, see [GitHub Releases](https://github.com/YufiriaMazenta/Craftorithm/releases).
 
+## 1.16.5.0 <Badge type="info" text="2026-11-18" />
+
+### Breaking Changes
+
+1. The API event `RecipeLoadFromConfigEvent` has been renamed to `RecipeRegisterEvent` and now exposes `reason()` (`RELOAD`, `NEW_RECIPE`, `EDIT_RECIPE`). Plugins listening to it need to be updated accordingly.
+
+### Update Contents
+
+1. Added an `auto_discover` option to recipes. When enabled, the recipe is automatically discovered for players when they join, after a plugin reload completes, and when the recipe is created or edited.
+2. Added an "Auto-discover recipe book" toggle to the recipe creator and editor, flipping `auto_discover` for the current recipe.
+3. Added the API event `CraftorithmReloadDoneEvent`, fired asynchronously after the plugin finishes reloading.
+
 ## 1.16.4.1 <Badge type="info" text="2026-11-13" />
 
 ### Breaking Changes

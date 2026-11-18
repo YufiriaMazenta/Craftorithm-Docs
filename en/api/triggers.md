@@ -80,16 +80,29 @@ public class MyTriggerType implements TriggerType {
 
 ## Events
 
-### RecipeLoadFromConfigEvent
+### RecipeRegisterEvent
 
-Fired when a recipe is loaded from config. Cancellable:
+Fired when a recipe is registered (on plugin load, reload, and when a recipe is created or edited). Cancellable; a cancelled recipe is not registered:
 
 ```java
 @EventHandler
-public void onRecipeLoad(RecipeLoadFromConfigEvent event) {
-    if (event.getRecipeKey().getKey().equals("my_recipe")) {
-        event.setCancelled(true); // Prevent loading
+public void onRecipeRegister(RecipeRegisterEvent event) {
+    if (event.recipeKey().getKey().equals("my_recipe")) {
+        event.setCancelled(true); // Prevent registration
     }
+}
+```
+
+`reason()` tells why the recipe is being registered: `RELOAD` (load or reload), `NEW_RECIPE` (recipe created) or `EDIT_RECIPE` (recipe edited).
+
+### CraftorithmReloadDoneEvent
+
+Fired after the plugin finishes reloading. **It runs on an asynchronous thread**, so schedule back to the main thread before calling anything that requires it:
+
+```java
+@EventHandler
+public void onReloadDone(CraftorithmReloadDoneEvent event) {
+    // Re-read plugin data after the reload
 }
 ```
 

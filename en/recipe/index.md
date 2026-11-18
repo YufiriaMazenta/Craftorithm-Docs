@@ -38,10 +38,13 @@ type: 'vanilla_shaped'      # Recipe type (required)
 result: 'minecraft:diamond'  # Output item (required)
 group: 'example'             # Recipe group (optional)
 recipe_id: 'my_recipe'       # Custom recipe ID (optional, defaults to filename)
+auto_discover: true          # Auto-discover the recipe (optional, defaults to false)
 result_processors:           # Result processors (optional)
   enchantments:
     type: copy_from_source
 ```
+
+When `auto_discover` is `true`, the recipe is automatically discovered for players when they join, after a plugin reload completes, and when the recipe is created or edited.
 
 ## Item Reference Formats
 
